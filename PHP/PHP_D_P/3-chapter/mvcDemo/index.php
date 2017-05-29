@@ -33,6 +33,54 @@ $user->moblie = '13963933119';
 $user->name = '王小丫';
 $user->regtime = time();
 
+// 迭代器模式
+$users = new \IMooc\AllUser();
+foreach ($users as $user) {
+	var_dump($user);
+}
+
+
+// 代理模式 传统方式
+// 读
+$db = \IMooc\Factory::getdatabase('slave');
+$info = $db->query("select name from user where id=1 limit 1");
+// 写
+$db1 = \IMooc\Factory::getDatabase('master');
+$db1->query("updata user name='lili' where id= 1 limit 1");
+// 新的实现方式
+$proxy = new \IMooc\Proxy();
+$proxy->getUserName($id);
+$proxy->setUserName($id, $proxy);
+($proxy) ?什么意思啊
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
