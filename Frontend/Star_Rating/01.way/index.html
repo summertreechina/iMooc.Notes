@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>my_title</title>
+	<link href="./../../_libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="./../../_libs/animate/animate.css" rel="stylesheet">
+	<style>
+		li {
+			list-style: none;
+		}
+		.rating {
+			width: 130px;
+			height: 19px;
+		}
+		.rating-item {
+			float: left;
+			width: 22px;
+			height: 20px;
+			background: url('./images/star.png') no-repeat;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<ul id="rating" class="rating">
+				<li class="rating-item" title="差劲"></li>
+				<li class="rating-item" title="不好"></li>
+				<li class="rating-item" title="一般"></li>
+				<li class="rating-item" title="很好"></li>
+				<li class="rating-item" title="太棒了"></li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<div id="rating" class="rating">
+				<a href="javascript:;" class="rating-item" title="差劲"></a>
+				<a href="javascript:;" class="rating-item" title="不好"></a>
+				<a href="javascript:;" class="rating-item" title="一般"></a>
+				<a href="javascript:;" class="rating-item" title="很好"></a>
+				<a href="javascript:;" class="rating-item" title="太棒了"></a>
+			</div>
+		</div>
+	</div>
+</div>
+	<script src="./../../_libs/jQuery/jquery-3.1.0.js"></script>
+	<script src="./../../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
+	<script src="./../../_libs/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>
