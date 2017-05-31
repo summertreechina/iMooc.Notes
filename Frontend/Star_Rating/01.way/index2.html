@@ -54,26 +54,27 @@
 	<script src="./../../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
 	<script src="./../../_libs/bootstrap/js/bootstrap.js"></script>
 <script>
-$(function(){
+(function($){
 	var num = 2;
 	var $rating = $('#rating');
 	var $lists = $rating.find('.rating-item');
 
 	int(num);
 
-
-	$lists.on('mouseover', function(e) {
-		var n = $(this).index();
-		int(n);
-	}).on('click', function(e){
-		e.preventDefault();
-		num = $(this).index();
-	});
-
-	$rating.on('mouseout', function(e) {
-		e.preventDefault();
-		int(num);
-	});
+	$rating.on({
+		'mouseover' : function(e) {
+			e.preventDefault();
+			var i = $(this).index();
+			int(i);
+		},
+		'click' : function(e) {
+			var i = $(this).index();
+			num = i;
+		},
+		'mouseout' : function(e) {
+			int(num);
+		}
+	}, '.rating-item');
 
 	function int(num) {
 		$lists.each(function($i, el) {
@@ -85,7 +86,8 @@ $(function(){
 			}
 		});
 	}
-});
+})(jQuery);
+
 </script>
 </body>
 </html>
