@@ -55,39 +55,47 @@
 	<script src="./../../_libs/bootstrap/js/bootstrap.js"></script>
 <script>
 var rating = (function($){
+	// 点亮星星
+	var lightOn = function($lists, num) {
+		$lists.each(function($i, el) {
+			// console.log($i, el);
+			if ($i < num) {
+				$(el).css('background-position', '2px -28px');
+			} else {
+				$(el).css('background-position', '2px 0');
+			}
+		})
+	};
 
 	var init = function(el, num) {
 		var $rating = $(el);
 		var $lists = $rating.find('.rating-item');
-		// 点亮星星
-		var lightOn = function(num) {
-			$lists.each(function($i, el) {
-				// console.log($i, el);
-				if ($i <= num) {
-					$(el).css('background-position', '2px -28px');
-				} else {
-					$(el).css('background-position', '2px 0');
-				}
-			})
-		};
 
-		lightOn(num);
+		lightOn($lists, num);
 
 		$rating.on({
 			'mouseover' : function(e) {
 				e.preventDefault();
 				var i = $(this).index();
-				lightOn(i);
+				lightOn($lists, i);
 			},
 			'click' : function(e) {
 				var i = $(this).index();
 				num = i;
 			},
 			'mouseout' : function(e) {
-				lightOn(num);
+				lightOn($lists, num);
 			}
 		}, '.rating-item');
 	};
+
+	$.fn.extend({
+		rating : function(num) {
+			return this.each(function(index, el) {
+				init(el, num);
+			});
+		}
+	});
 
 	return {
 		// 闭包内返回一个对象，对象内有一个init属性，所对应的init方法。
@@ -100,7 +108,8 @@ var rating = (function($){
 
 // 执行这个rating对象的init方法
 rating.init('#rating', 1);
-rating.init('#rating2', 2);
+// rating.init('#rating2', 2);
+$('#rating2').rating(4);
 
 </script>
 </body>

@@ -4,5 +4,20 @@
 
 
 
-	2. 
+	2. jQuery 事件委托的写法
+	$rating.on({
+		'mouseover' : function(e) {
+			e.preventDefault();
+			var i = $(this).index();
+			init(i);
+		},
+		'click' : function(e) {
+			var i = $(this).index();
+			num = i;
+		},
+		'mouseout' : function(e) {
+			init(num);
+		}
+	}, '.rating-item');
+	注意：'.rating-item'的位置只能是选择器，不能是变量，否则无法运行。
 

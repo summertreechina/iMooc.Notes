@@ -5,11 +5,11 @@ function Person(name) {
 }
 
 Person.prototype = {
-    constructor: Person,
-    name: 'kevin',
-    getName: function () {
-        return this.name;
-    }
+		constructor: Person,
+		name: 'kevin',
+		getName: function () {
+		return this.name;
+		}
 };
 
 var person1 = new Person();
