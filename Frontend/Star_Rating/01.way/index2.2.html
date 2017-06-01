@@ -50,31 +50,101 @@
 		</div>
 	</div>
 </div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-md-6">
+			<ul id="rating" class="rating">
+				<li class="rating-item" title="差劲">&nbsp;</li>
+				<li class="rating-item" title="不好">&nbsp;</li>
+				<li class="rating-item" title="一般">&nbsp;</li>
+				<li class="rating-item" title="很好">&nbsp;</li>
+				<li class="rating-item" title="太棒了">&nbsp;</li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-md-6">
+			<div id="rating2" class="rating">
+				<a href="javascript:;" class="rating-item" title="差劲"></a>
+				<a href="javascript:;" class="rating-item" title="不好"></a>
+				<a href="javascript:;" class="rating-item" title="一般"></a>
+				<a href="javascript:;" class="rating-item" title="很好"></a>
+				<a href="javascript:;" class="rating-item" title="太棒了"></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-md-6">
+			<ul id="rating" class="rating">
+				<li class="rating-item" title="差劲">&nbsp;</li>
+				<li class="rating-item" title="不好">&nbsp;</li>
+				<li class="rating-item" title="一般">&nbsp;</li>
+				<li class="rating-item" title="很好">&nbsp;</li>
+				<li class="rating-item" title="太棒了">&nbsp;</li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-md-6">
+			<div id="rating2" class="rating">
+				<a href="javascript:;" class="rating-item" title="差劲"></a>
+				<a href="javascript:;" class="rating-item" title="不好"></a>
+				<a href="javascript:;" class="rating-item" title="一般"></a>
+				<a href="javascript:;" class="rating-item" title="很好"></a>
+				<a href="javascript:;" class="rating-item" title="太棒了"></a>
+			</div>
+		</div>
+	</div>
+</div>
 	<script src="./../../_libs/jQuery/jquery-3.1.0.js"></script>
 	<script src="./../../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
 	<script src="./../../_libs/bootstrap/js/bootstrap.js"></script>
 <script>
 var rating = (function(){
 	'use strict';
-
+	
 	function init(el, num) {
-		// console.log(el,num)
-		
+
+		var $items = $(el).find('.rating-item');
+
+		$items.each(function(i, item) {
+			if ($(this).index() <= num) {
+				console.log('小于num')
+				$(this).css('background-position', '2px -28px');
+			} else {
+				$(this).css('background-position', '2px 0');
+			}
+		});
 	}
 
+	function events($rating,num){
+		var num = num;
+		$rating.on({
+			'mouseover' : function() {
+				var i = $(this).index();
+				init($rating, i);
+			} ,
+			'click' : function() {
+				var i = $(this).index();
+				num = i;
+				init($rating, i);
+			}
+		}, '.rating-item').on('mouseout', function(){
+			init($rating, num);
+		});
+	}
 
 
 	$.fn.extend({
 		rating : function(num=1) {
 			$(this).each(function(i, el) {
-				init(el, num)
+				init(el, num);
+				events($(this), num);
 			});
 		}
 	});
 	
 })(jQuery);
 
-$('.rating').rating(2)
+$('.rating').rating(0)
 
 
 
