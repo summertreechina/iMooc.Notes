@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>my_title</title>
+	<link href="./../../_libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="./../../_libs/animate/animate.css" rel="stylesheet">
+	<style>
+		body, ul, li { padding: 0; margin: 0; }
+		li {
+			list-style: none;
+			/* border: 1px solid #000; */
+		}
+		.rating {
+			width: 130px;
+			height: 20px;
+			margin: 100px auto;
+		}
+		.rating-item {
+			float: left;
+			width: 26px;
+			height: 20px;
+			background: url('./images/star.png') no-repeat 2px 0px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-md-6">
+			<ul id="rating" class="rating">
+				<li class="rating-item" title="差劲">&nbsp;</li>
+				<li class="rating-item" title="不好">&nbsp;</li>
+				<li class="rating-item" title="一般">&nbsp;</li>
+				<li class="rating-item" title="很好">&nbsp;</li>
+				<li class="rating-item" title="太棒了">&nbsp;</li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-md-6">
+			<div id="rating2" class="rating">
+				<a href="javascript:;" class="rating-item" title="差劲"></a>
+				<a href="javascript:;" class="rating-item" title="不好"></a>
+				<a href="javascript:;" class="rating-item" title="一般"></a>
+				<a href="javascript:;" class="rating-item" title="很好"></a>
+				<a href="javascript:;" class="rating-item" title="太棒了"></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-md-6">
+			<ul id="rating" class="rating">
+				<li class="rating-item" title="差劲">&nbsp;</li>
+				<li class="rating-item" title="不好">&nbsp;</li>
+				<li class="rating-item" title="一般">&nbsp;</li>
+				<li class="rating-item" title="很好">&nbsp;</li>
+				<li class="rating-item" title="太棒了">&nbsp;</li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-md-6">
+			<div id="rating2" class="rating">
+				<a href="javascript:;" class="rating-item" title="差劲"></a>
+				<a href="javascript:;" class="rating-item" title="不好"></a>
+				<a href="javascript:;" class="rating-item" title="一般"></a>
+				<a href="javascript:;" class="rating-item" title="很好"></a>
+				<a href="javascript:;" class="rating-item" title="太棒了"></a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-md-6">
+			<ul id="rating" class="rating">
+				<li class="rating-item" title="差劲">&nbsp;</li>
+				<li class="rating-item" title="不好">&nbsp;</li>
+				<li class="rating-item" title="一般">&nbsp;</li>
+				<li class="rating-item" title="很好">&nbsp;</li>
+				<li class="rating-item" title="太棒了">&nbsp;</li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-md-6">
+			<div id="rating2" class="rating">
+				<a href="javascript:;" class="rating-item" title="差劲"></a>
+				<a href="javascript:;" class="rating-item" title="不好"></a>
+				<a href="javascript:;" class="rating-item" title="一般"></a>
+				<a href="javascript:;" class="rating-item" title="很好"></a>
+				<a href="javascript:;" class="rating-item" title="太棒了"></a>
+			</div>
+		</div>
+	</div>
+</div>
+	<script src="./../../_libs/jQuery/jquery-3.1.0.js"></script>
+	<script src="./../../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
+	<script src="./../../_libs/bootstrap/js/bootstrap.js"></script>
+<script>
+var rating = (function($){
+	// 点亮半颗星星
+	// 虽然我不是太赞同这种方法，但我还是要坚持学下去，每个人都各有所长，都有值得学习的地方
+	'use strict';
+
+	var LightEntire = function(el, options) {
+		this.$el    = $(el);
+		this.$items = this.$el.find('.items');
+		this.opts   = options;
+	};
+	LightEntire.prototype.init = function() {
+		this.lightOn(this.opts.num);
+		(! this.opts.readOnly) && this.bindEvent();
+	};
+	LightEntire.prototype.lightOn = function(num) {
+		num = parseInt(num);
+		this.$items.each(function(index) {
+			if (index < num) {
+				$(this).css('background-position', '2px -28px');
+			} else {
+				$(this).css('background-position', '2px 0');
+			}
+		});
+	};
+	LightEntire.prototype.bindEvent = function() {
+		var self = this;
+		var itemsLength = self.$items.length;
+		self.$el.on({
+			'mouseover' : function() {
+				var num = $(this).index() + 1;
+				self.lightOn(num);
+				(typeof self.opts.select === 'function') && self.opts.select.call(this, num, itemsLength);
+				// 
+				self.$el.trigger('select', [num, itemsLength]);
+			} ,
+			'click' : function() {
+				self.opts.num = $(this).index() + 1;
+				(typeof self.opts.chosen === 'function') && self.opts.chosen.call(this, self.opts.num, itemsLength);
+				// 
+				self.$el.trigger('chosen', [self.opts.num, itemsLength]);
+			}
+		}, '.rating-item').on('mouseout', function(){
+			self.lightOn(self.opts.num);
+		});
+	}
+
+
+
+	// 默认参数
+	var defaults = {
+		num     : 0,
+		readOnly: false,
+		select  : function() {},
+		chosen  : function() {}
+	};
+
+	var init = function(el, options) {
+		options = $.extend({}, defaults, options);
+		new LightEntire(el, options).init();
+		
+	}
+	
+
+	return {
+		init : init
+	}
+})(jQuery);
+
+rating.init('#rating', {
+	'num' : 2，
+	select : function(num, total) {
+		console.log(num .'/'. total);
+	}
+});
+$('#rating').on({
+	'select' : function(e, num, total) {},
+	'chosen' : function(e, num, total) {}
+});
+
+
+
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
