@@ -98,7 +98,7 @@
 	<script src="./../../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
 	<script src="./../../_libs/bootstrap/js/bootstrap.js"></script>
 <script>
-var rating = (function(){
+var rating = (function($){
 	'use strict';
 	
 	function init(el, num) {
@@ -107,7 +107,7 @@ var rating = (function(){
 
 		$items.each(function(i, item) {
 			if ($(this).index() <= num) {
-				console.log('小于num')
+				// console.log('小于num')
 				$(this).css('background-position', '2px -28px');
 			} else {
 				$(this).css('background-position', '2px 0');
