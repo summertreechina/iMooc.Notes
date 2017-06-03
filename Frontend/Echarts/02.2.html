@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Echarts之个性化图表的样式</title>
+	<link href="./../_libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="./../_libs/animate/animate.css" rel="stylesheet">
+</head>
+<body>
+	<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+	<div id="main" style="width: 800px;height:600px;"></div>
+
+	<script src="./../_libs/jQuery/jquery-3.1.0.js"></script>
+	<script src="./../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
+	<script src="./../_libs/bootstrap/js/bootstrap.js"></script>
+	<script src="./../_libs/Echarts/echarts.js"></script>
+<script>
+	// 基于准备好的dom，初始化echarts实例
+	let myChart = echarts.init(document.querySelector('#main'));
+
+	let option = {
+		series : [
+		    {
+		        name: '访问来源',
+		        type: 'pie',
+		        radius: '55%',
+		        data:[
+		            {value:235, name:'视频广告'},
+		            {value:274, name:'联盟广告'},
+		            {value:310, name:'邮件营销'},
+		            {value:335, name:'直接访问'},
+		            {value:400, name:'搜索引擎'}
+		        ]
+		    }
+		]
+	};
+
+	myChart.setOption(option);
+</script>
+</body>
+</html>
