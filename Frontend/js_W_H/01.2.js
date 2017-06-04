@@ -1,5 +1,5 @@
 >>> 'window'和'document'有什么区别
-
+	'http://www.imooc.com/learn/608'
 	window值得就是浏览器的窗口,包括工具栏,地址栏等等
 	window一般可以省略
 	window.alert() === alert()
