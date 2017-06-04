@@ -25,99 +25,125 @@
 	<script src="./../_libs/Echarts/map/qingDao.js"></script>
 <script>
 let myChart = echarts.init(document.querySelector('#main'));
-myChart.showLoading();
 
-$.get('./../_libs/Echarts/map/qingDao.json', function (geoJson) {
-
-    myChart.hideLoading();
-
-    echarts.registerMap('HK', geoJson);
-
-    myChart.setOption(option = {
-        title: {
-            text: '香港18区人口密度 （2011）',
-            subtext: '人口密度数据来自Wikipedia',
-            sublink: 'http://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%A1%8C%E6%94%BF%E5%8D%80%E5%8A%83#cite_note-12'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: '{b}<br/>{c} (p / km2)'
-        },
-        toolbox: {
-            show: true,
-            orient: 'vertical',
-            left: 'right',
-            top: 'center',
-            feature: {
-                dataView: {readOnly: false},
-                restore: {},
-                saveAsImage: {}
-            }
-        },
-        visualMap: {
-            min: 800,
-            max: 50000,
-            text:['High','Low'],
-            realtime: false,
-            calculable: true,
-            inRange: {
-                color: ['lightskyblue','yellow', 'orangered']
-            }
-        },
-        series: [
-            {
-                name: '香港18区人口密度',
-                type: 'map',
-                mapType: 'HK', // 自定义扩展图表类型
-                itemStyle:{
-                    normal:{label:{show:true}},
-                    emphasis:{label:{show:true}}
+// 
+function randomData() {
+    return Math.round(Math.random()*200);
+}
+// 
+let option = {
+    title: {
+        text: '青岛市区会员数量统计图（2017）',
+        subtext: '随机生成虚拟数据',
+        left: 'center'
+    },
+    tooltip: {
+        trigger: 'item'
+    },
+    legend: {
+        orient: 'vertical',
+        left: 'left',
+        data:['风景','人像','']
+    },
+    visualMap: {
+        min: 0,
+        max: 500,
+        left: 'left',
+        top: 'bottom',
+        text: ['高','低'],           // 文本，默认为数值文本
+        calculable: true
+    },
+    toolbox: {
+        show: true,
+        orient: 'vertical',
+        left: 'right',
+        top: 'center',
+        feature: {
+            dataView: {readOnly: false},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    series: [
+        {
+            name: '风景',
+            type: 'map',
+            mapType: 'qingDao',
+            roam: false,
+            label: {
+                normal: {
+                    show: true
                 },
-                data:[
-                    {name: '中西区', value: 20057.34},
-                    {name: '湾仔', value: 15477.48},
-                    {name: '东区', value: 31686.1},
-                    {name: '南区', value: 6992.6},
-                    {name: '油尖旺', value: 44045.49},
-                    {name: '深水埗', value: 40689.64},
-                    {name: '九龙城', value: 37659.78},
-                    {name: '黄大仙', value: 45180.97},
-                    {name: '观塘', value: 55204.26},
-                    {name: '葵青', value: 21900.9},
-                    {name: '荃湾', value: 4918.26},
-                    {name: '屯门', value: 5881.84},
-                    {name: '元朗', value: 4178.01},
-                    {name: '北区', value: 2227.92},
-                    {name: '大埔', value: 2180.98},
-                    {name: '沙田', value: 9172.94},
-                    {name: '西贡', value: 3368},
-                    {name: '离岛', value: 806.98}
-                ],
-                // 自定义名称映射
-                // nameMap: {
-                //     'Central and Western': '中西区',
-                //     'Eastern': '东区',
-                //     'Islands': '离岛',
-                //     'Kowloon City': '九龙城',
-                //     'Kwai Tsing': '葵青',
-                //     'Kwun Tong': '观塘',
-                //     'North': '北区',
-                //     'Sai Kung': '西贡',
-                //     'Sha Tin': '沙田',
-                //     'Sham Shui Po': '深水埗',
-                //     'Southern': '南区',
-                //     'Tai Po': '大埔',
-                //     'Tsuen Wan': '荃湾',
-                //     'Tuen Mun': '屯门',
-                //     'Wan Chai': '湾仔',
-                //     'Wong Tai Sin': '黄大仙',
-                //     'Yau Tsim Mong': '油尖旺',
-                //     'Yuen Long': '元朗'
-                // }
-            }
-        ]
-    });
-});
+                emphasis: {
+                    show: true
+                }
+            },
+            data:[
+                {name: '黄岛区',value: randomData() },
+                {name: '胶州市',value: randomData() },
+                {name: '平度市',value: randomData() },
+                {name: '莱西市',value: randomData() },
+                {name: '即墨市',value: randomData() },
+                {name: '城阳区',value: randomData() },
+                {name: '李沧区',value: randomData() },
+                {name: '崂山区',value: randomData() },
+                {name: '李沧区',value: randomData() },
+                {name: '市南区',value: randomData() },
+                {name: '市北区',value: randomData() }
+            ]
+        },
+        {
+            name: '人像',
+            type: 'map',
+            mapType: 'qingDao',
+            label: {
+                normal: {
+                    show: true
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            data:[
+	            {name: '黄岛区',value: randomData() },
+	            {name: '胶州市',value: randomData() },
+	            {name: '平度市',value: randomData() },
+	            {name: '莱西市',value: randomData() },
+	            {name: '即墨市',value: randomData() },
+	            {name: '城阳区',value: randomData() },
+	            {name: '李沧区',value: randomData() },
+	            {name: '崂山区',value: randomData() },
+	            {name: '李沧区',value: randomData() },
+	            {name: '市南区',value: randomData() },
+	            {name: '市北区',value: randomData() }
+            ]
+        }
+        // {
+        //     name: 'iphone5',
+        //     type: 'map',
+        //     mapType: 'qingDao',
+        //     label: {
+        //         normal: {
+        //             show: true
+        //         },
+        //         emphasis: {
+        //             show: true
+        //         }
+        //     },
+        //     data:[
+        //         {name: '北京',value: randomData() },
+        //         {name: '天津',value: randomData() },
+        //         {name: '上海',value: randomData() },
+        //         {name: '广东',value: randomData() },
+        //         {name: '台湾',value: randomData() },
+        //         {name: '香港',value: randomData() },
+        //         {name: '澳门',value: randomData() }
+        //     ]
+        // }
+    ]
+};
+// 
+myChart.setOption(option);
 </script>
 </body>
 </html>
