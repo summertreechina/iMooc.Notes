@@ -20,8 +20,6 @@
 	<script src="./../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
 	<script src="./../_libs/bootstrap/js/bootstrap.js"></script>
 	<script src="./../_libs/Echarts/echarts.js"></script>
-	<!-- <script src="./../_libs/Echarts/map/china.js"></script> -->
-	<!-- <script src="./../_libs/Echarts/map/shandong.js"></script> -->
 	<script src="./../_libs/Echarts/map/qingDao.js"></script>
 <script>
 let myChart = echarts.init(document.querySelector('#main'));
@@ -50,7 +48,7 @@ let option = {
         max: 500,
         left: 'left',
         top: 'bottom',
-        text: ['高','低'],           // 文本，默认为数值文本
+        text: ['高','低'],
         calculable: true
     },
     toolbox: {
@@ -118,28 +116,6 @@ let option = {
 	            {name: '市北区',value: randomData() }
             ]
         }
-        // {
-        //     name: 'iphone5',
-        //     type: 'map',
-        //     mapType: 'qingDao',
-        //     label: {
-        //         normal: {
-        //             show: true
-        //         },
-        //         emphasis: {
-        //             show: true
-        //         }
-        //     },
-        //     data:[
-        //         {name: '北京',value: randomData() },
-        //         {name: '天津',value: randomData() },
-        //         {name: '上海',value: randomData() },
-        //         {name: '广东',value: randomData() },
-        //         {name: '台湾',value: randomData() },
-        //         {name: '香港',value: randomData() },
-        //         {name: '澳门',value: randomData() }
-        //     ]
-        // }
     ]
 };
 // 
