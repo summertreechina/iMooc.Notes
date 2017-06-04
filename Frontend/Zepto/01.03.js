@@ -33,6 +33,13 @@ function a () {
 }
 a.prototype
 
+arr.__proto__.customFn = function(){
+	alert('这是在具体对象上扩展，新方法只能用于这个具体对象')
+}
+
+arr.__proto__.constructor.prototype.customFn = function() {
+	alert('这是在它原型的原型链上扩展，相当于其他语言在其父类上扩展，这个方法是一直有效的')
+}
 
 }
 
