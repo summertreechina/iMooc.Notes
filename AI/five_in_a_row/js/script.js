@@ -21,46 +21,32 @@
 
 
 chess.onclick = function(e) {
-	if (over) {
+	if (over || !me) {
 		return;
 	}
+
 	let x = e.offsetX;
 	let y = e.offsetY;
 	let i = Math.floor(x / 40);
 	let j = Math.floor(y / 40);
 	if (chessBoard[i][j] === 0) {
 		drawChess(i, j, me);
-		if (me) {
-			chessBoard[i][j] = 1;
-			for (var k = 0; k < count; k++) {
-				if (wins[i][j][k]) {
-					myWin[k]++;
-					computerWin[k] = 6;
-					if (myWin[k] == 5) {
-						over = true;
-						window.alert("你赢了！");
-					}
-				}
-			}
-		} else {
-			chessBoard[i][j] = 2;
-			for (var k = 0; k < count; k++) {
-				if (wins[i][j][k]) {
-					computerWin[k]++;
-					myWin[k] = 6;
-					if (computerWin[k] == 5) {
-						over = true;
-						window.alert("计算机赢了！");
-					}
+		chessBoard[i][j] = 1;
+
+		for (let k = 0; k < count; k++) {
+			if (wins[i][j][k]) {
+				myWin[k]++;
+				computerWin[k] = 6;
+				if (myWin[k] == 5) {
+					window.alert("你赢了！");
+					over = true;
 				}
 			}
 		}
-	}
-	me =! me;
-	if (!over) {
-		// 1:11
-		me = !me;
-		computerAI();
+		if (!over) {
+			me = !me;
+			computerAI();
+		}
 	}
 }
 
@@ -82,52 +68,72 @@ function computerAI() {
 	// 
 	for (let i = 0; i < 15; i++) {
 		for (let j = 0; j < 15; j++) {
-			if (wins[i][j][k]) {
-				switch(myWin[k])
-				{
-					case 1: myScore[i][j] += 200;
-						break;
-					case 2: myScore[i][j] += 400;
-						break;
-					case 3: myScore[i][j] += 2000;
-						break;
-					case 4: myScore[i][j] += 10000;
-						break;
-				}
-				switch(computerWin[k])
-				{
-					case 1: computerScore[i][j] += 220;
-						break;
-					case 2: computerScore[i][j] += 440;
-						break;
-					case 3: computerScore[i][j] += 2200;
-						break;
-					case 4: computerScore[i][j] += 20000;
-						break;
-				}
+			if (chessBoard[i][j] == 0) {
+				for(let k=0; k<count; k++) {
+					if (wins[i][j][k]) {
+						switch(myWin[k])
+						{
+							case 1: myScore[i][j] += 200;
+								break;
+							case 2: myScore[i][j] += 400;
+								break;
+							case 3: myScore[i][j] += 2000;
+								break;
+							case 4: myScore[i][j] += 10000;
+								break;
+						}
+						switch(computerWin[k])
+						{
+							case 1: computerScore[i][j] += 220;
+								break;
+							case 2: computerScore[i][j] += 440;
+								break;
+							case 3: computerScore[i][j] += 2200;
+								break;
+							case 4: computerScore[i][j] += 20000;
+								break;
+						}
 
-				if (myScore[i][j] > max) {
-					max = myScore[i][j];
-					u = i;
-					v = j;
-				} else if (myScore[i][j] == max) {
-					if (computerScore[i][j] > computerScore[u][v]) {
-						u = i;
-						v = j;
-					}
-				}
-				if (computerScore[i][j] > max) {
-					max = computerScore[i][j];
-					u = i;
-					v = j;
-				} else if (computerScore[i][j] == max) {
-					if (myScore[i][j] > myScore[u][v]) {
-						u = i;
-						v = j;
+						if (myScore[i][j] > max) {
+							max = myScore[i][j];
+							u = i;
+							v = j;
+						} else if (myScore[i][j] == max) {
+							if (computerScore[i][j] > computerScore[u][v]) {
+								u = i;
+								v = j;
+							}
+						}
+						if (computerScore[i][j] > max) {
+							max = computerScore[i][j];
+							u = i;
+							v = j;
+						} else if (computerScore[i][j] == max) {
+							if (myScore[i][j] > myScore[u][v]) {
+								u = i;
+								v = j;
+							}
+						}
 					}
 				}
 			}
 		}
+	}
+	drawChess(u, v, false);
+	chessBoard[u][v] = 2;
+	// 2:28
+	for (let k = 0; k < count; k++) {
+		if (wins[u][v][k]) {
+			computerWin[k]++;
+			myWin[k] = 6;
+			if (computerWin[k] == 5) {
+				window.alert("计算机赢了！");
+				over = true;
+			}
+		}
+	}
+	if (!over) {
+		me = !me;
 	}
 }
 
