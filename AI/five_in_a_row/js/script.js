@@ -14,9 +14,9 @@
 	drawChessBoard();
 	// 所有落子数据归零
 	clearBoard();
-
+	// 获得所有赢的情况
 	getWinsList();
-	
+	// 初始化双方得分
 	initScore();
 
 
@@ -45,7 +45,7 @@ chess.onclick = function(e) {
 		}
 		if (!over) {
 			me = !me;
-			computerAI();
+			setTimeout(computerAI, 1000);
 		}
 	}
 }
@@ -231,18 +231,6 @@ function initScore() {
 	}
 }
 
-function check_is_win(i, j) {
-	for (var k = 0; k < count; k++) {
-		if (wins[i][j][k]) {
-			myWin[k]++;
-			computerWin[k] = 6;
-			if (myWin[k] == 5) {
-				window.alert("你赢了！");
-				over = true;
-			}
-		}
-	}
-}
 
 // let logo = new Image();
 // logo.src = "./images/IMG_3917.png";
