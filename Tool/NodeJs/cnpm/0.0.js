@@ -49,11 +49,12 @@
 	支持 npm 除了 publish 之外的所有命令, 如:
 	$ cnpm info connect
 
-
-
-
-
-
+'npm install <name> [-g] [--save-dev]'
+'npm uninstall <name> [-g] [--save-dev]'
+'npm update <name> [-g] [--save-dev]'
+'npm update [--save-dev]'
+'npm help'
+'npm list'
 
 
 
