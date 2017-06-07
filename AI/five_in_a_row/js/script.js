@@ -84,13 +84,13 @@ function computerAI() {
 						}
 						switch(computerWin[k])
 						{
-							case 1: computerScore[i][j] += 220;
+							case 1: computerScore[i][j] += 200;
 								break;
-							case 2: computerScore[i][j] += 440;
+							case 2: computerScore[i][j] += 180;
 								break;
-							case 3: computerScore[i][j] += 2200;
+							case 3: computerScore[i][j] += 100;
 								break;
-							case 4: computerScore[i][j] += 20000;
+							case 4: computerScore[i][j] += 100;
 								break;
 						}
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="todoApp" lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>demo-Angular</title>
+	<link href="./../../_libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="./../../_libs/animate/animate.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5" ng-controller="todos">
+			<p>不能运行，可能是老师使用的Angular版本太老旧</p>
+				<form action="" ng-submit="add()">
+					<lable for="">将下面输入的文字放入todo list中!</lable>
+					<input type="text" ng-model='txt' class="form-control">
+				</form>
+				<p ng-hide="todoList.length===0">现有{{todoList.length}}项todo list</p>
+				<ol>
+					<li ng-repeat="todo in todolist track by $index">
+						{{todo}}
+						<a href="javascript:;" ng-click="todoList.splice($index,1)" class="todoDelete">X</a>
+						}
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+
+	<script src="http://cdn.bootcss.com/angular.js/2.0.0-beta.17/web_worker/ui.dev.js"></script>
+<script>
+angular.module('todoApp', [])
+		.controller('todos', ['$scope', function($scope) {
+			$scope.todoList = [];
+			$scope.add = function() {
+				$scope.todoList.push($scope.txt);
+				$scope.txt = '';
+			};
+		}]);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

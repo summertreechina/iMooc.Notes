@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>demo-jQuery</title>
+	<link href="./../../_libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="./../../_libs/animate/animate.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<form action="" id="todoForm">
+					<lable for="">将下面输入的文字放入todo list中!</lable>
+					<input type="text" id="todoInput" class="form-control">
+				</form>
+				<p id="todoCount"></p>
+				<ol id="todoList"></ol>
+			</div>
+		</div>
+	</div>
+
+	<script src="./../../_libs/jQuery/jquery-3.1.0.js"></script>
+	<script src="./../../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
+	<script src="./../../_libs/bootstrap/js/bootstrap.js"></script>
+	<!-- <script src="https://cdn.bootcss.com/angular.js/2.0.0-beta.17/angular2-all-testing.umd.dev.js"></script> -->
+<script>
+$(function(){
+	let $todoForm = $('#todoForm');
+	let $todoInput = $('#todoInput');
+	let $todoList = $('#todoList');
+	let $todoCount = $('#todoCount');
+
+	$todoForm.on('submit', function(e) {
+		e.preventDefault();
+		let input_value = $todoInput.val();
+		console.log(input_value);
+		$todoList.append('<li>' +input_value+ '&nbsp;<a href="javascript:;" class="todoDelete">X</a></li>');
+		$todoInput.val('');
+		get_total();
+	});
+	$todoList.on('click', '.todoDelete', function(e) {
+		// 这里是事件代理
+		e.preventDefault();
+		$(this).parent().remove();
+		get_total();
+	});
+
+	function get_total() {
+		let len = $todoList.children('li').length;
+		$todoCount.html(len > 0 ? '现有' +len+ '项 todo list;' : '');
+	}
+});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
