@@ -31,6 +31,7 @@
 
 	<script src="http://cdn.bootcss.com/angular.js/2.0.0-beta.17/web_worker/ui.dev.js"></script>
 <script>
+window.onload = function() {
 angular.module('todoApp', [])
 		.controller('todos', ['$scope', function($scope) {
 			$scope.todoList = [];
@@ -39,6 +40,7 @@ angular.module('todoApp', [])
 				$scope.txt = '';
 			};
 		}]);
+}
 </script>
 </body>
 </html>

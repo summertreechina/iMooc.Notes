@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>demo-Avalon</title>
+	<link href="./../../_libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="./../../_libs/animate/animate.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5" ms-controller="todos">
+			<p>不知道为什么都不解析，晕死了</p>
+				<form ms-on-submit="add">
+					<div class="form-group">
+						<lable>将下面输入的文字放入todo list中!</lable>
+						<input type="text" ms-duplex='txt' class="form-control" autocomplete="off">
+					</div>
+				</form>
+				<p ms-if="todolist.size()>0">现有{{todolist.size()}}项 todo list</p>
+				<ol>
+					<li ms-repeat="todolist">
+						{{el}}
+						<a href="javascript:void(0);" ms-click="$remove" class="todoDelete">X</a>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+
+<script src="./avalon.js"></script>
+<script>
+window.onload = function() {
+	var vm = avalon.define({
+		$id     : "todos",
+		txt     : '',
+		todolist: [],
+		add : function(e) {
+			e.preventDefault();
+			// 短路语法
+			!!vm.txt.trim() && vm.todolist.push(vm.txt);
+			vm.txt('');
+		}
+	});
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
