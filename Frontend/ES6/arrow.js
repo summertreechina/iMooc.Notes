@@ -8,8 +8,8 @@
 	   x++;
 	   y--;
 	   return x+y;
-	}
-	(x,y) => { x++; y--; return x+y;}
+	}   // ES5
+	(x,y) => { x++; y--; return x+y;}    // ES6
 
 	'长期以来，JavaScript语言的this对象一直是一个令人头痛的问题，在对象方法中使用this，必须非常小心。'
 	class Animal {

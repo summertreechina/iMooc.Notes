@@ -1,4 +1,4 @@
->>> 
+>>> template string
 
 . '原先'
 
@@ -16,4 +16,4 @@ let obj = {
     }
 document.getElementById("template").innerHTML = `There ar <b>${obj.count}</b> items`;
 
-用反引号（ `）来标识起始，用${}来引用变量，而且所有的空格和缩进都会被保留在输出之中，\
+	用反引号 (`)来标识起始，用${}来引用变量，而且所有的空格和缩进都会被保留在输出之中，\
