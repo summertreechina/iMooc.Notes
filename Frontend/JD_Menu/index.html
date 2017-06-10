@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>JD无延迟菜单效果</title>
+	<link href="./../_libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="./../_libs/animate/animate.css" rel="stylesheet">
+<style>
+	.wrap {
+		background-color: #666;
+		position: relative;
+		width: 200px;
+		left: 50px;
+		top: 50px;
+	}
+	ul {
+		padding: 15px 0;
+		margin: 9px;
+		list-style: none;
+		background: #6c6669;
+		color: #fff;
+		border-right-width: 0;
+	}
+	li {
+		display: block;
+		height: 30px;
+		line-height: 30px;
+		padding-left: 12px;
+		cursor: pointer;
+		font-size: 14px;
+		position: relative;
+	}
+	li.active {
+		background: #999395;
+	}
+	li span:hover {
+		color: #c81623;
+	}
+	.none {
+		display: none;
+	}
+	#sub {
+		width: 600px;
+		position: absolute;
+		border: solid 1px #f7f7f7;
+		background: #f7f7f7;
+		box-shadow: 2px 0 5px rgba(0, 0, 0, .3);
+		left: 200px;
+		top: 0;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 10px;
+	}
+	.sub_content a {
+		font-size: 12px;
+		color: #666;
+		text-decoration: none;
+	}
+	.sub_content dd a {
+		border-left: 1px solid #e0e0e0;
+		padding: 0 10px;
+		margin: 4px 0;
+	}
+	.sub_content dl {
+		overflow: hidden;
+	}
+	.sub_content dt {
+		float: left;
+		width: 70px;
+		font-weight: bold;
+		clear: left;
+		position: relative;
+	}
+	.sub_content dd {
+		float: left;
+		margin-left: 5px;
+		border-top: 1px solid #eee;
+		margin-bottom: 5px;
+	}
+	.sub_content dt i {
+		width: 4px;
+		height: 14px;
+		font: 400 9px/14px consolas;
+		position: absolute;
+		right: 5px;
+		top: 5px;
+	}
+</style>
+</head>
+<body>
+	<div id="test" class="wrap">
+		<ul>
+			<li data-id="001" class=""><span>家用电器</span></li>
+			<li data-id="002"><span>手机 / 运营商 / 数码</span></li>
+			<li data-id="003"><span>电脑 / 办公</span></li>
+			<li data-id="004"><span>家居 / 家具 / 家装 / 厨具</span></li>
+			<li data-id="005"><span>男装 / 女装 / 童装 / 内衣</span></li>
+			<li data-id="006"><span>美妆个护 / 宠物</span></li>
+			<li data-id="007"><span>鞋 / 箱包 / 钟表 / 珠宝</span></li>
+			<li data-id="008"><span>男鞋 / 运动 / 户外</span></li>
+			<li data-id="009"><span>汽车 / 汽车用品</span></li>
+			<li data-id="010"><span>母婴 / 玩具乐器</span></li>
+			<li data-id="011"><span>食品 / 酒类 / 生鲜 / 特产</span></li>
+			<li data-id="012"><span>礼品鲜花 / 农资绿植</span></li>
+			<li data-id="013"><span>医药保健 / 计生情趣</span></li>
+			<li data-id="014"><span>图书 / 音像 / 电子书</span></li>
+			<li data-id="015"><span>机票 / 酒店 / 旅游 / 生活</span></li>
+			<li data-id="016"><span>理财 / 众筹 / 白条 / 保险</span></li>
+		</ul>
+		<div id="sub" class="none">
+			<div id="001" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="002" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">手机<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="003" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">电脑<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="004" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">家具<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="005" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">男装<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="006" class="sub_content none">
+				
+			</div>
+			<div id="007" class="sub_content none">
+				
+			</div>
+			<div id="008" class="sub_content none">
+				
+			</div>
+			<div id="009" class="sub_content none">
+				
+			</div>
+			<div id="010" class="sub_content none">
+				
+			</div>
+			<div id="011" class="sub_content none">
+				
+			</div>
+			<div id="012" class="sub_content none">
+				
+			</div>
+			<div id="013" class="sub_content none">
+				
+			</div>
+			<div id="014" class="sub_content none">
+				
+			</div>
+			<div id="015" class="sub_content none">
+				
+			</div>
+			<div id="016" class="sub_content none">
+				
+			</div>
+		</div>
+	</div>
+
+	<script src="./../_libs/jQuery/jquery-3.1.0.js"></script>
+	<script src="./../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
+	<script src="./../_libs/bootstrap/js/bootstrap.js"></script>
+	<script src="./js/megadropdown.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

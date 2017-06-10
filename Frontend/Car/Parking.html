@@ -51,11 +51,11 @@
 		// 	}
 		// }, '.car');
 
-		$carport.on('mouseover', '.car', function(event) {
+		$carport.on('mouseenter', '.car', function(event) {
 			event.preventDefault();
 			$(this).animate({left : '0'}, 1000);
 		});
-		$carport.on('mouseout', '.car', function(event) {
+		$carport.on('mouseleave', '.car', function(event) {
 			event.preventDefault();
 			$(this).animate({left : '600px'}, 1000);
 		});
