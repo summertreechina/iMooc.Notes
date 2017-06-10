@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>grabCarport</title>
+	<link href="./../_libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="./../_libs/animate/animate.css" rel="stylesheet">
+<style>
+	* {padding: 0;margin: 0;}
+	body { background: #D5DEE7; }
+	.boxgrid {
+		float: left;
+		width: 724px;
+		height: 705px;
+		border: solid 2px #8399AF;
+	}
+	img.car {
+		position: absolute;
+		top: 0;
+		left: 600px;
+	}
+</style>
+</head>
+<body>
+	<div class="boxgrid">
+		<img src="./images/car.png" class="car">
+		<img src="images/carport.png">
+	</div>
+
+	<script src="./../_libs/jQuery/jquery-3.1.0.js"></script>
+	<script src="./../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
+	<script src="./../_libs/bootstrap/js/bootstrap.js"></script>
+<script>
+	+function(){
+		let $carport = $('.boxgrid');
+		let $car = $('.car');
+		let state = true;
+
+		// $carport.on({
+		// 	'mouseover' : function(e) {
+		// 		e.preventDefault();
+		// 		state && $(this).animate({left : '0'}, 1000);
+		// 		state = false;
+		// 	},
+		// 	'mouseout' : function(e) {
+		// 		e.preventDefault();
+		// 		!state && $(this).animate({left : '600px'}, 1000);
+		// 		state = true;
+		// 	}
+		// }, '.car');
+
+		$carport.on('mouseover', '.car', function(event) {
+			event.preventDefault();
+			$(this).animate({left : '0'}, 1000);
+		});
+		$carport.on('mouseout', '.car', function(event) {
+			event.preventDefault();
+			$(this).animate({left : '600px'}, 1000);
+		});
+
+
+	}();
+</script>
+</body>
+</html>
