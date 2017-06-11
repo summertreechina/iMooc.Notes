@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>exe</title>
+	<link href="./../../_libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="./../../_libs/animate/animate.css" rel="stylesheet">
+<style>
+	* {margin: 0;padding: 0;}
+	.wrap {
+		background: #666;
+		position: relative;
+		width: 200px;
+		top: 50px;
+		left: 50px;
+	}
+	ul {
+		padding: 15px 0;
+		margin: 9px;
+		list-style: none;
+		background: #6c6669;
+		color: #fff;
+		border-right-width: 0;
+	}
+	li {
+		display: block;
+		height: 30px;
+		line-height: 30px;
+		padding-left: 12px;
+		cursor: pointer;
+		font-size: 14px;
+		position: relative;
+	}
+	li.active {
+		background: #999395;
+	}
+	li span:hover {
+		background: #c81623;
+	}
+	.none {
+		display: none;
+	}
+	#sub {
+		width: 600px;
+		position: absolute;
+		border: solid 1px #f7f7f7;
+		background: #f7f7ff;
+		box-shadow: 4px 5px 5px 1px rgba(0, 0, 0, .8);
+		left: 200px;
+		top: 0;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 10px;
+	}
+</style>
+</head>
+<body>
+	<div class="wrap" id="test">
+		<ul>
+			<li><span></span></li>
+			<li><span></span></li>
+			<li><span></span></li>
+			<li><span></span></li>
+			<li><span></span></li>
+			<li><span></span></li>
+			<li><span></span></li>
+			<li><span></span></li>
+			<li><span></span></li>
+			<li><span></span></li>
+		</ul>
+		<div id="sub" class="show">
+			
+		</div>
+	</div>
+
+
+
+
+
+
+	<script src="./../../_libs/jQuery/jquery-3.1.0.js"></script>
+	<script src="./../../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
+	<script src="./../../_libs/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

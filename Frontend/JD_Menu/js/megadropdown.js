@@ -3,6 +3,16 @@
 	let $sub = $('#sub');
 	let activeRow = null;
 	let activeMenu = null;
+	let timer;
+	let mouseInSub = false;
+
+	$sub.on('mouseenter', function(event) {
+		event.preventDefault();
+		mouseInSub = true;
+	}).on('mouseleave', function(event) {
+		event.preventDefault();
+		mouseInSub = false;
+	});
 
 	$test.on({
 		'mouseenter' : function(e) {
@@ -28,14 +38,27 @@
 			activeMenu.removeClass('none');
 			return;
 		}
-		if (activeRow) {
-			activeRow.removeClass('active');
-			activeMenu.addClass('none');
+
+		if (timer) {
+			clearTimeout(timer);
 		}
-		activeRow = $(e.target);
-		activeRow.addClass('active');
-		activeMenu = $('#' + activeRow.data('id'));
-		activeMenu.removeClass('none');
+
+		timer = setTimeout(function() {
+			if (mouseInSub) {
+				return;
+			}
+			if (activeRow) {
+				activeRow.removeClass('active');
+				activeMenu.addClass('none');
+			}
+
+			activeRow = $(e.target);
+			activeRow.addClass('active');
+			activeMenu = $('#' + activeRow.data('id'));
+			activeMenu.removeClass('none');
+			timer = null;
+		}, 200);
+
 	});
 
 
