@@ -1,4 +1,5 @@
 >>> template string
+	可用
 
 . '原先'
 

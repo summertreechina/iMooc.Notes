@@ -1,19 +1,32 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>DatePicker-日期采集者</title>
-	<link href="./../_libs/bootstrap/css/bootstrap.css" rel="stylesheet">
-	<link href="./../_libs/animate/animate.css" rel="stylesheet">
-	<link href="./css/style.css" rel="stylesheet" >
-</head>
-<body>
-	<div class="ui-datepicker-wrap">
-<!-- 		<div class="ui-datepicker-header">
+(function($){
+	'use surict';
+
+function DatePicker() {
+
+}
+// DatePicker.prototype.
+
+let now = new Date();
+let curr_day = now.toLocaleDateString();
+let curr_year = now.getFullYear();
+let curr_month = now.getMonth() + 1;
+let curr_date = now.getDate();
+let timestamp = now.getTime();
+
+let firstDay = new Date(curr_year, curr_month-1, 1);
+let firstDayWeek = firstDay.getDay();
+console.log(timestamp);
+
+
+
+
+
+
+function render($dom){
+
+	html = `<div class="ui-datepicker-header">
 			<a href="#" class="ui-datepicker-btn ui-datepicker-prev-btn">&lt;</a>
-			<span class="ui-datepicker-curr-month">2017-6</span>
+			<span class="ui-datepicker-curr-month">${curr_day}</span>
 			<a href="#" class="ui-datepicker-btn ui-datepicker-next-btn">&gt;</a>
 		</div>
 		<div class="ui-datepicker-body">
@@ -74,18 +87,16 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="ui-datepicker-footer"></div> -->
-	</div>
-<div class="ui-datepicker-wrap">
-	
-</div>
-<script src="./../_libs/jQuery/jquery-3.1.0.js"></script>
-<script src="./../_libs/jQuery/jquery-migrate-3.0.0.js"></script>
-<script src="./js/date.js"></script>
-<script>
-	$(function(){
-		$('.ui-datepicker-wrap').datePicker();
-	});
-</script>
-</body>
-</html>
+		<div class="ui-datepicker-footer"></div>`;
+	$dom.html(html);
+}
+
+$.fn.extend({
+	datePicker : function() {
+		$(this).each(function(i, el){
+			render($(el));
+		});
+	}
+});
+
+})(jQuery);
