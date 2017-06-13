@@ -49,7 +49,9 @@
 	border: 1px solid #f0f0f0;
 	cursor: pointer;
 }
-
+.selected_day {
+	color: #1abc9c;
+}
 
 
 
