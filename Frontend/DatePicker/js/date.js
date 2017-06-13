@@ -51,9 +51,16 @@ dateArr.forEach(function(val,id){
 	if (val==null) {
 		html += `<td></td>`;
 	} else {
-		html += `<td>${val}</td>`;
-		if (id%7 == 0) {
-			html += `</tr>`;
+		if (val == curr_date) {
+			html += `<td class="selected_day">${val}</td>`
+			if (id%7 == 0) {
+				html += `</tr>`;
+			}
+		} else {
+			html += `<td>${val}</td>`;
+			if (id%7 == 0) {
+				html += `</tr>`;
+			}
 		}
 	}
 });
