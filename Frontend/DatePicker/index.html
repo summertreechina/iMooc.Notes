@@ -13,9 +13,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4">
+				<!-- "data-date" 负责初始化时给 datePicker 喂数据 默认不填就是当前时间 -->
 				<div class="ui-datepicker-wrap" data-date=""></div>
 			</div>
 			<div class="col-md-4">
+			<!-- "data-date" 2019-16-9 是一个不合法的时间 测试用 可以转换成正确的时间 -->
 				<div class="ui-datepicker-wrap" data-date="2019-16-9"></div>
 			</div>
 			<div class="col-md-4">
@@ -30,6 +32,7 @@
 <script src="./js/date.js"></script>
 <script>
 	$(function(){
+		// 找到页面上所有需要显示日历的地方 插件初始化
 		$('.ui-datepicker-wrap').datePicker();
 	});
 </script>
