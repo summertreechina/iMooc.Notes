@@ -41,6 +41,10 @@ Picker.prototype = {
 
 	render_dom : function() {
 		dateArr = new Array();
+
+		if (this.f_week === 0) {
+			this.f_week = 7;
+		}
 		for (let i = 0; i < (this.f_week-1); i++) {
 			dateArr.push(null);
 		}
@@ -50,12 +54,13 @@ Picker.prototype = {
 		for (let i = 0; i < (7-this.l_week); i++) {
 			dateArr.push(null);
 		}
-
+		// console.log(7-this.l_week);
 		let the_day = this.day;
 		let html = '';
 
 		$(dateArr).each(function(id, val) {
 			id++;
+
 			if (id%7 == 1) {
 				html += `<tr>`;
 			}
@@ -88,7 +93,6 @@ $.fn.extend({
 		$(this).each(function(i, el) {
 			let date = $(el).data('date');
 			picker = new Picker(el, date);
-			
 		});
 	}
 });
