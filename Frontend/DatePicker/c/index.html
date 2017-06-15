@@ -16,12 +16,11 @@
 		</div>
 		<div class="row">
 			<div class="col-md-4">
-			<div class="form-group has-success has-feedback">
+			<div class="form-group has-success has-feedback ">
 				<label class="control-label" for="inputSuccess4">请输入您的日期</label>
 				<input type="text" class="form-control" id="inputSuccess4" aria-describedby="inputSuccess4Status">
 				<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
 			</div>
-				<!-- "data-date" 负责初始化时给 datePicker 喂数据 默认不填就是当前时间 -->
 				<div class="ui-datepicker-wrap" data-date=""></div>
 			</div>
 			<div class="col-md-4">
@@ -30,7 +29,6 @@
 					<input type="text" class="form-control" id="inputSuccess4" aria-describedby="inputSuccess4Status">
 					<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
 				</div>
-				<!-- "data-date" 2019-16-9 不是一个合法的时间 测试用 可以转换成正确的时间 --> 
 				<div class="ui-datepicker-wrap" data-date="2019-16-9"></div>
 			</div>
 			<div class="col-md-4">
@@ -45,7 +43,6 @@
 <script src="./date.js"></script>
 <script>
 	$(function(){
-		// 找到页面上所有需要显示日历的地方 插件初始化
 		$('.ui-datepicker-wrap').datePicker();
 	});
 </script>
