@@ -15,25 +15,28 @@
 			<h1>Example page header <small>Subtext for header</small></h1>
 		</div>
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<div class="form-group has-success has-feedback">
-					<input type="text" class="form-control" id="inputSuccess4" aria-describedby="inputSuccess4Status" placeholder="请输入您的日期">
+					<input type="text" class="form-control" id="inputSuccess4" placeholder="请输入您的日期">
 					<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
 				</div>
 				<div class="ui-datepicker-wrap hide" data-date=""></div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<div class="form-group has-error has-feedback">
-					<input type="text" class="form-control" id="inputSuccess4" aria-describedby="inputSuccess4Status" placeholder="请输入您的日期">
+					<input type="text" class="form-control" id="inputSuccess4" placeholder="请输入您的日期">
 					<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
 				</div>
 				<div class="ui-datepicker-wrap hide" data-date="2019-16-9"></div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<div class="form-group has-default has-feedback">
 					<input type="text" class="form-control" id="inputSuccess4" placeholder="请输入您的日期">
 				</div>
 				<div class="ui-datepicker-wrap" data-date="1997-12-17"></div>
+			</div>
+			<div class="col-md-3">
+				<label for="meeting">约会日期：</label><input id="meeting" type="date" value="2014-01-13"/>
 			</div>
 		</div>
 	</div>
@@ -45,6 +48,12 @@
 <script>
 	$(function(){
 		$('.ui-datepicker-wrap').datePicker();
+
+		let inputs = document.querySelector('#inputSuccess4');
+		inputs.addEventListener('click', function(){
+			console.log(this.parentNode);
+		});
+
 	});
 </script>
 </body>
