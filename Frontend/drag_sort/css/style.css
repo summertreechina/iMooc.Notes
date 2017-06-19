@@ -1,0 +1,29 @@
+.item-content ul {
+	list-style: none;
+	padding: 0;
+}
+.item-content ul li {
+	width: 370px;
+	height:224px;
+	float: left;
+	margin: 10px;
+	// background: rgba(248, 148, 6, 0.44);
+}
+.item-content {
+	width: 1172px;
+	height: 736px;
+	border: 1px solid #ccc;
+	float: left;
+}
+.item-content .item {
+	width: 370px;
+	height: 224px;
+	line-height: 224px;
+	text-align: center;
+	cursor: pointer;
+	background: #ccc;
+}
+.item-content .item img {
+	width: 100%;
+	border-radius: 12px;
+}
