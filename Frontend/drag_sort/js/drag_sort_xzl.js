@@ -36,9 +36,10 @@
 				}) ;
 			},
 			this.collisionCheck = function() {
-				var currentItem = this ;
+				var currentItem = this;
 				var direction = null ;
 				$(this).siblings(".item").each(function() {
+					// console.log(this.box);
 					if(
 						currentItem.pointer.x > this.box.offset().left &&
 						currentItem.pointer.y > this.box.offset().top &&
@@ -52,8 +53,9 @@
 							direction = "up" ;
 						} else {
 							direction = "normal" ;
-						}
+						} console.log(this.box)
 						this.swap(currentItem, direction) ;
+
 					}
 				}) ;
 			},

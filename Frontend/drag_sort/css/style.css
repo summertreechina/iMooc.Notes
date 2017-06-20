@@ -21,7 +21,7 @@
 	line-height: 224px;
 	text-align: center;
 	cursor: pointer;
-	background: #ccc;
+	// background: #ccc;
 }
 .item-content .item img {
 	width: 100%;
