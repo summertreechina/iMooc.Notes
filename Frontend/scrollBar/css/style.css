@@ -31,6 +31,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: #ccc;
 }
 ol, ul {
 	list-style: none;
@@ -51,7 +52,7 @@ table {
 // 
 // 
 body {
-	background: #ccc;
+	background-color: #aaa;
 }
 .clearfix:before, .clearfix:after {
 	content: "";
@@ -93,10 +94,11 @@ body {
 	color: #00be3c;
 	border-top: 2px solid #00be3c;
 	border-bottom: 0;
+	cursor: default;
 }
 .scroll-wrap {
 	width: 100%;
-	height: 300px;
+	height: 500px;
 	position: relative;
 }
 .scroll-wrap .scroll-cont {
@@ -108,6 +110,7 @@ body {
 	font-size: 16px;
 	font-weight: bold;
 	text-align: center;
+	line-height: 30px;
 }
 .scroll-wrap .scroll-cont p {
 	font-size: 14px;
