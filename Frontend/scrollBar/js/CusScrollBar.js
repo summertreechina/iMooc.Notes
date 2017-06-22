@@ -18,6 +18,8 @@
 				wheelStep      : 10,		// 滚轮步长
 				tabItemSelector: ".tab-item",
 				tabActiveClass : "tab-active",
+				correctSelector: ".correct-bot",
+				articleSelector: ".scroll-ol",	// 文章选择器
 				anchorSelector : ".anchor"		// 锚点选择器
 			};
 			$.extend(true, self.options, options || {});
@@ -28,17 +30,20 @@
 		},
 		// 
 		_initDomEvent : function() {
-			let opts     = this.options;
-			this.$cont   = $(opts.contSelector);
-			this.$slider = $(opts.sliderSelector);
-			this.$bar    = opts.barSelector ? $(opts.barSelector) : self.$slider.parent();
+			let opts      = this.options;
+			this.$cont    = $(opts.contSelector);
+			this.$slider  = $(opts.sliderSelector);
+			this.$bar     = opts.barSelector ? $(opts.barSelector) : self.$slider.parent();
 			this.$tabItem = $(opts.tabItemSelector);
-			this.$anchor = $(opts.anchorSelector);
-			this.$doc    = $(doc);
+			this.$anchor  = $(opts.anchorSelector);
+			this.$correct = $(opts.correctSelector);
+			this.$article = $(opts.articleSelector);
+			this.$doc     = $(doc);
 
 			this._initSilderDragEvent()
 				._initTabEvent()
 				._bindContScroll()
+				._initArticleHeight()
 				._bindMousewheel();
 		},
 		// 
@@ -147,6 +152,17 @@
 			// 学了一招 竟然还可以这么用
 			// position() 获取匹配元素中第一个元素的当前坐标，相对于最近的一个被定位(relative, absolute, fixed)过的父元素
 			return this.$anchor.eq(index).position().top;
+		},
+		_initArticleHeight : function() {
+			let self = this;
+			let lastArticle = self.$article.last();
+			let lastArticleHeight = lastArticle.height();
+			let contHeight = self.$cont.height();
+
+			if (lastArticleHeight < contHeight) {
+				self.$correct[0].style.height = contHeight - lastArticleHeight - self.$anchor.outerHeight() + "px";
+			}
+			return self;
 		}
 
 	});
