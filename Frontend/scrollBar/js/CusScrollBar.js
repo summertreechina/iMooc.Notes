@@ -11,11 +11,14 @@
 		_init : function(options) {
 			let self = this;
 			self.options = {
-				scrollDir     : "y",
-				contSelector  : "",
-				barSelector   : "",
-				sliderSelector: "",
-				wheelStep     : 10		// 滚轮步长
+				scrollDir      : "y",
+				contSelector   : "",
+				barSelector    : "",
+				sliderSelector : "",
+				wheelStep      : 10,		// 滚轮步长
+				tabItemSelector: ".tab-item",
+				tabActiveClass : "tab-active",
+				anchorSelector : ".anchor"		// 锚点选择器
 			};
 			$.extend(true, self.options, options || {});
 
@@ -29,9 +32,12 @@
 			this.$cont   = $(opts.contSelector);
 			this.$slider = $(opts.sliderSelector);
 			this.$bar    = opts.barSelector ? $(opts.barSelector) : self.$slider.parent();
+			this.$tabItem = $(opts.tabItemSelector);
+			this.$anchor = $(opts.anchorSelector);
 			this.$doc    = $(doc);
 
 			this._initSilderDragEvent()
+				._initTabEvent()
 				._bindContScroll()
 				._bindMousewheel();
 		},
@@ -117,6 +123,30 @@
 			});
 
 			return self;
+		},
+		_initTabEvent : function() {
+			let self = this;
+
+			self.$tabItem.on('click', function(e) {
+				e.preventDefault();
+				// 学了一招
+				let index = $(this).index();
+				self.changeTabSelect(index);
+				self.scrollTo(self.$cont[0].scrollTop + self.getAnchorPosition(index));
+			});
+
+			return self;
+		},
+		changeTabSelect : function(index) {
+			let self = this;
+			let active = self.options.tabActiveClass;
+			// 学了一招 
+			return self.$tabItem.eq(index).addClass(active).siblings().removeClass(active);
+		},
+		getAnchorPosition : function(index) {
+			// 学了一招 竟然还可以这么用
+			// position() 获取匹配元素中第一个元素的当前坐标，相对于最近的一个被定位(relative, absolute, fixed)过的父元素
+			return this.$anchor.eq(index).position().top;
 		}
 
 	});
