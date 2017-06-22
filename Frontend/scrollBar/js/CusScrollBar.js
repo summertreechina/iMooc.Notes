@@ -14,7 +14,8 @@
 				scrollDir     : "y",
 				contSelector  : "",
 				barSelector   : "",
-				sliderSelector: ""
+				sliderSelector: "",
+				wheelStep     : 10		// 滚轮步长
 			};
 			$.extend(true, self.options, options || {});
 
@@ -31,7 +32,8 @@
 			this.$doc    = $(doc);
 
 			this._initSilderDragEvent()
-				._bindContScroll();
+				._bindContScroll()
+				._bindMousewheel();
 		},
 		// 
 		_initSilderDragEvent : function() {
@@ -103,6 +105,18 @@
 			let maxSliderPosition = self.getMaxSliderPosition();
 			return Math.min(maxSliderPosition, maxSliderPosition * self.$cont[0].scrollTop /
                 self.getMaxScrollPosition());
+		},
+		_bindMousewheel : function() {
+			let self = this;
+
+			self.$cont.on("mousewheel DOMMouseScroll", function(e){
+				e.preventDefault();
+				let oEv = e.originalEvent;
+				let wheelRange = oEv.wheelDelta ? -oEv.wheelDelta/120 : (oEv.detail || 0) / 3;
+				self.scrollTo(self.$cont[0].scrollTop + wheelRange * self.options.wheelStep);
+			});
+
+			return self;
 		}
 
 	});
