@@ -1,5 +1,6 @@
 // !function(){}() 自调用匿名函数
 // (function(){})
+// 'http://www.imooc.com/video/12050'
 (function(win, doc, $){
 	'use strict';
 	// 构造函数
@@ -15,7 +16,7 @@
 				contSelector   : "",
 				barSelector    : "",
 				sliderSelector : "",
-				wheelStep      : 10,		// 滚轮步长
+				wheelStep      : 20,		// 滚轮步长
 				tabItemSelector: ".tab-item",
 				tabActiveClass : "tab-active",
 				correctSelector: ".correct-bot",
@@ -96,9 +97,25 @@
 			let self = this;
 			return self.$bar.height() - self.$slider.height();
 		},
-		scrollTo : function(postionVal) {
+		scrollTo : function(positionVal) {
 			let self = this;
-			self.$cont.scrollTop(postionVal)
+			let posArr = self.getAllAnchorPosition();
+
+			function getIndex(positionVal) {
+				for (let i = posArr.length - 1; i >= 0; i--) {
+					if (positionVal >= posArr[i]) {
+						return i;
+					} else {
+						// 学了一招
+						continue;
+					}
+				};
+			}
+			if (posArr.length == self.$tabItem.length) {
+				self.changeTabSelect(getIndex(positionVal));
+			}
+
+			self.$cont.scrollTop(positionVal)
 		},
 		_bindContScroll : function() {
 			let self = this;
@@ -163,12 +180,19 @@
 				self.$correct[0].style.height = contHeight - lastArticleHeight - self.$anchor.outerHeight() + "px";
 			}
 			return self;
+		},
+		getAllAnchorPosition : function() {
+			let self = this;
+			let allPositionArr = [];
+			for (let i = 0; i < self.$anchor.length; i++) {
+				allPositionArr.push(self.$cont[0].scrollTop + self.getAnchorPosition(i));
+			};
+			return allPositionArr;
 		}
 
 	});
 	
-	// CusScrollBar.prototype._init = function() {
-	// }
+
 
 	win.CusScrollBar = CusScrollBar;
 
