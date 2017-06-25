@@ -50,7 +50,7 @@ table {
 }
 
 .mainBox {
-	width: 960px;
+	width: 1100px;
 	overflow: hidden;
 	margin: 20px auto;
 	background: #888899;
@@ -62,6 +62,9 @@ table {
 	overflow: hidden;
 	border: 2em solid #fff;
 	margin-left: -4em;
+}
+.mainBox ul {
+	margin-left: 6em;
 }
 .mainBox ul li img {
 	width: 100%;
