@@ -6,3 +6,6 @@
 	display: inline-flex;
 	display: -webkit-inline-flex;
 }
+p {
+	color: #000099;
+}
