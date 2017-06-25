@@ -1,0 +1,8 @@
+.contianer {
+	display: flex;
+	display: -webkit-flex;
+}
+.inline-box {
+	display: inline-flex;
+	display: -webkit-inline-flex;
+}
