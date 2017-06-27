@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>float</title>
+<style>
+	body { margin: 0; }
+	nav {
+		height: 50px;
+		background-color: rgba(10, 10, 10, .9);
+	}
+	ul {
+		list-style: none;
+		background-color: rgba(255, 0, 0, .5);
+		height: inherit;
+		line-height: 50px;
+		display: inline-block;
+		margin: 0;
+		min-width: 60px;
+	}
+	li {
+		display: inline-block;
+		background-color: rgba(0, 255, 0, .3);
+		width: 60px;
+	}
+	div {
+		background-color: rgba(0, 0, 255, .2);
+		width: 60px;
+		box-sizing: border-box;
+		border: 1px solid #000;
+		height: 60px;
+		float: left;
+		display: inline-block;
+	}
+</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<!-- <li style="float:left">1</li> -->
+			<!-- <li>2</li>
+			<li>3</li>
+			<li>4</li> -->
+		</ul>
+		<ul>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+		</ul>
+		<ul>
+			<li>9</li>
+			<li>8</li>
+			<li>7</li>
+			<li>6</li>
+		</ul>
+	</nav>
+	<div style="height: 80px;"></div>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum molestiae itaque vero repellendus incidunt alias, blanditiis quos laborum quae porro repellat qui non sunt quis optio autem commodi fuga iure.</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid qui accusantium ea, placeat obcaecati nostrum numquam totam maiores atque cum magnam, cupiditate, fugit, esse voluptatem. Reiciendis sed eum aperiam corporis.</p>
+	<div></div>
+	<div style="height: 120px;"></div>
+</body>
+</html>
