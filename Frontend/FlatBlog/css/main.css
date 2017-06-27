@@ -1,0 +1,67 @@
+nav {
+	background: #ccc;
+	height: 50px;
+}
+
+#banner {
+	background: #000;
+	height: 800px;
+}
+
+nav ul {
+	list-style: none;
+	height: inherit;
+	margin-bottom: 0;
+}
+nav ul li {
+	display: inline-block;
+	line-height: 50px;
+	float: right;
+	margin-right: 20px;
+}
+nav ul li a {
+	line-height: inherit;
+	display: inline-block;
+	height: inherit;
+}
+nav ul .logo {
+	float: left;
+}
+#banner .inner h1 {
+	margin-top: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
