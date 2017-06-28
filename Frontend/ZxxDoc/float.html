@@ -17,6 +17,7 @@
 		display: inline-block;
 		margin: 0;
 		min-width: 60px;
+		min-height: 60px;
 	}
 	li {
 		display: inline-block;
@@ -25,12 +26,12 @@
 	}
 	div {
 		background-color: rgba(0, 0, 255, .2);
-		width: 60px;
+		min-width: 60px;
 		box-sizing: border-box;
 		border: 1px solid #000;
-		height: 60px;
-		float: left;
-		display: inline-block;
+		min-height: 60px;
+		/* float: left; */
+		/* display: inline-block; */
 	}
 </style>
 </head>
@@ -60,5 +61,11 @@
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid qui accusantium ea, placeat obcaecati nostrum numquam totam maiores atque cum magnam, cupiditate, fugit, esse voluptatem. Reiciendis sed eum aperiam corporis.</p>
 	<div></div>
 	<div style="height: 120px;"></div>
+	<div class="wrap" style="width:300px;">
+		<div style="float:left"><span>??</span></div>
+		<div style="float:left">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro harum vero voluptatum voluptates quas animi voluptate, nesciunt facilis alias molestias illum sapiente fugit delectus qui, maiores illo perspiciatis nostrum facere.</p>
+		</div>
+	</div>
 </body>
 </html>
