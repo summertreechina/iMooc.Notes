@@ -1,3 +1,4 @@
+'http://www.imooc.com/learn/710'
 >>> 3-1 margin重叠
 	1. margin重叠的通常特性 {
 		1. margin重叠只发生在block元素上。（不包括absolute和float定位）
