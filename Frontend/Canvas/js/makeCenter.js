@@ -5,39 +5,33 @@
 		let self = this;
 		self.dom = dom;
 		self.parent = dom.parent();
-
-
-		let topVal = (window.innerHeight - self.dom.height())/2;
-		topVal = (topVal > 0) ? topVal : 0;
-
 		self.parent.css('position', 'relative');
-		self.dom.css({
-			background: '#b5b5b5',
-			position: 'relative',
-			top : topVal
-		});
 
-		window.onresize = function(event) {
+		self.offsetPosition = function() {
 			let topVal = (window.innerHeight - self.dom.height())/2;
+			topVal = (topVal > 0) ? topVal : 0;
 			self.dom.css({
 				background: '#b5b5b5',
 				position: 'relative',
 				top : topVal
 			});
+		}
+		self.offsetPosition();
+
+		window.onresize = function(event) {
+			self.offsetPosition();
 		};
 
-
-
-	};
-	MakeCenter.prototype = {
-		init : function() {
-
-		},
+		if (Object.keys(settings).length != 0) {
+			self.dom.offset({
+				top  : settings.offsetY,
+				left : settings.offsetX
+			});
+		}
 	};
 
 	$.fn.extend({
 		makeCenter : function() {
-			// console.info(this)
 			new MakeCenter(settings, this);
 		}
 	});
