@@ -9,18 +9,18 @@
 	<link href="../css/blur.css" rel="stylesheet">
 </head>
 <body>
-	<div class="center" style="width: 1200px; height: 600px; margin: 0 auto">
-		
+	<div id="blur-div">
+		<img id="blur-image" src="../images/e0f39278-f0f3-4e85-8eab-69ab725ac73d.jpg">
+		<canvas id="canvas"></canvas>
+		<a class="button" id="reset-button">RESET</a>
+		<a class="button" id="auto-button">AUTO</a>
+		<a class="button" id="show-button">SHOW</a>
 	</div>
 	<script src="./../../_libs/jQuery/jquery-3.1.0.js"></script>
 	<script src="../js/makeCenter.js"></script>
 	<script src="../js/blur.js"></script>
 <script>
-	let settings = {
-		// offsetX : 10,
-		// offsetY : 50
-	};
-	$('.center').makeCenter(settings);
+	$('#blur-div').makeCenter();
 </script>
 </body>
 </html>
