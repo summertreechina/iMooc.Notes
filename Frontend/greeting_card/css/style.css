@@ -7,7 +7,7 @@
 html, body {
 	height: 100%;
 }
-#music {
+.music {
 	width: 15vw;
 	height: 15vw;
 	border: 4px solid #ef1639;
@@ -18,13 +18,14 @@ html, body {
 	border-radius: 50%;
 	background-color: #fff;
 }
-#music > img:first-of-type {
+.music > img:first-of-type {
 	position: absolute;
 	top: 24%;
 	right: 2.5%;
 	width: 28.421%;
+	z-index: 1;
 }
-#music > img:last-of-type {
+.music > img:last-of-type {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -32,7 +33,22 @@ html, body {
 	left: 0;
 	margin: auto;
 	width: 79%;
+	z-index: 0;
 }
+.music > img.play {
+	animation: music_disc 4s linear infinite;
+}
+	@keyframes music_disc {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+
+
 .page {
 	position: absolute;
 	width: 100%;
@@ -45,7 +61,7 @@ html, body {
 }
 
 #page1 {
-	display: none;;
+	display: none;
 }
 #page1 > .bg {
 	background: url('../res/p1_bg.jpg') no-repeat center center;
@@ -83,6 +99,16 @@ html, body {
 	border-radius: 50%;
 	box-shadow: 0 0 10vw 10vw #b60b3b;
 	-webkit-box-shadow: 0 0 10vw 10vw #b60b3b;
+	animation: p1_lantern .5s infinite alternate;
+}
+@keyframes p1_lantern {
+	0% {
+		opacity: .5;
+		transform: scale(.8, .8);
+	}
+	100% {
+		opacity: 1;
+	}
 }
 #page1 > .p1_imooc {
 	position: absolute;
@@ -125,6 +151,15 @@ html, body {
 	background-size: 100%;
 	width: 59.375vw;
 	height: 59.375vw;
+	animation: p2_circle_outer 3s linear 3s infinite;
+}
+@keyframes p2_circle_outer {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
 }
 #page2 > .p2_circle:before {
 	position: absolute;
@@ -139,6 +174,15 @@ html, body {
 	background-size: 100%;
 	width: 45.625vw;
 	height: 45.625vw;
+	animation: p2_circle_middle 1s linear 2s infinite;
+}
+@keyframes p2_circle_middle {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(720deg);
+	}
 }
 #page2 > .p2_circle:after {
 	position: absolute;
@@ -153,6 +197,15 @@ html, body {
 	background-size: 100%;
 	width: 39.9375vw;
 	height: 39.9375vw;
+	animation: p2_circle_inner 1s linear 1s infinite;
+}
+@keyframes p2_circle_inner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-1080deg);
+	}
 }
 #page2 > .p2_2016 {
 	position: absolute;
@@ -226,8 +279,16 @@ html, body {
 	border-radius: 50%;
 	background: url("../res/p3_blessing.png") no-repeat center center;
 	background-size: 100%;
+	animation: p3_blessing 2s linear infinite;
 }
-
+@keyframes p3_blessing {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
 
 
 

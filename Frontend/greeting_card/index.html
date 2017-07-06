@@ -8,9 +8,9 @@
 	<link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
-	<div id="music">
+	<div class="music">
 		<img src="res/music_pointer.png">
-		<img src="res/music_disc.png">
+		<img src="res/music_disc.png" id="music" class="play">
 	</div>
 	<div class="page" id="page1">
 		<div class="bg"></div>
@@ -31,7 +31,11 @@
 		<div class="p3_first"></div>
 		<div class="p3_blessing"></div>
 	</div>
+	<audio autoplay="">
+		<source src="res/wonder girls.mp3" type="audio/mp3">
+	</audio>
 	<script src="./../_libs/jQuery/jquery-3.1.0.js"></script>
-	<!-- <script src="./js/main.js"></script> -->
+	<script src="./js/ctrl.js" defer></script>
+	<!-- defer是html新增加的一个属性 延迟执行 -->
 </body>
 </html>
