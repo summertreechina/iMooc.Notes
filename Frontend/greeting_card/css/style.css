@@ -6,6 +6,7 @@
 }
 html, body {
 	height: 100%;
+	overflow: hidden;
 }
 .music {
 	width: 15vw;
@@ -61,7 +62,7 @@ html, body {
 }
 
 #page1 {
-	display: none;
+	display: block;
 }
 #page1 > .bg {
 	background: url('../res/p1_bg.jpg') no-repeat center center;
@@ -81,6 +82,7 @@ html, body {
 	font-size: 3.506rem;
 	padding-top: 31vh;
 	text-align: center;
+	color: #fff;
 	box-sizing: border-box;
 }
 #page1 > .p1_lantern:before {
@@ -101,15 +103,15 @@ html, body {
 	-webkit-box-shadow: 0 0 10vw 10vw #b60b3b;
 	animation: p1_lantern .5s infinite alternate;
 }
-@keyframes p1_lantern {
-	0% {
-		opacity: .5;
-		transform: scale(.8, .8);
+	@keyframes p1_lantern {
+		0% {
+			opacity: .5;
+			transform: scale(.8, .8);
+		}
+		100% {
+			opacity: 1;
+		}
 	}
-	100% {
-		opacity: 1;
-	}
-}
 #page1 > .p1_imooc {
 	position: absolute;
 	right: 0;
@@ -133,12 +135,36 @@ html, body {
 
 #page2 {
 	display: none;
+	transition: 2s;
+}
+#page1.opacityOut {
+	animation: opacity 2s linear 0s 1;
+}
+	@keyframes opacity {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+#page2.fadeOut {
+	transform: translate(0, -100%);
 }
 #page2 > .bg {
 	background: url('../res/p2_bg.jpg') no-repeat center center;
 	background-size: 100%;
 	z-index: -1;
 }
+#page2 > .p2_bg_loading {
+	z-index: 3;
+	background-color: #ef1639;
+	animation: p2_bg_loading 2s linear forwards;
+}
+	@keyframes p2_bg_loading {
+		0% { opacity: 1; }
+		100% { opacity: 0; }
+	}
 #page2 > .p2_circle {
 	position: absolute;
 	top: 0;
@@ -153,14 +179,14 @@ html, body {
 	height: 59.375vw;
 	animation: p2_circle_outer 3s linear 3s infinite;
 }
-@keyframes p2_circle_outer {
-	0% {
-		transform: rotate(0deg);
+	@keyframes p2_circle_outer {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(-360deg);
+		}
 	}
-	100% {
-		transform: rotate(-360deg);
-	}
-}
 #page2 > .p2_circle:before {
 	position: absolute;
 	top: 0;
@@ -176,14 +202,14 @@ html, body {
 	height: 45.625vw;
 	animation: p2_circle_middle 1s linear 2s infinite;
 }
-@keyframes p2_circle_middle {
-	0% {
-		transform: rotate(0deg);
+	@keyframes p2_circle_middle {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(720deg);
+		}
 	}
-	100% {
-		transform: rotate(720deg);
-	}
-}
 #page2 > .p2_circle:after {
 	position: absolute;
 	top: 0;
@@ -199,14 +225,14 @@ html, body {
 	height: 39.9375vw;
 	animation: p2_circle_inner 1s linear 1s infinite;
 }
-@keyframes p2_circle_inner {
-	0% {
-		transform: rotate(0deg);
+	@keyframes p2_circle_inner {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(-1080deg);
+		}
 	}
-	100% {
-		transform: rotate(-1080deg);
-	}
-}
 #page2 > .p2_2016 {
 	position: absolute;
 	top: 0;
@@ -221,7 +247,11 @@ html, body {
 }
 
 #page3 {
-	display: block;
+	display: none;
+	transition: 2s;
+}
+#page3.fadeIn {
+	transform: translate(0, -100%);
 }
 #page3 > .bg {
 	background: url('../res/p3_bg.jpg') no-repeat center center;
@@ -281,14 +311,14 @@ html, body {
 	background-size: 100%;
 	animation: p3_blessing 2s linear infinite;
 }
-@keyframes p3_blessing {
-	0% {
-		transform: rotate(0deg);
+	@keyframes p3_blessing {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
 	}
-	100% {
-		transform: rotate(360deg);
-	}
-}
 
 
 
