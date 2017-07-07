@@ -2,8 +2,12 @@
 <html lang="zh-CN">
 <head>
 	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1, IE=edge" />
+	<!-- 浏览器兼容性设置：chrome=1, IE=edge 强制浏览器使用webkit内核，或使用IE最高内核渲染 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" minimum-scale=1, maximum-scale=1 user-scalable=no/>
+	<!-- 宽度等于设备宽度，初始比例为1，最大、最小比例为1，用户不能缩放 -->
+	<mate name="format-detection" content="telephone=no" />
+	<!-- 电话号码识别为否 -->
 	<title>Greeting Card</title>
 	<link href="./css/style.css" rel="stylesheet">
 </head>
@@ -38,5 +42,6 @@
 	<script src="./../_libs/jQuery/jquery-3.1.0.js"></script>
 	<script src="./js/ctrl.js" defer></script>
 	<!-- defer是html新增加的一个属性 延迟执行 -->
+	<script src="./js/Viewport.tool.js"></script>
 </body>
 </html>
