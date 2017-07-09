@@ -23,8 +23,8 @@ img {
 	window.onload = function() {
 		let box = document.querySelector('.box');
 		let imgs = null;
-		for (let i = 1; i < 44; i++) {
-			let src = `http://mtl.ttsqgs.com/images/img/10683/${i}.jpg`;
+		for (let i = 1; i <= 53; i++) {
+			let src = `http://mtl.ttsqgs.com/images/img/4829/${i}.jpg`;
 			imgs +=  `<p>${i}</p><a href="${src}" target="_blank"><img src="${src}"></a>`;
 		}
 		box.innerHTML = imgs;
