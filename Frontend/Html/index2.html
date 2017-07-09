@@ -12,26 +12,22 @@ img {
 	margin: 10px auto;
 	background-color: #666;
 }
-img.show {
-	position: relative;
-	height: 900px;
-	z-index: 1;
-	border: 1px solid #000;
+.box p {
+	text-align: center;
 }
 </style>
 </head>
 <body>
 	<div class="box"></div>
-	<!-- <a href="" target="_blank"></a> -->
 <script>
 	window.onload = function() {
 		let box = document.querySelector('.box');
 		let imgs = null;
-		for (let i = 1; i < 54; i++) {
-			imgs +=  `<a href="http://mtl.ttsqgs.com/images/img/8158/${i}.jpg" target="_blank"><img src="http://mtl.ttsqgs.com/images/img/8158/${i}.jpg"></a>`;
+		for (let i = 1; i < 44; i++) {
+			let src = `http://mtl.ttsqgs.com/images/img/10683/${i}.jpg`;
+			imgs +=  `<p>${i}</p><a href="${src}" target="_blank"><img src="${src}"></a>`;
 		}
 		box.innerHTML = imgs;
-
 	}
 </script>
 </body>
