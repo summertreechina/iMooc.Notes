@@ -5,10 +5,58 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>普通直角分页效果</title>
+<style>
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	.page-normal {
+		padding: 30px 60px;
+		color: #ff6500;
+		text-align: center;
+		font-size: 10px;
+		line-height: 40px;
+	}
+	.page-normal a {
+		display: inline-block;
+		min-width: 30px;
+		height: 40px;
+		border: 1px solid #ff9600;
+		color: inherit;
+		text-decoration: none;
+		margin: 2px;
+	}
+	.page-normal .page-current {
+		display: inline-block;
+		min-width: 30px;
+		height: 40px;
+		border: 1px solid #ff6500;
+		border: 1px solid #ff6500;
+		color: inherit;
+		margin: 2px;
+		background-color: #ffbe94;
+	}
+	.page-normal .page-prev {
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		border: 1px solid #ffe3c6;
+		color: #ffe3c6;
+	}
+</style>
 </head>
 <body>
 <div class="page-normal">
-	
+	<span href="#" class="page-prev">&lt;</span>
+	<span href="#" class="page-current">01</span>
+	<a href="#">02</a>
+	<a href="#">03</a>
+	<a href="#">04</a>
+	<a href="#">05</a>
+	<a href="#">06</a>
+	<a href="#">07</a>
+	<a href="#">08</a>
+	...
+	<a href="#">09</a>
+	<a href="#">10</a>
+	<a href="#">&gt;</a>
 </div>
 </body>
 </html>
