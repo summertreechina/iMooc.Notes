@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>进度条小demo之3</title>
+<style>
+	* { padding: 0; margin: 0; }
+	.loading {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background-color: #fff;
+		z-index: 2;
+	}
+	.loading .pic {
+		width: 150px;
+		height: 150px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		font-size: 30px;
+		text-align: center;
+		line-height: 150px;
+	}
+	.loading .pic i {
+		display: block;
+		width: 120px;
+		height: 120px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		border-radius: 50%;
+		box-shadow: 0px 1px 1px 1px rgba(3, 35, 56, 0.66) inset;
+		animation: retating 1s infinite linear;
+	}
+		@keyframes retating {
+			0% { transform: rotate(0deg) }
+			100% { transform: rotate(720deg) }
+		}
+</style>
+</head>
+<body>
+	<div class="loading">
+		<div class="pic">
+			<i></i>
+			<b>88%</b>
+		</div>
+	</div>
+</body>
+</html>

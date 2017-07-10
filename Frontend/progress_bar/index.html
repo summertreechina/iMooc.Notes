@@ -8,13 +8,19 @@
 	<link href="./../_libs/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link href="./../_libs/animate/animate.css" rel="stylesheet">
 <style>
-	iframe { display: block; }
+	iframe { display: block; width: 60%; margin: 20px auto; border: 1px solid #666; }
 </style>
 </head>
 <body>
-	<a href="http://www.html5tricks.com/demo/html5-canvas-loader/index2.html" target="_blank"></a>
-	<p></p>
-	<iframe src="./demo1.html" name="demo1" sandbox=""></iframe>
+	
+	<p>sandbox：安全性限制，allow-same-origin、allow-top-navigation、allow-forms、allow-scripts</p>
+	<p>name：框架名称</p>
+	<p>seamless：是否消除边框和滚动条。布尔值。</p>
+	<p>srcdoc</p>
+	<p>frameborder</p>
+	<iframe src="./demo1.html" name="demo1" seamless></iframe>
+	<iframe src="./demo2.html" name="demo2" seamless></iframe>
+	<iframe src="./demo3.html" name="demo3" seamless></iframe>
 
 	<!-- <iframe src="http://www.html5tricks.com/demo/html5-canvas-loader/index2.html" name="demo2">一个Canvas的实现案例</iframe> -->
 	<script src="./../_libs/jQuery/jquery-3.1.0.js"></script>

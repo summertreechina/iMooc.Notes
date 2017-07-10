@@ -3,8 +3,66 @@
 <head>
 	<meta charset="UTF-8">
 	<title>进度条小demo之1</title>
+<style>
+	.loading {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		background-color: #fff;
+	}
+	.loading .pic {
+		width: 160px;
+		height: 50px;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+	.loading .pic i {
+		display: block;
+		float: left;
+		width: 6px;
+		height: 50px;
+		margin: 0 2px;
+		background-color: #399;
+		transform: scaleY(.4);
+		animation: loading 2s infinite;
+	}
+		@keyframes loading {
+			0%, 40%, 100% { transform: scaleY(.4) }
+			20% { transform: scaleY(1) }
+		}
+	.loading .pic i:nth-child(1){ animation-delay: .1s }
+	.loading .pic i:nth-child(2){ animation-delay: .2s }
+	.loading .pic i:nth-child(3){ animation-delay: .3s }
+	.loading .pic i:nth-child(4){ animation-delay: .4s }
+	.loading .pic i:nth-child(5){ animation-delay: .5s }
+	.loading .pic i:nth-child(6){ animation-delay: .6s }
+	.loading .pic i:nth-child(7){ animation-delay: .7s }
+	.loading .pic i:nth-child(8){ animation-delay: .8s }
+	.loading .pic i:nth-child(9){ animation-delay: .9s }
+	.loading .pic i:nth-child(10){ animation-delay: 1s }
+</style>
 </head>
 <body>
-	<p>进度条小demo之1</p>
+	<div class="loading">
+		<div class="pic">
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+			<i></i>
+		</div>
+	</div>
 </body>
 </html>
