@@ -5,8 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>taobao search</title>
+	<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 <style>
- @font-face{font-family:iconfont;src:url(//at.alicdn.com/t/font_1475912685_3576825.eot);}
 	* { margin: 0; padding: 0; font: 12px; box-sizing: border-box; }
 	.search-container {
 		margin: 10px 28px;
@@ -51,11 +51,56 @@
 		outline: none;
 		background-color: #fff;
 	}
+	.search-container .fa.fa-search{
+		font-size: 16px;
+		position: absolute;
+		margin: -24px 0 0 8px;
+		color: #ccc;
+	}
+	.search-container .search-list {
+		width: 85px;
+		height: 34px;
+		position: absolute;
+		margin: 3px 0 0 3px;
+		background-color: #fff;
+		overflow: hidden;
+		border-left: 1px solid #f6f6f6;
+		border-right: 1px solid #e5e5e5;
+	}
+	.search-list ul li {
+		display: block;
+		list-style: none;
+		height: 34px;
+		line-height: 34px;
+		text-align: center;
+		overflow: hidden;
+		background-color: #fff;
+	}
+	.search-list ul li a {
+		color: #6c6c6c;
+		text-decoration: none;
+	}
+	.search-list .selected {
+		background-color: #f6f6f6;
+	}
+	.trigger-hover {
+		overflow: auto;
+		height: 68px;
+	}
 </style>
 </head>
 <body>
 	<div class="search-container">
-		<div class="search-list"></div>
+		<div id="search-tab" class="search-list">
+			<ul>
+				<li id="tab_1" href="#" class="selected">
+					<a href="#">宝贝</a>
+				</li>
+				<li id="tab_2" href="#">
+					<a href="#">店铺</a>
+				</li>
+			</ul>
+		</div>
 		<div class="search-panel">
 			<form>
 				<div class="search-tips">
@@ -65,15 +110,31 @@
 					<button class="btn-search" type="sumbit">搜索</button>
 				</div>
 				<div class="search-common-panel">
-					<input type="text">
-					<i></i>
+					<input type="text" x-webkit-speech="">
+					<i class="fa fa-search"></i>
 				</div>
 			</form>
 		</div>
 	</div>
 <script src="./../_libs/jQuery/jquery-3.1.0.js"></script>
 <script>
-$(function(){});
+$(function(){
+	$("#search-tab").on('mouseover', function(event) {
+		$(this).css({
+			overflow: 'auto',
+			height  : '68px'
+		});
+	});
+	$("#search-tab").on('mouseleave', function(event) {
+		let self = this;
+		setTimeout(function(){
+			$(self).css({
+				overflow: 'hidden',
+				height  : '34px'
+			});
+		}, 500);
+	});
+});
 </script>
 </body>
 </html>
