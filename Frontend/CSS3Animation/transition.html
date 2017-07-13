@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>transition测试</title>
+	<link href="./../_libs/animate/animate.css" rel="stylesheet">
+<style>
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	#block {
+		width: 400px;
+		height: 400px;
+		background-color: #69c;
+		margin: 0 auto;
+		position:relative;
+		transition: background-color 2s ease;
+		animation: rotate 5s infinite ease-in-out;
+		animation-delay: 1s;
+		animation-iteration-count: 2;
+		animation-direction: alternate;
+		animation-fill-mode: forwards;
+		animation-play-state: running;
+		/* |paused */
+	}
+		@keyframes rotate {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
+			}
+			from { left: 0; top: 0; }
+			to { left: 200px; top: 200px; }
+		}
+	#block:hover {
+		background-color: #c66;
+	}
+</style>
+</head>
+<body>
+	<div id="block"></div>
+
+</body>
+</html>

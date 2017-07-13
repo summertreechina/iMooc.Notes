@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>3D之experiment</title>
+<style>
+	* { margin: 0; top: 0; box-sizing: border-box; }
+	#experiment {
+		perspective: 800;
+		-webkit-perspective: 800;
+		perspective-origin: 50% 50%;
+		-webkit-perspective-origin: 50% 50%;
+		transform-style: preserve-3d;
+		-webkit-transform-style: -webkit-preserve-3d;
+		border: 1px solid red;
+	}
+	#block {
+		width: 500px;
+		height: 500px;
+		background-color: #69c;
+		margin: 100px auto;
+		transform: rotateY(45deg) rotateX(30deg) rotateZ(60deg);
+		-webkit-transform: rotateY(45deg) rotateX(30deg) rotateZ(60deg);
+	}
+</style>
+</head>
+<body>
+	<div id="experiment">
+		<div id="block"></div>
+	</div>
+	
+</body>
+</html>
