@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>折叠效果1</title>
+<style>
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	#wrap #ad {
+		width: 800px;
+		margin: 0 auto;
+		background-color: #c69;
+		border-radius: 0px 0px 4px 4px;
+		box-shadow: 2px 3px 1px 1px rgba(168, 55, 146, .4);
+	}
+	#wrap #ad p {
+		text-indent: 2em;
+	}
+	#wrap #hide {
+		background-color: #69c;
+	}
+	#wrap #strHref {
+		text-decoration: none;
+		display: block;
+		width: 80px;
+		height: 30px;
+		margin: 0 auto;
+		line-height: 30px;
+		border: 1px solid #c69;
+		border-top: 0px;
+		text-align: center;
+		background-color: #c96;
+		color: #ee9;
+		border-radius: 0px 0px 2px 2px;
+		box-shadow: 2px 3px 1px 1px rgba(168, 55, 146, .4);
+	}
+</style>
+
+</head>
+<body>
+	<div id="wrap">
+		<div id="ad">
+			<p>手机.......</p>
+			<p>汽车..........</p>
+			<p>美女.........</p>
+			<p>哈哈</p>
+			<div id="hide" style="display: none">
+				<p>莉莉------</p>
+				<p>喃喃</p>
+				<p>青岛-----------</p>
+				<p>上海@@@@@@@@@</p>
+			</div>
+		</div>
+		<a href="#" id="strHref" class="">更多+</a>
+	</div>
+<script>
+	window.onload = function() {
+		let status = true;
+		let btn = document.querySelector('#strHref');
+		let hide= document.querySelector('#hide');
+
+		btn.onclick = function() {
+			if (status) {
+				hide.style.display = 'block';
+				status = false;
+			} else {
+				hide.style.display = 'none';
+				status = true;
+			}
+		}
+
+
+
+
+
+	}
+</script>
+</body>
+</html>
