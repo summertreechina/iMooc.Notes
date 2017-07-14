@@ -14,7 +14,7 @@
 		-webkit-perspective-origin: 50% 50%;
 		overflow: hidden;
 		border: 1px solid red;
-		margin-top: 100px;
+		margin-top: 300px;
 	}
 	#pageGroup {
 		width: 400px;
@@ -59,9 +59,32 @@
 		text-align: center;
 		margin: 40px auto;
 	}
+
+	.wrap{width: 200px;height: 200px;margin:100px auto;-webkit-perspective:800;-webkit-perspective-origin:50% 50%;}
+	.box{position: relative;-webkit-transform-style:preserve-3d;  -webkit-transform-origin:50% 50px 0;    -webkit-animation:rotation 5s linear infinite;}
+	.div{position: absolute;width: 200px;height: 200px;color: #fff;font-size: 200px;line-height: 200px;text-align: center;opacity:.7;}
+	.div1{background-color: #c69;-webkit-transform:translateZ(-100px);}
+	.div2{background-color: #69c;-webkit-transform:rotateX(90deg) translateZ(100px);}
+	.div4{background-color: #6c9;-webkit-transform:rotateX(-90deg) translateZ(100px);}
+	.div3{background-color: #96c;-webkit-transform:rotateY(90deg) translateZ(100px);}
+	.div5{background-color: #9c6;-webkit-transform:rotateY(-90deg) translateZ(100px);}
+	.div6{background-color: #c96;-webkit-transform:translateZ(100px);}
+	@-webkit-keyframes rotation{
+	    100%{-webkit-transform:rotate3d(1,1,0,-360deg);}
+	}
 </style>
 </head>
 <body>
+	<div class="wrap">
+	    <div class="box">
+	        <div class="div div1">1</div>
+	    	<div class="div div2">2</div>
+			<div class="div div3">3</div>
+			<div class="div div4">4</div>
+			<div class="div div5">5</div>
+			<div class="div div6">6</div>
+		</div>
+	</div>
 	<div id="Space3d">
 		<div id="pageGroup">
 			<div class="page" id="page0">0</div>
