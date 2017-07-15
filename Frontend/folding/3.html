@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>折叠效果2</title>
+<style>
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	#wrap {
+		width: 500px;
+		margin: 0 auto;
+	}
+	#ad {
+		width: 100%;
+		overflow: hidden;
+	}
+	#ad img {
+		width: 100%;
+	}
+	#banner {
+		width: 100%;
+		height: 30px;
+		background-color: #c96;
+		line-height: 30px;
+		text-align: center;
+		border-radius: 15px;
+	}
+	#banner a {
+		text-decoration: none;
+		color: #fff;
+	}
+
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="ad"></div>
+		<div id="banner">
+			<a href="#">点击关闭</a>
+		</div>
+	</div>
+<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
++function(){
+	let adBox  = document.querySelector('#ad');
+	let banner = document.querySelector('#banner');
+
+	let img = new Image();
+	img.src = "http://img0.imgtn.bdimg.com/it/u=4236619970,3720894894&fm=214&gp=0.jpg";
+	imgEl = `<img src="${img.src}"/>`;
+
+	img.onload = function() {
+		adBox.innerHTML = imgEl;
+	}
+
+	let s = 1;
+	$(banner).on('click', function(event) {
+		event.preventDefault();
+		if (s) {
+			$(this).children('a').text('点击展开');
+			$(adBox).hide(3000);
+			s = 0;
+		} else {
+			$(this).find('a').text('点击关闭');
+			$(adBox).show(3000);
+			s = 1;
+		}
+	});
+
+	$(ad).on('click', function(event) {
+		event.preventDefault();
+		if (s) {
+			$(this).fadeIn(2000);
+			s = 0;
+		} else {
+			$(this).fadeOut(2000);
+			s = 1;
+		}
+	});
+}();
+</script>
+</body>
+</html>
