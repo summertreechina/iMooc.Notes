@@ -26,8 +26,18 @@
 	<script src="./simditor/scripts/uploader.js"></script>
 	<script src="./simditor/scripts/simditor.js"></script>
 	<script>
+		Simditor.locale = 'zh-CN';
 		var editor = new Simditor({
-		  textarea: $('#editor')
+		  textarea: $('#editor'),
+		  placeholder: '这里输入文字...',
+		  pasteImage: true,
+		  upload: {
+		          url: '上传地址',
+		          params: null,
+		          fileKey: "fileName",
+		          connectionCount: 1,
+		          leaveConfirm: "正在上传,确定要取消上传文件吗?"
+		        },
 		});
 	</script>
 </body>
