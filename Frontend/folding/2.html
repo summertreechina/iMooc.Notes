@@ -30,9 +30,7 @@
 	#banner a {
 		text-decoration: none;
 	}
-	#ad:hover {
-		height: 485px;
-	}
+
 </style>
 </head>
 <body>
@@ -45,7 +43,9 @@
 
 <script>
 	window.onload = function() {
-		let adBox = document.querySelector('#ad');
+		let adBox  = document.querySelector('#ad');
+		let banner = document.querySelector('#banner');
+
 		let img = new Image();
 		img.src = "src/lili.jpg";
 		imgEl = `<img src="${img.src}"/>`;
@@ -53,6 +53,14 @@
 		img.onload = function() {
 			adBox.innerHTML = imgEl;
 		}
+
+		banner.addEventListener('mouseover', function(){
+			adBox.style.height = '480px';
+		});
+		banner.onmouseout = function(){
+			adBox.style.height = '0px';
+		};
+
 	}
 </script>
 </body>
