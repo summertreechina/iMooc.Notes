@@ -12,6 +12,13 @@
 	#wrap {
 		width: 980px;
 		margin: 0 auto;
+		padding: 0 5px;
+	}
+	#editor {
+		
+	}
+	.simditor {
+		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 	}
 </style>
 </head>
@@ -29,7 +36,7 @@
 		Simditor.locale = 'zh-CN';
 		var editor = new Simditor({
 		  textarea: $('#editor'),
-		  placeholder: '这里输入文字...',
+		  placeholder: '说说你的想法吧...',
 		  pasteImage: true,
 		  upload: {
 		          url: '上传地址',

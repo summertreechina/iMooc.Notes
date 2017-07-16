@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>折叠效果4</title>
+<style>
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+	/* div { border: 1px solid #ccc; } */
+	#wrap {
+		width: 980px;
+		margin: 0 auto;
+	}
+	a.more {
+
+	}
+	.hide {
+		display: none;
+	}
+</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="article">
+			<div id="title">主标题</div>
+			<div id="author">作者时间</div>
+			<div id="content">
+				<p>000000001</p>
+				<p>000000002</p>
+				<p>000000003<a href="#" id="moreBtn">显示全部</a></p>
+				<p class="hide">000000004</p>
+				<p class="hide">000000005</p>
+				<p class="hide">000000006</p>
+				<p class="hide">000000007</p>
+				<p class="hide">000000008</p>
+				<p class="hide">000000004</p>
+				<p class="hide">000000005</p>
+				<p class="hide">000000006</p>
+				<p class="hide">000000007</p>
+				<p class="hide">000000008</p>
+				<p class="hide">000000004</p>
+				<p class="hide">000000005</p>
+				<p class="hide">000000006</p>
+				<p class="hide">000000007</p>
+				<p class="hide">000000008</p>
+				<div class="hide"><a href="#" id="shrinkBtn">收起全文</a></p></div>
+			</div>
+		</div>
+	</div>
+<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
++function(){
+	let lists     = $('#content .hide');
+	let length    = lists.length;
+	let id        = $('#moreBtn').parent('p').index();
+	let moreBtn   = $('#moreBtn');
+	let shrinkBtn = $('#shrinkBtn');
+
+	moreBtn.on('click', function(event) {
+		event.preventDefault();
+		$(this).addClass('hide');
+		for (let i = 0; i < length; i++) {
+			if (i > id) {
+				$(lists[i]).removeClass('hide');
+			}
+		}
+	});
+	shrinkBtn.on('click', function(event) {
+		event.preventDefault();
+		moreBtn.removeClass('hide');
+		for (let i = 0; i < length; i++) {
+			if (i > id) {
+				$(lists[i]).addClass('hide');
+			}
+		}
+	});
+
+
+}();
+</script>
+</body>
+</html>
