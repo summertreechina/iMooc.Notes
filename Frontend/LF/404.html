@@ -4,14 +4,57 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>404，不存在的页面</title>
+	<title>花语 | 404不存在的页面</title>
 	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
 	<link href="http://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="404.css" rel="stylesheet">
 </head>
-<body>
-	
+<body  id="page-404" class="bg-light">
+	<section id="content">
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div class="text-center m-b-lg">
+					<h1 class="h text-white animated fadeInDownBig">404</h1>
+					<p class="text-lt animated fadeInUp">抱歉，您访问了一个不存在的页面</p>
+				</div>
+				<div class="list-group m-b-sm m-b-lg">
+					<a href="index.html" class="list-group-item">
+						<i class="fa fa-fw fa-home icon-muted"></i>
+						<span>返回首页</span>
+						<i class="fa fa-chevron-right icon-muted"></i>
+					</a>
+					<a href="#" class="list-group-item">
+						<i class="fa fa-fw fa-envelope-o icon-muted"></i>
+						<span>给我们建议</span>
+						<i class="fa fa-chevron-right icon-muted"></i>
+					</a>
+					<a href="#" class="list-group-item">
+						<i class="fa fa-fw fa-comment-o icon-muted"></i>
+						<span>给我们建议</span>
+						<i class="fa fa-chevron-right icon-muted"></i>
+					</a>
+					<a href="#" id="urgency" class="list-group-item">
+						<i class="fa fa-fw fa-phone icon-muted"></i>
+						<span>紧急联系</span>
+						<span class="mobile">13963976601</span>
+						<i class="fa fa-chevron-right icon-muted"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer id="footer">
+		<div class="text-center padder clearfix">
+			<p>
+				<small class="text-lt">花语图社.青岛<br>&copy; 2017</small>
+			</p>
+		</div>
+	</footer>
 
 	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="js/makeCenter.js"></script>
+	<script src="404.js"></script>
 </body>
 </html>
