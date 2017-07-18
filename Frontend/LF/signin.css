@@ -1,0 +1,28 @@
+// body {
+// 	background: url(http://mtl.ttsqgs.com/images/img/10715/29.jpg), url(http://mtl.ttsqgs.com/images/img/10497/21.jpg), url(http://mtl.ttsqgs.com/images/img/10497/1.jpg), url(http://mtl.ttsqgs.com/images/img/10715/36.jpg), url(http://mtl.ttsqgs.com/images/img/10715/40.jpg), url(http://mtl.ttsqgs.com/images/img/10715/58.jpg), url(http://mtl.ttsqgs.com/images/img/10715/57.jpg), url(http://mtl.ttsqgs.com/images/img/10715/41.jpg), url(http://mtl.ttsqgs.com/images/img/10715/27.jpg), url(http://mtl.ttsqgs.com/images/img/10715/23.jpg);
+// 	background-position: 100%, 100%, 100%;
+// 	// background-size: 100%;
+// }
+
+body {
+	background: url(http://mtl.ttsqgs.com/images/img/10715/29.jpg);
+	background-position: 100%%;
+	background-size: 100%;
+	direction: ctl;
+}
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    width: 960px;
+    height: 800px;
+    background-color: lightgrey;
+    margin: 0 auto;
+}
+ 
+.flex-item {
+    background-color: cornflowerblue;
+    width: 33%;
+    height: 600px;
+    margin: 10px;
+}
