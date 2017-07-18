@@ -3,26 +3,129 @@
 // 	background-position: 100%, 100%, 100%;
 // 	// background-size: 100%;
 // }
+.app {
+	height: 100%;
+	overflow: hidden;
+	font-weight: 300;
+}
 
 body {
 	background: url(http://mtl.ttsqgs.com/images/img/10715/29.jpg);
-	background-position: 100%%;
 	background-size: 100%;
-	direction: ctl;
 }
 
-.flex-container {
-    display: -webkit-flex;
-    display: flex;
-    width: 960px;
-    height: 800px;
-    background-color: lightgrey;
-    margin: 0 auto;
+#siginBox {
+	width: 440px;
+	height: 415px;
+	padding: 23px;
+	background-color: #fff;
+	margin: 0 auto;
 }
- 
-.flex-item {
-    background-color: cornflowerblue;
-    width: 33%;
-    height: 600px;
-    margin: 10px;
+#siginBox .sigin-header {
+	margin-bottom: 20px;
+	padding: 20px 0;
+}
+#siginBox .sigin-header a {
+	text-decoration: underline;
+	color: #333;
+}
+#siginBox input {
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid #e0e0e0;
+	outline: #fff none;
+	box-shadow: inset 0 0 0 rgba(0, 0, 0, 1);
+	webkit-appearance: textfield;
+}
+#siginBox button {
+	border-radius: 0;
+	margin-top: 30px;
+}
+#siginBox .checkbox {
+	margin-top: 30px;
+}
+#siginBox .checkbox label {
+	font-weight: 200;
+}
+#siginBox .forget {
+	margin: 0px 0px 0px 0px;
+}
+
+
+
+
+
+
+
+.fr {
+	float: right;
+}
+
+// app.css
+
+.font-bold {
+	font-weight: 700;
+}
+.text-lg {
+	font-size: 20px;
+}
+.i-checks input {
+  opacity: 0;
+}
+.i-checks input:checked + i {
+  border-color: #545ca6;
+}
+.i-checks input:checked + i:before {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  top: 2px;
+  text-align: center;
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-weight: normal;
+  color: #545ca6;
+}
+.i-checks input[type="radio"] + i {
+  border-radius: 100%;
+}
+.i-checks input[type="checkbox"]:checked + i:before {
+  content: "\f00c";
+}
+.i-checks input[type="radio"]:checked + i:before {
+  content: "\f111";
+}
+.i-checks input[disabled] + i,
+fieldset[disabled] .i-checks input + i {
+  border-color: #dbe2e7;
+}
+.i-checks input[disabled] + i:before,
+fieldset[disabled] .i-checks input + i:before {
+  color: #cbd5dd;
+}
+.i-checks i {
+  width: 18px;
+  height: 18px;
+  line-height: 1;
+  border: 1px solid #cbd5dd;
+  background-color: #fff;
+  margin-left: -20px;
+  margin-top: -2px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+  position: relative;
+  font-size: 12px;
+}
+.line {
+  *width: 100%;
+  height: 2px;
+  margin: 10px 0;
+  font-size: 0;
+  overflow: hidden;
+}
+.line-dashed {
+  border-style: dashed !important;
+  background-color: #999;
+  border-width: 0;
 }

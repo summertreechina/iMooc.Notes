@@ -10,11 +10,29 @@
 	<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="signin.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-	<div class="flex-container">
-		<div class="flex-item">flex item 1</div>
-		<div class="flex-item">flex item 2</div>
-		<div class="flex-item">flex item 3</div> 
+<body class="">
+
+	<div id="siginBox">
+		<div class="sigin-header">
+			<span class="font-bold text-lg">登陆花语</span>
+			<span class="fr">还没有账号，<a href="#">立即注册</a></span>
+		</div>
+		<form action="index.html">
+			<div class="form-group">
+				<input type="email" placeholder="邮箱 or 手机" class="form-control input-lg">
+			</div>
+			<div class="form-group">
+				<input type="password" placeholder="密码" class="form-control input-lg">
+			</div>
+			<div class="checkbox i-checks">
+				<label>
+					<input type="checkbox" checked=""><i></i>记住登陆状态
+				</label>
+			</div>
+			<button type="submit" class="btn btn-lg btn-warning btn-block">马上登陆</button>
+		</form>
+		<div class="fr forget"><a href="#"><small>忘记了密码？</small></a></div>
+		<a><i class="fa fa-close"></i></a>
 	</div>
 
 	<footer id="footer">
@@ -22,8 +40,8 @@
 			<small class="text-lt">花语图社.青岛<br>&copy; 2017</small>
 		</p>
 	</footer>
-	
 	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="sigin.js"></script>
 </body>
 </html>
