@@ -16,14 +16,19 @@ body {
 
 #siginBox {
 	width: 440px;
-	height: 415px;
 	padding: 23px;
+	padding-bottom: 90px;
 	background-color: #fff;
 	margin: 0 auto;
 }
 #siginBox .sigin-header {
 	margin-bottom: 20px;
 	padding: 20px 0;
+}
+#siginBox .title {
+	font-size: 20px;
+	font-family: "SimHei";
+	font-weight: 300;
 }
 #siginBox .sigin-header a {
 	text-decoration: underline;
@@ -50,8 +55,23 @@ body {
 #siginBox .forget {
 	margin: 0px 0px 0px 0px;
 }
-
-
+#siginBox .close-btn {
+	text-decoration: none;
+	position: absolute;
+	margin: -50px 430px;
+	color: #fff;
+	font-size: 3.5em;
+	font-weight: 200;
+	transform: rotate(45deg);
+}
+#footer {
+	margin-top: 30px;
+	font-family: SimHei;
+	font-weight: 300;
+	font-size: 16px;
+	text-align: center;
+	color: #585858;
+}
 
 
 
@@ -62,13 +82,6 @@ body {
 }
 
 // app.css
-
-.font-bold {
-	font-weight: 700;
-}
-.text-lg {
-	font-size: 20px;
-}
 .i-checks input {
   opacity: 0;
 }
