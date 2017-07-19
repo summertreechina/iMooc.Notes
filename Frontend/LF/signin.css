@@ -64,6 +64,16 @@ body {
 	font-weight: 200;
 	transform: rotate(45deg);
 }
+#siginBox .error {
+	font-weight: 300;
+	color: #f302cf;
+}
+#siginBox #validateImg {
+	display: block;
+	width: 140px;
+	position: absolute;
+	margin-left: 250px;
+}
 #footer {
 	margin-top: 30px;
 	font-family: SimHei;
@@ -72,8 +82,6 @@ body {
 	text-align: center;
 	color: #585858;
 }
-
-
 
 
 
