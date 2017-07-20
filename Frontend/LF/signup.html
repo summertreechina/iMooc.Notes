@@ -8,35 +8,47 @@
 	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
 	<link href="http://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
 	<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="signin.css" rel="stylesheet">
+	<link href="signup.css" rel="stylesheet">
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row">
-			<div class="col-md-3 col-md-offset-3">
-				<form action="index.html" id="">
-					<div class="form-group">
-						<input type="" id="account" name="account" placeholder="邮箱 or 手机" class="form-control input-lg">
+			<div class="col-md-5 col-md-offset-2">
+				<div id="signupWrap" class="animated bounceInRight">
+					<p>
+					加入花语
+					<span class="signinLink fr">已有账号，<a href="signin.html">马上登陆</a></span></p>
+					<form action="index.html" id="signupForm">
+						<div class="form-group">
+							<input type="" id="account" name="account" placeholder="邮箱 or 手机" class="form-control input-lg">
+						</div>
+						<div class="form-group">
+							<input type="password" id="password" name="password" placeholder="密码" class="form-control input-lg">
+						</div>
+						<div class="form-group">
+							<input type="password" id="confirmPassword" name="confirmPassword" placeholder="确认密码" class="form-control input-lg">
+						</div>
+						<div class="form-group">
+							<a id="postCode" class="btn btn-warning" disabled="disabled" role="button">接收验证码</a>
+							<input type="password" id="validate" name="validate" placeholder="获得的身份验证码" class="form-control input-lg">
+						</div>
+						<div class="checkbox i-checks">
+							<label>
+								<input type="checkbox" checked=""><i></i>记住登陆状态
+							</label>
+						</div>
+						<button type="submit" class="btn btn-lg btn-warning btn-block">加入花语</button>
+					</form>
+					<ul class="third-sign clearfix">
+						<li id="sina"></li>
+						<li id="qq"></li>
+						<li id="weixin"></li>
+					</ul>
+					<div class="remind">
+						<small>「注册」即代表你已经认真阅读并同意接受<a href="#">用户协议</a></small>
 					</div>
-					<div class="form-group">
-						<a class="btn btn-warning" href="#" role="button">获取${变量}验证码</a>
-						<input type="password" id="validate" name="validate" placeholder="验证码" class="form-control input-lg">
-					</div>
-					<div class="form-group">
-						<input type="password" id="password" name="password" placeholder="密码" class="form-control input-lg">
-					</div>
-					<div class="form-group">
-						<input type="password" id="confirmPassword" name="confirmPassword" placeholder="确认密码" class="form-control input-lg">
-					</div>
-					<div class="checkbox i-checks">
-						<label>
-							<input type="checkbox" checked=""><i></i>记住登陆状态
-						</label>
-					</div>
-					<button type="submit" class="btn btn-lg btn-warning btn-block">加入花语</button>
-				</form>
+				</div>
 			</div>
-			<div class="col-md-3">.col-md-4</div>
 		</div>
 
 		<footer id="footer">
@@ -48,6 +60,6 @@
 	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 	<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="http://cdn.bootcss.com/jquery-validate/1.16.0/jquery.validate.js"></script>
-	<script src="sigin.js"></script>
+	<script src="signup.js"></script>
 </body>
 </html>
