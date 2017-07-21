@@ -1,0 +1,23 @@
+.app {
+	// height: 100%;
+	// overflow: hidden;
+	font-weight: 300;
+}
+body {
+	background: url(http://mtl.ttsqgs.com/images/img/10715/57.jpg);
+	background-position: top left;
+	-webkit-animation: sexy 180s infinite linear;
+}
+@-webkit-keyframes sexy {
+    0% { background-position: 0 0; }
+    20% { background-position: bottom right; }
+    40% { background-position: top right; }
+    80% { background-position: left bottom; }
+    100% { background-position: left top; }
+}
+
+
+#agreement {
+	background-color: #fff;
+	padding: 40px;
+}

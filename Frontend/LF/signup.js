@@ -36,7 +36,7 @@
 		event.preventDefault();
 		let content = $(this).val();
 		let regEmail = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
-		let regMobile = /^1[0-9]{10}$/;
+		let regMobile = /^1[3-8][0-9]{9}$/;
 		if (regEmail.test(content)) {
 			$('#postCode').removeAttr('disabled');
 			$('#postCode').text('用邮箱接收验证码');
@@ -55,6 +55,7 @@
 		focus : function() {
 			let notice = `<label id="password-error" class="error" for="password">密码6~12位，必需包含数字、大小写字母，可以包含符号（注意：符号也有大小写的区分）</label>`;
 			$(notice).insertAfter(this);
+			console.log('获得')
 		},
 		blur : function() {
 			$("#password-error").remove()
