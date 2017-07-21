@@ -66,7 +66,7 @@
 	// 自定义的手机号和邮箱同时登陆验证--"account"方法
 	$.validator.addMethod("account", function(value, element, params){
 	    let email = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
-	    let mobile = /^1[0-9]{10}$/;
+	    let mobile = /^1[3-9][0-9]{9}$/;
 	    return (mobile.test(value)) || (email.test(value));
 	}, $.validator.format("请检查您输入的「邮箱」或「手机号码」"));
 
