@@ -6,15 +6,40 @@
 	dom.css('margin-top', offsetTop + 'px');
 
 // 注册身份验证码发送控制
-	if (!$('#postCode').attr('disabled')) {
-		// 按钮'disabled'竟然也可以点击 屏蔽之 
-		$('#postCode').on('click', function(e) {
-			e.preventDefault();
+	// if (!$('#postCode').attr('disabled')) {
+	// 	console.log('true')
+	// 	// 按钮'disabled'竟然也可以点击 屏蔽之 
+	// 	$('#postCode').on('click', function(e) {
+	// 		e.preventDefault();
+	// 		let self = this;		
+	// 		// 点击后不能再次点击
+	// 		$(self).attr('disabled', 'disabled');
+	// 		// 时长
+	// 		let i = 60*0.1;
+	// 		let oldTxt = $(self).text();
+	// 		let timer = setInterval(function(){
+	// 			i--;
+	// 			$(self).text('还剩' + i + 'S');
+	// 		}, 1000);
+	// 		setTimeout(function(){
+	// 			// 恢复可点击状态
+	// 			$(self).removeAttr('disabled');
+	// 			// 清除定时器
+	// 			clearTimeout(timer);
+	// 			// 恢复按钮内文字
+	// 			$(self).text(oldTxt);
+	// 		}, 1000*i);
+	// 	});
+	// }
+	$('#postCode').click(function(event) {
+		event.preventDefault();
+		if ($('#postCode').attr('disabled')) { return; alert('') };
+		if (!$('#postCode').attr('disabled')) {
 			let self = this;		
 			// 点击后不能再次点击
 			$(self).attr('disabled', 'disabled');
 			// 时长
-			let i = 60*1;
+			let i = 60*0.5;
 			let oldTxt = $(self).text();
 			let timer = setInterval(function(){
 				i--;
@@ -28,7 +53,35 @@
 				// 恢复按钮内文字
 				$(self).text(oldTxt);
 			}, 1000*i);
-		});
+		}
+	});
+	function postCodeCtrl() {
+		console.log(event)
+		if (!$('#postCode').attr('disabled')) {
+			
+			// 按钮'disabled'竟然也可以点击 屏蔽之 
+			$('#postCode').on('click', function(e) {
+				e.preventDefault();
+				let self = this;		
+				// 点击后不能再次点击
+				$(self).attr('disabled', 'disabled');
+				// 时长
+				let i = 60*0.1;
+				let oldTxt = $(self).text();
+				let timer = setInterval(function(){
+					i--;
+					$(self).text('还剩' + i + 'S');
+				}, 1000);
+				setTimeout(function(){
+					// 恢复可点击状态
+					$(self).removeAttr('disabled');
+					// 清除定时器
+					clearTimeout(timer);
+					// 恢复按钮内文字
+					$(self).text(oldTxt);
+				}, 1000*i);
+			});
+		}
 	}
 
 // 鉴别输入的账号类型
