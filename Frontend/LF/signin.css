@@ -9,9 +9,17 @@
 	font-weight: 300;
 }
 
+
 body {
 	background: url(http://mtl.ttsqgs.com/images/img/10715/29.jpg);
 	background-size: 100%;
+	background-position: top left;
+	-webkit-animation: sexy 240s infinite linear;
+}
+@-webkit-keyframes sexy {
+    0% { background-position: 0 0; }
+    50% { background-position: bottom right; }
+    100% { background-position: left top; }
 }
 
 #siginBox {

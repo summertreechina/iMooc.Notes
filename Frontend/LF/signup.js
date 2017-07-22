@@ -64,20 +64,22 @@
 // 输入密码时，密码规则的提示
 	$('#password').on({
 		focus : function() {
-			let notice = `<label id="password-error" class="error" for="password">密码6~12位，必需包含数字、大小写字母，可以包含符号（注意：符号也有大小写的区分）</label>`;
+			// $("#password-error").remove();
+			let notice = `<label id="password-error" class="error" for="password">密码6~12位，必需同时包含数字、大小写字母，可以包含符号（注意：符号也有大小写的区分）</label>`;
 			$(notice).insertAfter(this);
 			console.log('获得')
 		},
 		blur : function() {
-			$("#password-error").remove()
+			$("#password-error").remove();
 			console.log('失去')
 		}
 	});
+
 // jQuery.Validate
 // 自定义密码规则--"account"方法
 	$('#signupForm').validate({
 		rules : {
-			debug : true,
+			// debug : true,
 			account : {
 				required : true,
 				account  : true
@@ -87,11 +89,11 @@
 				password : true,
 			},
 			confirmPassword : {
-			    equalTo: "#password"
+			    equalTo: password
 			},
 			validate : {
 				required: true,
-				// remote  : "/rsc/demo.json",
+				remote  : "/rsc/demo.json",
 			}
 		},
 		messages : {
@@ -102,7 +104,7 @@
 				required : '请设置账户密码',
 			},
 			confirmPassword : {
-			    equalTo: "两次输入密码不一致"
+			    equalTo: "两次密码输入不一致"
 			},
 			validate : {
 				required: '请填写身份验证码',
@@ -113,7 +115,7 @@
 	$.validator.addMethod("password", function(value, element, params){
 	    let password = /^(?=.*[0-9].*)(?=.*[A-Z].*)(?=.*[a-z].*).{6,12}$/;
 	    return password.test(value);
-	}, $.validator.format("密码6~12位，必需包含数字、大小写字母，可以包含符号（注意：符号也有大小写的区分）"));
+	}, $.validator.format("密码格式不符合要求"));
 	$.validator.addMethod("account", function(value, element, params){
 	    let email = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
 	    let mobile = /^1[3-9][0-9]{9}$/;
