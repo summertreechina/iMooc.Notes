@@ -41,11 +41,17 @@ body {
   background-color: #edf2f3;
 }
 .vbox header form {
-	width: 250px;
-	position: relative;
-	top: 20px;
-	// margin-top: 15px;
-	// margin-bottom: 15px;
+	width: 300px;
+	margin-top: 14px;
+	margin-bottom: 14px;
+}
+.vbox form .form-group,
+.vbox form .input-group {
+	width: 100%;
+	overflow: hidden;
+}
+.vbox form .form-group .input-group .input-group-btn {
+	width: 30px;
 }
 .input-group-btn .btn {
 	background-color: #fff;
@@ -57,7 +63,14 @@ body {
 	text-align: center;
 	border: 0;
 }
-
+.vbox form .form-group .input-group input {
+	border: none;
+	border-radius: 0;
+}
+.vbox form .form-group .input-group input:focus {
+	border-bottom: 1px solid #d9edf7;
+	outline: 0;
+}
 
 
 
