@@ -3,6 +3,15 @@
 	height: 100%;
 	overflow: hidden;
 }
+body {
+	font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #788188;
+	background-color: transparent;
+	line-height: 1.40;
+	-webkit-font-smoothing: antialiased;
+	// webkit特有的字体抗锯齿
+}
 .vbox {
 	display: table;
 	border-spacing: 0;
@@ -10,3 +19,67 @@
 	height: 100%;
 	width: 100%;
 }
+
+.vbox header.navbar {
+	background-color: #d9edf7;
+	border: none;
+	border-radius: 0;
+	padding: 0;
+	margin: 0;
+	min-height: 60px;
+	// html 和 css丝毫不讲道理啊，在不设置边框颜色的时候，默认有1像素的边框，但是你给这1像素边框设置颜色的时候，它却消失了！融合到盒子模型里面了，模型长、高各增加了2像素！只有你设置颜色时用全格式，边框才出现。丝毫不跟你讲道理。(这也许跟box-sizing属性有关)
+}
+.vbox .navbar .nav {
+	background-color: #69c;
+	list-style: none;
+}
+.navbar-nav li a {
+	padding: 20px;
+}
+.navbar-nav li a:hover,
+.navbar-nav li a:focus {
+  background-color: #edf2f3;
+}
+.vbox header form {
+	width: 250px;
+	position: relative;
+	top: 20px;
+	// margin-top: 15px;
+	// margin-bottom: 15px;
+}
+.input-group-btn .btn {
+	background-color: #fff;
+	color: #788188;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	margin: 0;
+	width: 30px;
+	text-align: center;
+	border: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
