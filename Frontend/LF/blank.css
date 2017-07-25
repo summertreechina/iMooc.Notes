@@ -59,6 +59,7 @@ body {
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 	margin: 0;
+	height: 30px;
 	width: 30px;
 	text-align: center;
 	border: 0;
@@ -66,6 +67,9 @@ body {
 .vbox form .form-group .input-group input {
 	border: none;
 	border-radius: 0;
+	border-width: 0;
+	height: 30px;
+	box-shadow: none;
 }
 .vbox form .form-group .input-group input:focus {
 	border-bottom: 1px solid #d9edf7;
