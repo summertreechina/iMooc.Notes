@@ -76,10 +76,37 @@ body {
 	outline: 0;
 }
 
+// .vbox .navbar-right .navbar-nav {
+// 	margin: 0 !important;
+// }
+// .vbox .navbar-right .navbar-nav .badge {
+// 	position: relative;
+// 	top: -10px;
+// 	margin-left: -10px;
+// 	background-color: #f05050;
+// 	color: #fff;
+// 	font-size: 85%;
+// 	padding: 2px 5px !important;
+// }
 
-
-
-
+.vbox .navbar-right .avatar {
+	position: relative;
+	border-radius: 50%;
+	width: 40px;
+	float: right;
+	display: inline-block;
+	white-space: nowrap;
+	margin-left: 10px;
+	margin-bottom: -10px;
+	margin-top: -10px;
+}
+.vbox .navbar-right .avatar img {
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+	border-radius: 50%;
+	width: 100%;
+}
 
 
 
