@@ -993,7 +993,8 @@ body.container {
     max-height: 30px;
   }
   .header-md .navbar-nav > li > a {
-    padding: 20px;
+    padding: 20px; 
+    // padding-right: 40px;
   }
 }
 @media (max-width: 767px) {
