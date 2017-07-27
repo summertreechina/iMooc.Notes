@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="app">
+<head>  
+  <meta charset="utf-8" />
+  <title>花语 | 博客</title>
+  <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="js/jPlayer/jplayer.flat.css" type="text/css" />
+  <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/app.css" rel="stylesheet">
+<!--   <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="css/font.css" type="text/css" /> -->
+  
+</head>
+<body class="">
+  <section class="vbox">
+    <header class="bg-white-only header header-md navbar navbar-fixed-top-xs">
+      <ul class="nav navbar-nav hidden-xs">
+        <li>
+          <a href="#nav,.navbar-header" data-toggle="class:nav-xs,nav-xs" class="text-muted">
+            <i class="fa fa-indent text"></i>
+            <i class="fa fa-dedent text-active"></i>
+          </a>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
+        <div class="form-group" style="width: 100%;">
+          <div class="input-group" style="width: 100%;">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-sm bg-white btn-icon rounded"><i class="fa fa-search"></i></button>
+            </span>
+            <input type="text" class="form-control input-sm no-border rounded" placeholder="Search songs, albums...">
+          </div>
+        </div>
+      </form>
+      <div class="navbar-right ">
+        <ul class="nav navbar-nav m-n hidden-xs nav-user user">
+          <li class="hidden-xs">
+            <a href="#" class="dropdown-toggle lt" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="badge badge-sm up bg-danger count">2</span>
+            </a>
+            <section class="dropdown-menu aside-xl animated fadeInUp">
+              <section class="panel bg-white">
+                <div class="panel-heading b-light bg-light">
+                  <strong>You have <span class="count">2</span> notifications</strong>
+                </div>
+                <div class="list-group list-group-alt">
+                  <a href="#" class="media list-group-item">
+                    <span class="pull-left thumb-sm">
+                      <img src="images/a0.png" alt="..." class="img-circle">
+                    </span>
+                    <span class="media-body block m-b-none">
+                      Use awesome animate.css<br>
+                      <small class="text-muted">10 minutes ago</small>
+                    </span>
+                  </a>
+                  <a href="#" class="media list-group-item">
+                    <span class="media-body block m-b-none">
+                      1.0 initial released<br>
+                      <small class="text-muted">1 hour ago</small>
+                    </span>
+                  </a>
+                </div>
+                <div class="panel-footer text-sm">
+                  <a href="#" class="pull-right"><i class="fa fa-cog"></i></a>
+                  <a href="#notes" data-toggle="class:show animated fadeInRight">See all the notifications</a>
+                </div>
+              </section>
+            </section>
+          </li>
+          <li class="dropdown" style="margin-right: 15px;">
+            <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
+              <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img src="images/a0.png" alt="...">
+              </span>
+              John.Smith <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight">            
+              <li>
+                <span class="arrow top"></span>
+                <a href="#">Settings</a>
+              </li>
+              <li>
+                <a href="profile.html">Profile</a>
+              </li>
+              <li>
+                <a href="#">
+                  <span class="badge bg-danger pull-right">3</span>
+                  Notifications
+                </a>
+              </li>
+              <li>
+                <a href="docs.html">Help</a>
+              </li>
+              <li class="divider"></li>
+              <li>
+                <a href="modal.lockme.html" data-toggle="ajaxModal" >Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>      
+    </header>
+
+    <section>
+      <section class="hbox stretch">
+
+        <section id="content">
+          <section class="vbox">
+            <section class="scrollable wrapper-lg">
+              <div class="row">
+                <div class="col-sm-9">
+                  <div class="blog-post">                   
+                    <div class="post-item">
+                      <div class="post-media">
+                        <img src="images/m42.jpg" class="img-full">
+                      </div>
+                      <div class="caption wrapper-lg">
+                        <h2 class="post-title"><a href="#">7 things you need to know about the flat design</a></h2>
+                        <div class="post-sum">
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat. 
+                          <br><br>
+                          Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis consequat iaculis, lectus arcu malesuada sem, dapibus porta quam lacus eu neque.</p>
+                        </div>
+                        <div class="line line-lg"></div>
+                        <div class="text-muted">
+                          <i class="fa fa-user icon-muted"></i> by <a href="#" class="m-r-sm">Admin</a>
+                          <i class="fa fa-clock-o icon-muted"></i> Feb 20, 2013
+                          <a href="#" class="m-l-sm"><i class="fa fa-comment-o icon-muted"></i> 2 comments</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-item">
+                      <div class="caption wrapper-lg">
+                        <h2 class="post-title"><a href="#">Bootstrap 3: What you need to know</a></h2>
+                        <div class="post-sum">
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum ullamcorper sodales nisi nec condimentum. Mauris convallis mauris at pellentesque volutpat. 
+                          </p>
+                          <h3>Html5 and CSS3</h3>
+                          <p>
+                          Phasellus at ultricies neque, quis malesuada augue. Donec eleifend condimentum nisl eu consectetur. Integer eleifend, nisl venenatis consequat iaculis, lectus arcu malesuada sem, dapibus porta quam lacus eu neque.</p>
+                        </div>
+                        <div class="line line-lg"></div>
+                        <div class="text-muted">
+                          <i class="fa fa-user icon-muted"></i> by <a href="#" class="m-r-sm">Admin</a>
+                          <i class="fa fa-clock-o icon-muted"></i> Feb 15, 2013
+                          <a href="#" class="m-l-sm"><i class="fa fa-comment-o icon-muted"></i> 4 comments</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-center m-t-lg m-b-lg">
+                    <ul class="pagination pagination-md">
+                      <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                      <li class="active"><a href="#">1</a></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                    </ul>
+                  </div>
+                  <h4 class="m-t-lg m-b">3 Comments</h4>
+                  <section class="comment-list block">
+                    <article id="comment-id-1" class="comment-item">
+                      <a class="pull-left thumb-sm">
+                        <img src="images/a0.png" class="img-circle">
+                      </a>
+                      <section class="comment-body m-b">
+                        <header>
+                          <a href="#"><strong>John smith</strong></a>
+                          <label class="label bg-info m-l-xs">作者</label> 
+                          <span class="text-muted text-xs block m-t-xs">
+                            24 minutes ago
+                          </span>
+                        </header>
+                        <div class="m-t-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat. Vestibulum.</div>
+                      </section>
+                    </article>
+                    <!-- .comment-reply -->
+                    <article id="comment-id-2" class="comment-item comment-reply">
+                      <a class="pull-left thumb-sm">
+                        <img src="images/a1.png" class="img-circle">
+                      </a>
+                      <section class="comment-body m-b">
+                        <header>
+                          <a href="#"><strong>John smith</strong></a>
+                          <label class="label bg-dark m-l-xs">Admin</label> 
+                          <span class="text-muted text-xs block m-t-xs">
+                            26 minutes ago
+                          </span>
+                        </header>
+                        <div class="m-t-sm">Lorem ipsum dolor sit amet, consecteter adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</div>
+                      </section>
+                    </article>
+                    <!-- / .comment-reply -->
+                    <article id="comment-id-2" class="comment-item">
+                      <a class="pull-left thumb-sm">
+                        <img src="images/a2.png" class="img-circle">
+                      </a>
+                      <section class="comment-body m-b">
+                        <header>
+                          <a href="#"><strong>John smith</strong></a>
+                          <label class="label bg-dark m-l-xs">Admin</label> 
+                          <span class="text-muted text-xs block m-t-xs">
+                            26 minutes ago
+                          </span>
+                        </header>
+                        <blockquote class="m-t">
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                          <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                        </blockquote>
+                        <div class="m-t-sm">Lorem ipsum dolor sit amet, consecteter adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</div>
+                      </section>
+                    </article>
+                  </section>
+                  <h4 class="m-t-lg m-b">Leave a comment</h4>
+                  <form>
+                    <div class="form-group pull-in clearfix">
+                      <div class="col-sm-6">
+                        <label>Your name</label>
+                        <input type="text" class="form-control" placeholder="Name">
+                      </div>
+                      <div class="col-sm-6">
+                        <label >Email</label>
+                        <input type="email" class="form-control" placeholder="Enter email">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label>Comment</label>
+                      <textarea class="form-control" rows="5" placeholder="Type your comment"></textarea>
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-success">Submit comment</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-sm-3">
+                  <h5 class="font-bold">分类</h5>
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <a href="#">
+                        <span class="badge pull-right">15</span>
+                        照片
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#">
+                        <span class="badge pull-right">30</span>
+                        格调
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#">
+                        <span class="badge pull-right">9</span>
+                        美食
+                      </a>
+                    </li>
+                    <li class="list-group-item">
+                      <a href="#">
+                        <span class="badge pull-right">4</span>
+                        环游世界
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="tags m-b-lg l-h-2x">
+                    <a href="#" class="label bg-primary">Bootstrap</a> <a href="#" class="label bg-primary">Application</a> <a href="#" class="label bg-primary">Apple</a> <a href="#" class="label bg-primary">Less</a> <a href="#" class="label bg-primary">Theme</a> <a href="#" class="label bg-primary">Wordpress</a>
+                  </div>
+                  <h5 class="font-bold">新近文章</h5>
+                  <div>
+                    <article class="media">
+                      <a class="pull-left thumb thumb-wrapper m-t-xs">
+                        <img src="images/m1.jpg">
+                      </a>
+                      <div class="media-body">                        
+                        <a href="#" class="font-semibold">Bootstrap 3: 知你所需</a>
+                        <div class="text-xs block m-t-xs"><a href="#">Travel</a> 2 minutes ago</div>
+                      </div>
+                    </article>
+                    <div class="line"></div>
+                    <article class="media m-t-none">
+                      <a class="pull-left thumb thumb-wrapper m-t-xs">
+                        <img src="images/m2.jpg">
+                      </a>
+                      <div class="media-body">                        
+                        <a href="#" class="font-semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+                        <div class="text-xs block m-t-xs"><a href="#">Design</a> 2 hours ago</div>
+                      </div>
+                    </article>
+                    <div class="line"></div>
+                    <article class="media m-t-none">
+                      <a class="pull-left thumb thumb-wrapper m-t-xs">
+                        <img src="images/m3.jpg">
+                      </a>
+                      <div class="media-body">                        
+                        <a href="#" class="font-semibold">Sed diam nonummy nibh euismod tincidunt ut laoreet</a>
+                        <div class="text-xs block m-t-xs"><a href="#">MFC</a> 1 week ago</div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+          <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
+        </section>
+      </section>
+    </section>    
+  </section>
+  <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+  <script src="http://cdn.bootcss.com/jquery-migrate/3.0.0/jquery-migrate.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://cdn.bootcss.com/jquery-validate/1.16.0/jquery.validate.js"></script>
+  <script src="js/app.js"></script>
+    <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
+
+  <script src="js/app.plugin.js"></script>
+    <script type="text/javascript" src="js/jPlayer/jquery.jplayer.min.js"></script>
+  <script type="text/javascript" src="js/jPlayer/add-on/jplayer.playlist.min.js"></script>
+  <script type="text/javascript" src="js/jPlayer/demo.js"></script>
+
+</body>
+</html>
