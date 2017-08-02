@@ -25,7 +25,9 @@ Modernizr.addTest('ios7 ipad',function(){return!!navigator.userAgent.match(/iPad
 
 
 // data-shift api 
-+function ($) { "use strict";
++function ($) {
+  
+  "use strict";
 
  /* SHIFT CLASS DEFINITION
   * ====================== */
