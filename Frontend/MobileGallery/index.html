@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>移动相册</title>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/zepto.fullpage/0.5.0/zepto.fullpage.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.css" rel="stylesheet">
+<style>
+	body { background-color: #000; }
+	ul { list-style: none; padding: 0; margin: 0; }
+	li {
+		float: left;
+		overflow: hidden;
+		/* width: 100px; */
+		/* height: 100px; */
+	}
+	/* img { width: 100%; } */
+</style>
+</head>
+<body>
+
+	<ul class="img-container" id="container">
+		<!-- <li><img src="http://mtl.ttsqgs.com/images/img/10715/1.jpg"></li> -->
+
+	</ul>
+	<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script>
+	<!-- <script src="http://cdn.bootcss.com/zepto.fullpage/0.5.0/js.fullpage.js"></script> -->
+	<!-- <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
+	<!-- <script src="http://cdn.bootcss.com/fullPage.js/2.9.4/jquery.fullpage.js"></script> -->
+	<!-- <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<script>
+	+function(){
+		let total = 8;
+		let zWin = $(window);
+
+		let render = function() {
+			let tmpl = '';
+			let padding = 2;
+			let winWidth = zWin.width();
+			let picWidth = Math.ceil((winWidth - padding*3) / 4);
+			for (let i = 1; i <= total; i++) {
+				let p = padding;
+				let imgSrc = `http://img1qn.moko.cc/2017-08-02/ed1c911c-0b4b-420a-9738-3447e5eaf703.jpg`;
+
+				if (i%4 == 1) {
+					p = 0;
+				}
+				// tmpl += `<li class="animated bounceIn" style="width:${picWidth}px;height:${picWidth}px;padding-left:${p}px;padding-top:${padding}px"><canvas id="cvs_${i}"></canvas></li>`;
+				tmpl += `<li class="animated bounceIn" style="width:${picWidth}px;height:${picWidth}px;padding-left:${p}px;padding-top:${padding}px"><canvas id="cvs_${i}"></canvas></li>`;
+
+				let imgObj = new Image();
+				imgObj.id = i;
+				imgObj.onload = function() {
+					let cvs = $('#cvs_' + this.id)[0].getContext('2d');
+					cvs.width = 479;
+					cvs.height = 479;
+					console.log(cvs.width, cvs.width, this)
+					cvs.drawImage(this, 0, 0, this.width, this.height, 0, 0, cvs.width, cvs.height);
+				}
+				imgObj.src = imgSrc;
+
+
+			}
+			$('#container').html(tmpl);
+		};
+		render();
+	}();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
