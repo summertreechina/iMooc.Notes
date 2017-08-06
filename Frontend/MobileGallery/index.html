@@ -16,18 +16,30 @@
 	li {
 		float: left;
 		overflow: hidden;
-		/* width: 100px; */
-		/* height: 100px; */
 	}
 	/* img { width: 100%; } */
+	.large {
+		height: 100%;
+		width: 100%;
+		background-color: #69c;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+	}
 </style>
 </head>
 <body>
 
-	<ul class="img-container" id="container">
-		<!-- <li><img src="http://mtl.ttsqgs.com/images/img/10715/1.jpg"></li> -->
-
+	<ul class="img-container clearfix" id="container"><!-- <li><img src="http://mtl.ttsqgs.com/images/img/10715/1.jpg"></li> -->
 	</ul>
+	<div class="large hidden">
+		<img src="" id="large_img">
+	</div>
+
+
+
 	<script src="http://cdn.bootcss.com/zepto/1.2.0/zepto.js"></script>
 	<!-- <script src="http://cdn.bootcss.com/zepto.fullpage/0.5.0/js.fullpage.js"></script> -->
 	<!-- <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script> -->
@@ -35,32 +47,34 @@
 	<!-- <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 <script>
 	+function(){
-		let total = 8;
+		let total = 58;
 		let zWin = $(window);
 
 		let render = function() {
 			let tmpl = '';
 			let padding = 2;
 			let winWidth = zWin.width();
-			let picWidth = Math.ceil((winWidth - padding*3) / 4);
+			let picWidth = Math.floor((winWidth - padding*2) / 3);
 			for (let i = 1; i <= total; i++) {
 				let p = padding;
-				let imgSrc = `http://img1qn.moko.cc/2017-08-02/ed1c911c-0b4b-420a-9738-3447e5eaf703.jpg`;
+				let imgSrc = `http://mtl.ttsqgs.com/images/img/10715/${i}.jpg`;
 
 				if (i%4 == 1) {
 					p = 0;
 				}
-				// tmpl += `<li class="animated bounceIn" style="width:${picWidth}px;height:${picWidth}px;padding-left:${p}px;padding-top:${padding}px"><canvas id="cvs_${i}"></canvas></li>`;
-				tmpl += `<li class="animated bounceIn" style="width:${picWidth}px;height:${picWidth}px;padding-left:${p}px;padding-top:${padding}px"><canvas id="cvs_${i}"></canvas></li>`;
+				tmpl += `<li class="animated pulse" style="width:${picWidth}px;height:${picWidth}px;padding-left:${p}px;padding-top:${padding}px"><canvas id="cvs_${i}"></canvas></li>`;
 
 				let imgObj = new Image();
 				imgObj.id = i;
 				imgObj.onload = function() {
-					let cvs = $('#cvs_' + this.id)[0].getContext('2d');
-					cvs.width = 479;
-					cvs.height = 479;
-					console.log(cvs.width, cvs.width, this)
-					cvs.drawImage(this, 0, 0, this.width, this.height, 0, 0, cvs.width, cvs.height);
+					let canvas = document.getElementById('cvs_' + this.id);
+					let context = canvas.getContext('2d');
+
+					canvas.width = picWidth;
+					canvas.height = picWidth;
+
+					// console.log(cvs, this)
+					context.drawImage(this, 0, 0, this.width, this.height, 0, 0, canvas.width, canvas.height);
 				}
 				imgObj.src = imgSrc;
 
@@ -69,6 +83,20 @@
 			$('#container').html(tmpl);
 		};
 		render();
+
+		$('#container').on('tap, click', 'li', function(event) {
+			event.preventDefault();
+			// 搞得这么麻烦纯粹是为了好玩
+			// 正则表达式 要经常用 否则就生疏了
+			// let patt = /pattern/modifiers;
+			// let patt = new RegExp("[^cvs]");
+			// img_id = img_id.split('cvs_')[1];
+			// console.log($(this).find('canvas')[0].id)
+			let img_id = $(this).find('canvas')[0].id;
+			img_id = img_id.match(/\d+/)[0];
+			console.log(img_id)
+
+		});
 	}();
 </script>
 </body>
