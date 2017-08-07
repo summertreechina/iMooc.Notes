@@ -1,4 +1,63 @@
 * {
 	margin: 0;
 	padding: 0;
+	// box-sizing: border-box;
 }
+header {
+	margin: 0 auto;
+	width: 500px;
+	text-align: center;
+}
+header h1 {
+	font-size: 60px;
+	font-weight: bold;
+}
+header #newGameBtn {
+	display: block;
+	margin: 20px auto;
+	width: 100px;
+	padding: 10px 10px;
+	background-color: #6c9;
+	color: #fff;
+	border-radius: 21px;
+}
+header #newGameBtn:hover {
+	background-color: #4a7;
+}
+header p {
+	font-size: 25px;
+	margin: 20px auto;
+}
+#grid-container {
+	height: 460px;
+	width: 460px;
+	padding: 20px;
+	margin: 50px auto;
+	background-color: #bbada0;
+	border-radius: 10px;
+	position: relative;
+}
+#grid-container .grid-cell {
+	width: 100px;
+	height: 100px;
+	border-radius: 6px;
+	background-color: #ccc0b3;
+	position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
