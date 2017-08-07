@@ -13,7 +13,7 @@ $(function(){
 	function init() {
 		for (let i = 0; i < 4; i++) {
 			for (let j = 0; j < 4; j++) {
-				console.log(i +'-'+ j);
+				// console.log(i +'-'+ j);
 				$('#grid-cell-'+i+'-'+j).css('left', '120px');
 				let gridCell = $('#grid-cell-'+i+'-'+j);
 				gridCell.css('top', getPosTop(i, j));
@@ -41,7 +41,30 @@ $(function(){
 	}
 
 	function updateBoardView() {
+		$('.number-cell').remove();
 
+		for (let i = 0; i < 4; i++) {
+			for (var j = 0; j < 4; j++) {
+				let number_cell = `<div class="number-cell" id="number-cell-${i}-${j}">0</div>`;
+				$('#grid-container').append(number_cell);
+				let $numberCell = $(`#number-cell-${i}-${j}`);
+
+				if (board[i][j] == 0) {
+					$numberCell.css('height', '0px');
+					$numberCell.css('width', '0px');
+					$numberCell.css('top', getPosTop(i, j) + 50 );
+					$numberCell.css('left', getPosLeft(i, j) + 50);
+				} else {
+					$numberCell.css('height', '100px');
+					$numberCell.css('width', '100px');
+					$numberCell.css('top', getPosTop(i, j));
+					$numberCell.css('left', getPosLeft(i, j));
+					$numberCell.css('background-color', getNumberBackgroundColor(board[i][j]));
+					$numberCell.css('color', getNumberColor(board[i][j]));
+					$numberCell.css(board[i][j]);
+				}
+			}
+		}
 	}
 });
 
