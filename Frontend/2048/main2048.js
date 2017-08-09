@@ -4,6 +4,30 @@ $(function(){
 
 	newGame();
 
+	$('#newGameBtn').on('click', function(event) {
+		event.preventDefault();
+		newGame();
+	});
+
+	$(document).keydown(function(event) {
+		switch(event.keyCode) {
+			case 37: 	// left
+				if (moveLeft()) {
+					generateOneNumber();
+					isGameOver();
+				}
+				break;
+			case 38: 	// up
+				break;
+			case 39: 	// right
+				break;
+			case 40: 	// down
+				break;
+			default:
+				break;
+		}
+	});
+
 	function newGame() {
 		// 初始化棋盘格
 		init();
@@ -130,8 +154,19 @@ $(function(){
 		}
 	}
 
-	function showNumberWithAnimation() {
-		
+	function showNumberWithAnimation(i, j, randNumber) {
+		let numberCell = $(`#number-cell-${i}-${j}`);
+
+		numberCell.css('background-color', getNumberBackgroundColor(randNumber));
+		numberCell.css('color', getNumberColor(randNumber));
+		numberCell.text(randNumber);
+
+		numberCell.animate({
+			width: '100px',
+			height: '100px',
+			top: getPosTop(i, j),
+			left: getPosLeft(i, j)
+		}, 500);
 	}
 
 
