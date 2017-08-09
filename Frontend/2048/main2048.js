@@ -8,6 +8,9 @@ $(function(){
 		// 初始化棋盘格
 		init();
 		// 随机在两个格子中生成数字
+		// generateNumber(2, 1);
+		generateOneNumber();
+		generateOneNumber();
 	}
 
 	function init() {
@@ -44,7 +47,7 @@ $(function(){
 		$('.number-cell').remove();
 
 		for (let i = 0; i < 4; i++) {
-			for (var j = 0; j < 4; j++) {
+			for (let j = 0; j < 4; j++) {
 				let number_cell = `<div class="number-cell" id="number-cell-${i}-${j}"></div>`;
 				$('#grid-container').append(number_cell);
 				let $numberCell = $(`#number-cell-${i}-${j}`);
@@ -91,6 +94,44 @@ $(function(){
 			return '#776e65';
 		}
 		return 'white';
+	}
+
+	function generateOneNumber() {
+		if (noSpace(board)) {
+			return false;
+		}
+		// 生成一个随机位置
+		let randx = parseInt(Math.floor(Math.random() * 4));
+		let randy = parseInt(Math.floor(Math.random() * 4));
+		while (true) {
+			if (board[randx][randy] == 0) {
+				break;
+			}
+			randx = parseInt(Math.floor(Math.random() * 4));
+			randy = parseInt(Math.floor(Math.random() * 4));
+		}
+		// 随机生成一个数字
+		let randNumber = (Math.random() > 0.5) ? 2 : 4;
+		// 在随机位显示随机数字
+		board[randx][randy] = randNumber;
+		showNumberWithAnimation(randx, randy, randNumber);
+
+		return true;
+	}
+
+	function noSpace(board) {
+		for (let i = 0; i < 4; i++) {
+			for (let j = 0; j < 4; j++) {
+				if (board[i][j] == 0) {
+					return false;
+				}
+				return true;
+			}
+		}
+	}
+
+	function showNumberWithAnimation() {
+		
 	}
 
 
