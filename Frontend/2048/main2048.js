@@ -18,10 +18,22 @@ $(function(){
 				}
 				break;
 			case 38: 	// up
+				if (moveUp()) {
+					generateOneNumber();
+					isGameOver();
+				}
 				break;
 			case 39: 	// right
+				if (moveRight()) {
+					generateOneNumber();
+					isGameOver();
+				}
 				break;
 			case 40: 	// down
+				if (moveDown()) {
+					generateOneNumber();
+					isGameOver();
+				}
 				break;
 			default:
 				break;
