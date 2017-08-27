@@ -421,7 +421,39 @@ header .main ul li a.active {
     cursor: not-allowed;
 }
 
+/* .footer */
 
+.footer {
+    padding: 3rem 0;
+    background-color: #fff;
+    border-top: 2px solid #eee;
+}
+.footer-content {
+    width: 90%;
+    margin: 0 auto;
+}
+.footer-content .brand {
+    float: left;
+    display: block;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    width: 20%;
+    height: 35px;
+    background: url('../img/logo@1x.png') no-repeat left;
+    background-size: 150px 35px;
+}
+.footer-content ul {
+    float: left;
+    width: 15%;
+}
+.footer-content ul li {
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+}
+.footer-content ul li.title {
+    font-size: 1.6rem;
+    line-height: 3rem;
+}
 
 
 
