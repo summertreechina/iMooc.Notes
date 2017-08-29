@@ -1,0 +1,19 @@
+{
+  "name": "readme",
+  "version": "0.0.1",
+  "description": "给亲爱的Nn",
+  "main": "readme.node.js",
+  "scripts": {
+    "test": "暂时没有测试命令"
+  },
+  "repository": {
+    "type": "git",
+    "url": "没有"
+  },
+  "keywords": [
+    "没有关键字"
+  ],
+  "author": "summercc",
+  "license": "ISC"
+  // 在目录中运行 'npm init' 命令就会自动创建 package.json 文件
+}
