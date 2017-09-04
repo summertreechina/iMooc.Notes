@@ -1,6 +1,6 @@
 (function(){
 	console.log("网页可见区域宽：" + document.body.clientWidth);
-	console.log("网页可见区域高：" + document.body.clientWidth);
+	console.log("网页可见区域高：" + document.body.clientHeight);
 	console.log("网页可见区域宽（包括边线的宽）：" + document.body.offsetWidth);
 	console.log("网页可见区域宽（包括边线的高）：" + document.body.offsetHeight);
 	console.log("网页正文全文宽：" + document.body.scrollWidth);

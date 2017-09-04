@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>妙味分页效果</title>
+	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+	<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<style>
+@media (min-width: 1800px) {
+	body {
+		background-color: #d9edf7;
+	}
+	.container {
+		width: 1780px;
+	}
+}
+.container .items {
+	padding-top: 60px;
+	padding-left: 0;
+	list-style: none;
+}
+.container .items .item {
+	display: inline-block;
+	width: 24%;
+	padding-bottom: 16%;
+	height: 0px;
+	line-height: 300px;
+	background: url("./img/3.jpg") no-repeat center;
+	background-size: 100% auto;
+	overflow: hidden;
+}
+.container .items .item img {
+	width: 100%;
+	vertical-align: middle;
+	vertical-align: bottom;
+	vertical-align: text-bottom;
+	vertical-align: baseline;
+	vertical-align: sub;
+	vertical-align: super;
+	vertical-align: top;
+	vertical-align: 30%;
+}
+.container .paging {
+	margin: 30px 60px;
+	text-align: center; 
+}
+.container .paging a {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 38px;
+	margin-right: -5px;
+	border: 1px solid #337ab7;
+	border-radius: 10px;
+}
+.container .paging a.current {
+	background-color: #337ab7;
+	color: #d9edf7;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="content">
+			<ul class="items">
+				<li class="item">
+					<img src="img/4.jpg">
+				</li>
+				<li class="item"></li>
+				<li class="item"></li>
+				<li class="item"></li>
+				<li class="item"></li>
+				<li class="item"></li>
+				<li class="item"></li>
+				<li class="item"></li>
+				<li class="item"></li>
+				<li class="item"></li>
+				<li class="item"></li>
+				<li class="item"></li>
+			</ul>
+			<div class="paging">
+				<a href="#" class="current">1</a>
+				<a href="#">2</a>
+				<a href="#">3</a>
+				<a href="#">4</a>
+				<a href="#">5</a>
+				<a href="#">6</a>
+				<a href="#">7</a>
+				<a href="#">8</a>
+				<a href="#">9</a>
+				<a href="#">10</a>
+			</div>
+		</div>
+	</div>
+	<div class="hiden">
+		<style>
+			.test {
+				width: 400px;
+				height: 200px;
+				/* border: 1px solid #666; */
+				overflow: hidden;
+				margin: 40px auto;
+				line-height: 198px;
+				text-align: center;
+				background: url("./img/2.jpg") no-repeat center;
+				background-size: 100% auto;
+			}
+			.test img {
+				width: 100px;
+			}
+		</style>
+		<div class="test">
+			<img src="img/2.jpg">
+		</div>
+	</div>
+
+	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+	<script src="main2.js"></script>
+	<script src="http://cdn.bootcss.com/jquery-validate/1.16.0/jquery.validate.js"></script>
+</body>
+</html>
