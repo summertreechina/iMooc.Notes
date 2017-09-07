@@ -49,10 +49,11 @@
 }
 .container .paging a {
 	display: inline-block;
-	width: 40px;
+	min-width: 40px;
 	height: 40px;
 	line-height: 38px;
-	margin-right: -5px;
+	padding: 0 12px;
+	margin-right: 5px;
 	border: 1px solid #337ab7;
 	border-radius: 10px;
 }
@@ -66,7 +67,7 @@
 	<div class="container">
 		<div class="content">
 			<ul class="items">
-				<!-- <li class="item">
+				<li class="item">
 					<img src="img/4.jpg">
 				</li>
 				<li class="item"></li>
@@ -79,10 +80,14 @@
 				<li class="item"></li>
 				<li class="item"></li>
 				<li class="item"></li>
-				<li class="item"></li> -->
+				<li class="item"></li>
 			</ul>
 			<div class="paging" id="paging">
-				<!-- <a href="#" class="current">1</a>
+				<span id="frist-page">
+					<a href="#">首页</a>
+					<a href="#"><i class="fa fa-hand-o-left"></i></a>
+				</span>
+				<a href="#" class="current">1</a>
 				<a href="#">2</a>
 				<a href="#">3</a>
 				<a href="#">4</a>
@@ -91,36 +96,41 @@
 				<a href="#">7</a>
 				<a href="#">8</a>
 				<a href="#">9</a>
-				<a href="#">10</a> -->
+				<a href="#">10</a>
+				<span id="last-page">
+					<a href="#"><i class="fa fa-hand-o-right"></i></a>
+					<a href="#">末页</a>
+				</span>
 			</div>
-		</div>
-	</div>
-	<div class="hiden test">
-		<style>
-			.hiden {
-				display: none;
-			}
-			.test {
-				width: 400px;
-				height: 200px;
-				overflow: hidden;
-				margin: 40px auto;
-				line-height: 198px;
-				text-align: center;
-				background: url("./img/2.jpg") no-repeat center;
-				background-size: 100% auto;
-			}
-			.test img {
-				width: 100px;
-			}
-		</style>
-		<div class="test">
-			<img src="img/2.jpg">
 		</div>
 	</div>
 
 	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
 	<script src="main2.js"></script>
+	<script src="move.js"></script>
 	<script src="http://cdn.bootcss.com/jquery-validate/1.16.0/jquery.validate.js"></script>
 </body>
 </html>
+<div class="hiden test">
+	<style>
+		.hiden {
+			display: none;
+		}
+		.test {
+			width: 400px;
+			height: 200px;
+			overflow: hidden;
+			margin: 40px auto;
+			line-height: 198px;
+			text-align: center;
+			background: url("./img/2.jpg") no-repeat center;
+			background-size: 100% auto;
+		}
+		.test img {
+			width: 100px;
+		}
+	</style>
+	<div class="test">
+		<img src="img/2.jpg">
+	</div>
+</div>
