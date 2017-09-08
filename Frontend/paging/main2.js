@@ -24,13 +24,9 @@
 		now_page = $(this).html()
 		if ($(this).html() === '首页') {
 			now_page = 1
-			// $('#frist-page').fadeOut()
-			// $('#last-page').fadeIn()
 			rend_paging(1)
 		} else if ($(this).html() === '末页') {
 			now_page = total_page
-			// $('#last-page').fadeOut()
-			// $('#frist-page').fadeIn()
 			rend_paging(now_page)
 		} else {
 			if ($(this).html() == '1') {
@@ -39,13 +35,16 @@
 			if ($(this).html() == total_page) {
 				rend_paging(total_page)
 			}
-			if ($(this).html() != '1' && $(this).html() != total_page) {
-				// $('#last-page').show()
-				// $('#frist-page').show()
+			if ($(this).find('i').hasClass('fa-hand-o-left')) {
+				now_page = $('#rend-area').find('.current').html()
+				rend_paging(now_page*1 - 1)
+			} else if ($(this).find('i').hasClass('fa-hand-o-right')) {
+				now_page = $('#rend-area').find('.current').html()
+				rend_paging(now_page*1 + 1)
+			} else {
 				rend_paging($(this).html())
 			}
 		}
-		// console.log(this)
 	});
 
 
@@ -55,10 +54,12 @@
 		if (now_page == 1) {
 			$('#frist-page').hide()
 			$('#last-page').fadeIn()
-		}
-		if (now_page == total_page) {
+		} else if (now_page == total_page) {
 			$('#last-page').hide()
 			$('#frist-page').fadeIn()
+		} else {
+			$('#last-page').show()
+			$('#frist-page').show()
 		}
 		if ((now_page*1 - 5) <= 0) {
 			for (let i = 1; i <= 10; i++) {
