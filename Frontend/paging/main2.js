@@ -5,7 +5,8 @@
 		'total_item' : 99,
 		'now_page' : 13,
 		'single_page_item' : 8,
-		'paging_container' : '#paging'
+		'paging_container' : '#paging',
+		'callBack' : 'function() {}'
 	}
 
 	let total_page = Math.ceil(json.total_item/8)
@@ -16,8 +17,13 @@
 	let frist_page = $('#frist-page')
 	let last_page = $('#last-page')
 	let pages = $('#paging>a')
+	let callBack = json.callBack || function() {
+		let readme = `根据用途制定一些后续的函数`
+	}
 
-	rend_paging(12)
+	let random_test = Math.ceil(Math.random()*1000)
+	rend_paging(random_test)
+
 
 	paging_container.on('click', 'a', function(e) {
 		e.preventDefault()
@@ -51,15 +57,17 @@
 
 	function rend_paging(now_page) {
 		let html_tmp = ``
+		total_page = 1000
 		if (now_page == 1) {
-			$('#frist-page').hide()
-			$('#last-page').fadeIn()
+			// 如此麻烦就是为了隐藏仍占据位置 不使页码跳动
+			document.querySelector('#frist-page').style.visibility="hidden"
+			document.querySelector('#last-page').style.visibility="visible"
 		} else if (now_page == total_page) {
-			$('#last-page').hide()
-			$('#frist-page').fadeIn()
+			document.querySelector('#last-page').style.visibility="hidden"
+			document.querySelector('#frist-page').style.visibility="visible"
 		} else {
-			$('#last-page').show()
-			$('#frist-page').show()
+			document.querySelector('#last-page').style.visibility="visible"
+			document.querySelector('#frist-page').style.visibility="visible"
 		}
 		if ((now_page*1 - 5) <= 0) {
 			for (let i = 1; i <= 10; i++) {
