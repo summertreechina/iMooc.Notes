@@ -1,0 +1,113 @@
+// ###### 基础公共样式 ######
+div:before {
+	display: table;
+	content: " ";
+}
+div:after {
+	display: table;
+	content: " ";
+	clear: both;
+}
+ul {
+	list-style: none;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+
+// ###### 页面自定义样式 ######
+div {
+	background-color: #666;
+}
+body {
+	min-width:825px;
+}
+.container-fluid {
+	padding: 0;
+}
+// 
+#pic_panel_shows {
+}
+#pic_panel_shows .p_p_main {
+	position: relative;
+	height: 400px;
+	-webkit-mask-image: url(../img/index/mask2.png);
+	// mask: url(../img/index/mask2.png) center;
+	// -webkit-mask: url(../img/index/mask2.png) repeat center;
+}
+#pic_panel_shows .p_p_main .item {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 0;
+	opacity: 0;
+	-webkit-transition:0.7s opacity ease;
+		-moz-transition:0.7s opacity ease;
+			-o-transition:0.7s opacity ease;
+}
+#pic_panel_shows .p_p_main .item:nth-child(1) {
+	z-index: 1;
+	opacity: 1;
+}
+#pic_panel_shows .p_p_main .item a {
+	display: block;
+}
+#pic_panel_shows .p_p_footer {
+	background: url(../img/index/scroll_bg.png);
+}
+#pic_panel_shows .p_p_footer #min_pic_lists {
+	width: 825px;
+	height: 76px;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+}
+#pic_panel_shows .p_p_footer #min_pic_lists li {
+	float: left;
+	margin: 5px 10px;
+	width: 145px;
+	height: 65px;
+	background: #000;
+}
+#active {
+	position: absolute;
+	left: 8px;
+	top: 3px; 
+	width: 145px;
+	height: 65px; 
+	border: 2px solid #FF780D; 
+	background: url(../img/index/arrow_on.png) no-repeat center 0; 
+	-webkit-transition: 0.7s left ease;
+		-moz-transition: 0.7s opacity ease;
+			-o-transition: 0.7s opacity ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
