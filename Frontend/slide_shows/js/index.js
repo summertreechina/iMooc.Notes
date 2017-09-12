@@ -31,9 +31,10 @@
 	let min_pics = min_pic_box.querySelectorAll('li')
 
 
-	for (let i = 0; i < min_pics.length; i++) {
-		min_pics[i].index = i;
+	for (let i in min_pics) {
+		min_pics[i].index = i
 	}
+
 
 	min_pic_box.onclick = function(event) {
 		event.preventDefault();
@@ -46,7 +47,30 @@
 			large_pics[i].style.opacity = 0
 		}
 		large_pics[clicked_pic_nod.index].style.opacity = 1
-	} 
+	}
+
+	auto_show()
+
+	function auto_show() {
+		// for (let i in large_pics) {
+		// 	// console.log(i)
+		// 	console.log(large_pics[i])
+		// 	// alert(i)
+		// }
+
+		// for (let el of min_pics) {
+		// 	console.log(el)
+		// }
+let i = 0
+		for (let el of large_pics) {
+			
+			el.index = i
+			el.id = i
+			i++
+			console.log(el)
+		}
+	}
+
 
 
 
