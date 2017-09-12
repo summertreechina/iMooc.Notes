@@ -30,19 +30,23 @@
 	let large_pics = large_pic_box.querySelectorAll('.large_pic')
 	let min_pics = min_pic_box.querySelectorAll('li')
 
-	// console.log(panel_shows, large_pic_box, min_pic_box, active_el, large_pics, min_pics)
-	let i_zindex = 1;
-	let i_now = 0;
 
-	min_pic_box.onclick = function() {
-		console.log(this)
+	for (let i = 0; i < min_pics.length; i++) {
+		min_pics[i].index = i;
+	}
+
+	min_pic_box.onclick = function(event) {
+		event.preventDefault();
+		
+		let clicked_pic_nod = event.target.parentNode
+
+		active_el.style.left = clicked_pic_nod.offsetLeft + "px"
+
+		for (let i = 0; i < large_pics.length; i++) {
+			large_pics[i].style.opacity = 0
+		}
+		large_pics[clicked_pic_nod.index].style.opacity = 1
 	} 
-
-
-	// for (let i = 0; i < .length; i++) {
-	// 	[i]
-	// }
-
 
 
 
