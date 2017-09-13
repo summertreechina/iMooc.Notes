@@ -1,0 +1,13 @@
+// ###### 基础公共样式 ######
+div:before {
+	display: table;
+	content: " ";
+}
+div:after {
+	display: table;
+	content: " ";
+	clear: both;
+}
+
+
+

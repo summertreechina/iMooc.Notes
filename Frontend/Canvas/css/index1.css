@@ -1,0 +1,78 @@
+/* ==============================
+	       基础公共样式 
+===============================*/
+html {
+	font-size: 62.5%;
+	color: #222;
+}
+::selection {
+	background-color: #b3d4fc;
+	text-shadow: none;
+}
+div:before {
+	display: table;
+	content: " ";
+}
+div:after {
+	display: table;
+	content: " ";
+	clear: both;
+}
+div {
+	background-color: #bbb;
+	min-height: 200px;
+}
+
+@media screen and (min-width: 1900px) {
+	.container {
+		width: 1800px;
+	}
+	#imgs-box {
+		width: 100%;
+		background-color: #fff;
+	}
+}
+
+#imgs-box {
+	margin: 80px 0;
+}
+#imgs-box a {
+	display: inline-block;
+	width: 18%;
+}
+#imgs-box a img {
+	width: 100%;
+	border: solid 1px #ddd;
+	margin: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
