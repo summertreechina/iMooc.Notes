@@ -34,6 +34,8 @@
 	for (let i in min_pics) {
 		min_pics[i].index = i
 	}
+	
+	auto_show()
 
 
 	min_pic_box.onclick = function(event) {
@@ -49,9 +51,22 @@
 		large_pics[clicked_pic_nod.index].style.opacity = 1
 	}
 
-	auto_show()
 
 	function auto_show() {
+		let i = 0
+		let timer = setInterval(function() {
+			active_el.style.left = min_pics[i].offsetLeft + 'px'
+
+			for (let large_pic of large_pics) {
+				large_pic.style.opacity = 0
+			}
+			large_pics[i].style.opacity = 1
+			i++
+			
+			i = i % (large_pics.length)
+			console.log(i)
+		}, 3000)
+
 		// for (let i in large_pics) {
 		// 	// console.log(i)
 		// 	console.log(large_pics[i])
@@ -61,14 +76,14 @@
 		// for (let el of min_pics) {
 		// 	console.log(el)
 		// }
-let i = 0
-		for (let el of large_pics) {
+		// let i = 0
+		// for (let el of large_pics) {
 			
-			el.index = i
-			el.id = i
-			i++
-			console.log(el)
-		}
+		// 	el.index = i
+		// 	el.id = i
+		// 	i++
+		// 	console.log(el)
+		// }
 	}
 
 
