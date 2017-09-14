@@ -46,7 +46,8 @@
 													// console.log($imgs_box.innerWidth())
 	let tpl = ''
 	for (let el of json) {
-		tpl += `<a href="${el.url}" target="_blank"><img src="${el.url}" alt="#"></a>`
+		// tpl += `<a href="${el.url}" target="_blank"><img src="${el.url}" alt="#"></a>`
+		tpl += `<a href="${el.url}" target="_blank"></a>`
 	}
 	$imgs_box.append(tpl)
 
@@ -56,8 +57,28 @@
 	img.onload = function(e) {
 		this.scale = this.width / this.height
 		this.scale = xround(this.scale, 2)
+
+		if (this.scale < 0.8) {
+			this.width = 400
+			this.width = 600
+		} else if (this.scale > 1.2){
+			this.width = 600
+			this.width = 400
+		} else {
+			this.width = 500
+			this.width = 500
+		}
+
+		let canvas = document.getElementById('cvs_' + this.id);
+		let context = canvas.getContext('2d');
 	}
 
+
+
+
+
+
+	// 保留几位bit小数的四舍五入函数
 	function xround(num, bit){
 		return Math.round(num * Math.pow(10, bit)) / Math.pow(10, bit)
 	}
@@ -69,19 +90,25 @@
 		v_img.width = $imgs_box.innerWidth() / 4
 		v_img.height = v_img.width * 3 / 2
 		console.log(v_img.width, v_img.height)
-		// console.log()
+		// 400 * 600
 
 	//  横幅照片模型
 	let h_img = {}
 		h_img.height = v_img.width
 		h_img.width = v_img.height
-		console.log(h_img.width, h_img.height)
+		// console.log(h_img.width, h_img.height)
+		// 600 * 400
 
 
 	//  正方形照片模型
 	let s_img = {}
 		s_img.width = s_img.height = v_img.width
-		console.log(s_img.height, v_img.width)
+		// console.log(s_img.height, v_img.width)
+		// 500 * 500 or 600 * 600
+
+
+
+
 
 
 

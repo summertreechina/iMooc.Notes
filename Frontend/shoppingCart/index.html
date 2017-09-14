@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>用JavaScript实现购物车</title>
+  <link href="./semantic/dist/semantic.css" rel="stylesheet">
+  <link href="./css/style.css" rel="stylesheet">
+</head>
+<body>    
+<!-- 导航条开始 -->
+<!-- 导航条结束 -->
+
+<!-- Container开始 -->
+  <div class="ui container">
+    <!-- 购物车开始 -->
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th><label><input class="check-all check" type="checkbox"/>&nbsp;全选</label> </th>
+          <th>商品</th>
+          <th>单价</th>
+          <th>数量</th>
+          <th>小计</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+          <td class="goods"><img src="./images/1.jpg" alt=""><span>Casio/卡西欧 EX-TR350</span></td>
+          <td class="price">5999.88</td>
+          <td class="count">
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="1"/>
+            <span class="add">+</span>
+          </td>
+          <td class="subtotal">5999.88</td>
+          <td class="operation">
+            <span class="delete">删除</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+          <td class="goods"><img src="./images/2.jpg" alt=""><span>Canon/佳能 PowerShot SX50 HS</span></td>
+          <td class="price">3888.50</td>
+          <td class="count">
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="1"/>
+            <span class="add">+</span>
+          </td>
+          <td class="subtotal">3888.50</td>
+          <td class="operation">
+            <span class="delete">删除</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+          <td class="goods"><img src="./images/3.jpg" alt=""><span>Sony/索尼 DSC-WX300</span></td>
+          <td class="price">1428.50</td>
+          <td class="count">
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="1"/>
+            <span class="add">+</span>
+          </td>
+          <td class="subtotal">1428.50</td>
+          <td class="operation">
+            <span class="delete">删除</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+          <td class="goods"><img src="./images/4.jpg" alt=""><span>Fujifilm/富士 instax mini 25</span></td>
+          <td class="price">640.60</td>
+          <td class="count">
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="1"/>
+            <span class="add">+</span>
+          </td>
+          <td class="subtotal">640.60</td>
+          <td class="operation">
+            <span class="delete">删除</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+          <td class="goods"><img src="./images/5.jpg" alt=""><span>柯达400</span></td>
+          <td class="price">400.88</td>
+          <td class="count">
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="1"/>
+            <span class="add">+</span>
+          </td>
+          <td class="subtotal">400.88</td>
+          <td class="operation">
+            <span class="delete">删除</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+          <td class="goods"><img src="./images/6.jpg" alt=""><span>Fujifilm/富士 X-A1</span></td>
+          <td class="price">6766.09</td>
+          <td class="count">
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="1"/>
+            <span class="add">+</span>
+          </td>
+          <td class="subtotal">6766.09</td>
+          <td class="operation">
+            <span class="delete">删除</span>
+          </td>
+        </tr>
+        <tr class="">
+          <td class="checkbox"><input class="check-one check" type="checkbox"/></td>
+          <td class="goods"><img src="./images/7.jpg" alt=""><span>Canon/佳能 DV</span></td>
+          <td class="price">3000</td>
+          <td class="count">
+            <span class="reduce"></span>
+            <input class="count-input" type="text" value="1"/>
+            <span class="add">+</span>
+          </td>
+          <td class="subtotal">3000</td>
+          <td class="operation">
+            <span class="delete">删除</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="foot" id="foot">
+      <label class="fl select-all"><input type="checkbox" class="check-all check">&nbsp;全选</label>
+      <a href="javascript:;" class="fl delete" id="deleteAll">删除</a>
+      <div class="fr closing">结 算</div>
+      <div class="fr total">合计：¥ <span id="priceTotal">0.00</span></div>
+      <div class="fr selected" id="selected">已选商品
+        <span id="selectedTotal">0</span>类
+        <span class="arrow up">︽</span>
+        <span class="arrow down">︾</span>
+      </div>
+      <div class="selected-view">
+        <div id="selectedViewList" class="clearfix">
+          <!-- <div><img src="./images/1.jpg"><span class="delete">取消选择</span></div> -->
+        </div>
+        <span class="arrow">.<span>.</span> </span>
+      </div>
+    </div>
+    <!-- 购物车结束 -->
+
+  </div>
+<!-- Container结束 -->
+
+
+  <script src="../Lib/jquery-3.1.0.js"></script>
+  <script src="../Lib/jquery-migrate-3.0.0.js"></script>
+  <script src="./Semantic/dist/semantic.js"></script>
+  <script src="./js/shoppingCart.js"></script>
+</body>
+</html>

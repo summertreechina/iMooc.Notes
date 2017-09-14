@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MY TodoList Demo</title>
+    <link href="../Lib/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Font-Awesome/css/font-awesome.min.css">
+    <link href="./CSS/TodoList.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hello "TodoList Demo"!</h1>
+      <div class="row todolist">
+        <h2>MY TodoList <small>style 1</small></h2>
+        <div class="col-lg-8 col-lg-offset-1">是我</div>
+      </div>
+
+      <div class="row todolist">
+        <h2>MY TodoList <small>style 2</small></h2>
+        <form class="add-task">
+          <input class="" name="content" type="text" placeholder="..." autofocus="autofocus" autocomplete="off">
+          <button type="submit">Submit</button>
+        </form><!-- 添加任务 -->
+        <div class="task-list">
+          <div class="task-item">
+            <span><input type="checkbox" value="checked" class="complete"></span><!-- 选择框 -->
+            <span class="task-content">这里是单个任务范例</span>
+            <a type="button" class="btn btn-xs btn-info delete" data-id=""><i class="icon-info-sign icon-large"></i>Info</a><!-- 详情 -->
+            <a type="button" class="btn btn-xs btn-danger detail" data-id=""><i class="icon-trash icon-large"></i> Delete</a><!-- 删除 -->
+          </div>
+        </div><!-- 展示任务列表 -->
+        <div class="task-detail hidden">
+          <form>
+          <div class="content">这里是标题...</div>
+          <div>
+            <div class="description"><!-- 描述 -->
+              <textarea class="form-control" rows="7"></textarea>
+            </div>
+          </div>
+          <div class="remind"><!-- 提醒 -->
+            <input type="datetime-local">
+            <!-- <button type="submit">Submit</button> -->
+          </div>
+          </form>
+        </div><!-- 任务详情 -->
+      </div>
+    </div>
+    <div class="task-detail-mask hidden"></div><!-- 遮罩层 -->
+    
+
+
+
+
+
+    <script src="../Lib/jquery-3.1.0.js"></script>
+    <script src="../Lib/jquery-migrate-3.0.0.js"></script>
+    <script src="../base/store/store.min.js"></script>
+    <script src="../Lib/bootstrap.js"></script>
+    <script src="./JS/TodoList.js"></script>
+  </body>
+</html>

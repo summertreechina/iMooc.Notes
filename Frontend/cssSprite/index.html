@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSS之Sprite雪碧图</title>
+	<style>
+		h3, ul {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		li h3 {
+			font-size: 14px;
+			font-weight: 400;
+		}
+		li {
+			display: block;
+			line-height: 31px;
+			height: 31px;
+			overflow: hidden;
+			border-bottom: 1px solid #dedede;
+		}
+		li i {
+			display: inline;
+			background: url('sidebar.png') no-repeat;
+			width: 30px;
+			height: 24px;
+			float: left;
+			margin: 4px 8px 0 18px;
+		}
+		.cat-1 i { background-position: 0 0; }
+		.cat-2 i { background-position: 0 -24px; }
+		.cat-3 i { background-position: 0 -48px; }
+		.cat-4 i { background-position: 0 -72px; }
+		.cat-5 i { background-position: 0 -96px; }
+		.cat-6 i { background-position: 0 -120px; }
+		.cat-7 i { background-position: 0 -144px; }
+		.cat-8 i { background-position: 0 -168px; }
+		.cat-9 i { background-position: -40px 0; }
+		.cat-10 i{ background-position: -40px -24px; }
+		.sidebar {
+			width: 150px;
+			margin: 30px;
+			border: 1px solid #bbb;
+			background: #f8f8f8;
+		}
+	</style>
+</head>
+<body>
+	<div class="sidebar">
+		<ul>
+			<li class="cat-1">
+				<i></i>
+				<h3>服装</h3>
+			</li>
+			<li class="cat-2">
+				<i></i>
+				<h3>鞋帽</h3>
+			</li>
+			<li class="cat-3">
+				<i></i>
+				<h3>运动</h3>
+			</li>
+			<li class="cat-4">
+				<i></i>
+				<h3>珠宝</h3>
+			</li>
+			<li class="cat-5">
+				<i></i>
+				<h3>内衣</h3>
+			</li>
+			<li class="cat-6">
+				<i></i>
+				<h3>囡囡</h3>
+			</li>
+			<li class="cat-7">
+				<i></i>
+				<h3>喃喃</h3>
+			</li>
+			<li class="cat-8">
+				<i></i>
+				<h3>楠楠</h3>
+			</li>
+			<li class="cat-9">
+				<i></i>
+				<h3>南南</h3>
+			</li>
+			<li class="cat-10">
+				<i></i>
+				<h3>男男女女</h3>
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>

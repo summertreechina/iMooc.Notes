@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>图片的预加载之无序加载</title>
+    <link href="../Lib/bootstrap.css" rel="stylesheet">
+    <link href="" rel="stylesheet">
+    <style>
+      html, body {
+        font-size: 14px;
+        height: 100%;
+        /* position: relative; */
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      .box {
+        text-align: center;
+        box-shadow: .1em .1em .8em rgba(10, 142, 245, 0.25) inset;
+      }
+      .btn {
+        display: inline-block;
+        line-height: 2em;
+        border: 0.2em solid #981313;
+        border-radius: 2em;
+        margin: 1em 3em;
+        padding: .6em 3em;
+      }
+      .btn:hover {
+        border: 0.2em solid rgba(10, 142, 245, 0.55);
+        color: #eee;
+        cursor: pointer;
+      }
+      #loading-mask {
+        position: fixed;
+        background-color: rgba(1, 2, 3, 0.85);
+        left: 0; top: 0; right: 0; bottom: 0;
+      }
+      .progress {
+        /* position: fixed; */
+        position: absolute;
+        height: .6em;
+        width: 33%;
+        top: 40%;
+        left: 33%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <!-- <h3>图片的预加载</h3> -->
+      <img src="https://photo.tuchong.com/427043/f/18514561.jpg" alt="" id="img"／>
+      <p>
+        <a href="javascript:;" class="btn" data-control="prev">上一页</a>
+        <a href="javascript:;" class="btn" data-control="next">下一页</a>
+      </p>
+
+      <div id="loading-mask">
+        <div class="progress">
+          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <script src="../Lib/jquery-3.1.0.js"></script>
+    <script src="../Lib/jquery-migrate-3.0.0.js"></script>
+    <script src="../Lib/bootstrap.js"></script>
+    <!-- <script src="./js/index.js"></script> -->
+    <script src="./js/preload.js"></script>
+    <script>
+      $(function(){
+        var imgs          = [
+          'https://photo.tuchong.com/427043/f/18514561.jpg',
+          'https://photo.tuchong.com/427043/f/18514562.jpg',
+          'https://photo.tuchong.com/427043/f/18514563.jpg',
+          'https://photo.tuchong.com/427043/f/18514564.jpg',
+          'https://photo.tuchong.com/427043/f/18514565.jpg',
+          'https://photo.tuchong.com/427043/f/18514566.jpg',
+          'https://photo.tuchong.com/1071722/f/16732104.jpg',
+          'https://photo.tuchong.com/1071722/f/16732115.jpg',
+          'https://photo.tuchong.com/1071722/f/16732113.jpg',
+          'https://photo.tuchong.com/1052882/f/15887799.jpg',
+          'https://photo.tuchong.com/1052882/f/15887990.jpg',
+          'https://photo.tuchong.com/1052882/f/15887800.jpg',
+          'https://photo.tuchong.com/1052882/f/15887804.jpg',
+          'https://photo.tuchong.com/1285120/f/28057169.jpg',
+          'https://photo.tuchong.com/1285120/f/28057171.jpg',
+          'https://photo.tuchong.com/1285120/f/28057173.jpg',
+          'https://photo.tuchong.com/1285120/f/28057174.jpg',
+          'https://photo.tuchong.com/1285120/f/28057175.jpg'
+        ];
+        var $btn          = $('.btn');
+        var len           = imgs.length;
+        var $progress_bar = $('.progress-bar');
+        var $img          = $('#img');
+        var index         = 0;
+        // 
+        $.preload(imgs, {
+          every_once : function(ratio) {
+            $progress_bar.attr({
+              'aria-valuenow': ratio,
+              'style': 'width:' + ratio*100 + '%'
+            });
+          },
+          all :function() {
+            setTimeout(function(){
+              $('#loading-mask').hide();
+            }, 2000);
+          }
+        });
+        // 
+        $btn.on('click', function(e) {
+          e.preventDefault();
+
+          if ($(this).data('control') === 'prev') {
+            --index;
+            index = Math.max(0, index);
+          } else {
+            ++index;
+            index = Math.min((len-1), index);
+          }
+          document.title = '第' +(index+1)+ '张/共' +len+ '张';
+          $img.attr('src', imgs[index]);
+        });
+         
+      })
+
+
+    </script>
+  </body>
+</html>

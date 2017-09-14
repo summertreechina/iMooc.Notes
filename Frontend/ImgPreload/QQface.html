@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>图片的预加载之QQ表情包</title>
+	<link href="" rel="stylesheet">
+	<style>
+		body, p, ul, li {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			background-color: #eee;
+		}
+		a {
+			text-decoration: none;
+		}
+		li {
+			direction: none;
+			list-style: none;
+		}
+		.box {
+			width: 50em;
+			margin: 12em auto;
+		}
+		.face-btn {
+			display: block;
+			width: 7em;
+			padding: 2em 0;
+			background: url('./img/upload1.png') no-repeat;
+			background-size: 3em;
+			background-origin: content-box;
+			background-position: 0px 0;
+			text-indent: 3em;
+		}
+		.face-btn:hover {
+			background-position: -26px 0;
+		}
+		.panel {
+			display: none;
+			width: 800px;
+			padding: 4px;
+			border: 1px solid #ccc;
+			background: #fff;
+		}
+		.loading {
+			text-align: center;
+		}
+		.face-list li {
+			display: inline-block;
+			width: 4em;
+			height: 4em;
+			margin-bottom: 1em;
+			border: 1px solid #fff;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.face-list li:hover {
+			border-color: #07c;
+			position: relative;
+			top: -.2em;
+		}
+		.face-list li img {
+			width: 100%;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<a href="javascript:;" class="face-btn">QQ表情</a>
+		<div class="panel">
+			<p class="loading">动画表情正在加载中......</p>
+		</div>
+	</div>
+
+	<script src="../Lib/jquery-3.1.0.js"></script>
+	<script src="../Lib/jquery-migrate-3.0.0.js"></script>
+	<script src="./js/preload.js"></script>
+	<script>
+	$(function() {
+		let $box       = $('.box');
+		let $face_btn  = $('.face-btn');
+		let $panel     = $('.panel');
+		let $loading   = $('.loading');
+		var imgs       = [];
+		let $face_list = $('.face-list');
+
+		for (let i = 0; i < 10; i++) {
+			imgs[i] = './face/0' + i + '.gif';
+		}
+		for (let i = 10; i <= 23; i++) {
+			imgs[i] = './face/' + i + '.gif';
+		}
+
+		let options = {
+			all : function() {
+				let html = '';
+				html = '<ul class="face-list">';
+				$.each(imgs, function(i, src) {
+					html += '<li><img src=" '+ src + '" alt="QQ表情" class="min"></li>';
+				});
+				html += '</ul>';
+				$panel.html(html);
+			}
+		};
+
+		$(document).on('click', function(e) {
+			e.preventDefault();
+
+			let el = e.target;
+			console.log(this);
+			if (el.className == 'face-btn') {
+				$panel.show();
+				setTimeout(function(){
+					$.preload(imgs, options);
+				},1000)
+			} else {
+				$panel.hide();
+			}
+		});
+
+	});
+		
+	</script>
+</body>
+</html>

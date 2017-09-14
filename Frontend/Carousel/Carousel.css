@@ -1,0 +1,9 @@
+.container-fluid { /*background-color: rgba(255, 152, 0, 0.66)*/ }
+.Carousel { position: relative; width: 1200px; height: 400px; /*background-color: rgba(86,199,128,0.62);*/ }
+.Carousel .poster-list { width: 1200px; height: 400px; list-style: none; margin-bottom: 0; padding-left: 0; /*background-color: rgba(44,29,28,0.12);*/ }
+.Carousel .poster-btn { position: absolute; top: 0; width: 160px; height: 400px; line-height: 400px; font-size: 88px; text-align: center; color : white; cursor: pointer; background-color: rgba(255,255,255,0.62); }
+.Carousel .poster-btn-left { left: 0; z-index: 2; }
+.Carousel .poster-btn-right { right: 0; z-index: 2; }
+.Carousel .poster-list .poster-item { position: absolute; left: 0; top: 0; width: 600px; height: 400px; }
+.Carousel .poster-list .poster-item a, .Carousel .poster-list .poster-item a img { display: block; }
+.Carousel .poster-list .poster-item a img { width: 100%; /*width: 600px; height: 400px;*/ }

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML5 full-screen全屏探索</title>
+    <link href="" rel="stylesheet">
+    <style>
+    	body {
+    	}
+    	.full {
+    	    text-align: center;
+    	    cursor: pointer;
+    	}
+
+    	.full img {
+    		/*height: 900px;*/
+    	    /*vertical-align: middle;*/
+    	}
+
+    	.full:hover img {
+    	    box-shadow: 2px 2px 4px rgba(0,0,0,.45);
+    	}
+    </style>
+  </head>
+  <body>
+  	<div class="full" id="div" title="点击全屏浏览"><img id="img" src="./img/5.jpg" /></div>
+  	<script src="../Lib/jquery-3.1.0.js"></script>
+  	<script src="../Lib/jquery-migrate-3.0.0.js"></script>
+  	<script>
+
+  		;(function($) {
+
+  			/*这是核心方法*/
+  			function ex_1() {
+	  			$('.full').on('click', function(){
+	  				this.webkitRequestFullScreen();
+	  			});
+
+	  			$('img').on('click', function(e){
+	  				e.preventDefault();
+	  				this.webkitRequestFullScreen();
+	  			});
+	  		}
+
+	  		/*这是进一步试探兼容实现*/
+	  		function ex_2() {
+	  			function fullScreen(el) {
+	  				if (el.requestFullscreen) {
+	  					el.requestFullscreen();
+	  				} else if (el.webkitRequestFullScreen) {
+	  					el.webkitRequestFullScreen();
+	  				} else if (el.mozRequestFullScreen) {
+	  					el.mozRequestFullScreen();
+	  				}
+	  			}
+	  			// 执行
+	  			var img = $('#img')
+	  			img.on('click', function(){
+	  				fullScreen(this);
+	  			});
+	  		}
+	  		/*简写 未验证*/
+	  		function ex_3() {
+	  			var flag = true;
+	  			if (flag) {
+	  				fullScreen(this);
+	  				flag = false;
+	  			} else {
+	  				cancelFullScreen();
+	  				// cancelFullScreen(document);
+	  				flag = true;
+	  			}
+	  		}
+	  		/*非常烧脑的一个函数*/
+	  		function ex_4() {
+	  			
+	  			// 始终找不到是从哪里执行的el.webkitRequestFullScreen() 但却确实是执行了
+		  		var eleFull = document.querySelector(".full");
+		  		eleFull.addEventListener("click", function() {
+		  		    if (runPrefixMethod(document, "FullScreen") || runPrefixMethod(document, "IsFullScreen")) {
+		  		        runPrefixMethod(document, "CancelFullScreen");
+		  		        // this.title = this.title.replace("退出", "");
+		  		    } else {
+		  		    	runPrefixMethod(this, "RequestFullScreen")
+		  		        // this.title = this.title.replace("点击", "点击退出");
+		  		    }
+		  		});
+
+
+		  		function runPrefixMethod (element, method) {
+		  		    var usablePrefixMethod;
+		  		    ["webkit", "moz", "ms", "o", ""].forEach(function(prefix) {
+		  		        // if (usablePrefixMethod) return;
+		  		        if (prefix === "") {
+		  		            method = method.slice(0,1).toLowerCase() + method.slice(1);
+		  		            // 结果： method:fullScreen | isFullScreen | requestFullScreen
+		  		        }
+		  		        
+		  		        var typePrefixMethod = typeof element[prefix + method];
+		  		        // 结果: typePrefixMethod: undefined | boolean | undefined | function | undefined
+
+		  		        if (typePrefixMethod + "" !== "undefined") {
+		  		            if (typePrefixMethod === "function") {
+		  		                usablePrefixMethod = element[prefix + method]();
+		  		                // 结果： usablePrefixMethod： undefined | undefined
+		  		            } else {
+		  		                usablePrefixMethod = element[prefix + method];
+		  		                // 结果： usablePrefixMethod： false | true
+		  		            }
+		  		        }
+		  		    });
+		  		    
+		  		    return usablePrefixMethod;
+		  		};
+	  		}
+
+
+  		})(jQuery, document);
+  	</script>
+  </body>
+</html>

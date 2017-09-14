@@ -1,0 +1,257 @@
+<!-- <!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>absolute</title>
+	<style>
+		body {
+		    background-color: #B0DEF5;
+			font-size: 14px; font-family: arial;
+			color: #444;
+		}
+		a {
+			color: #0078b6;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		em {
+			font-style: normal;
+			color: #aeaeae;
+			margin: 0 5px;
+		}
+		svg {
+			position: absolute;
+		}
+		.container {
+			width: 560px; height: -webkit-calc(100vh - 16px); height: calc(100vh - 16px);
+			margin-left: auto; margin-right: auto;
+			background-color: #fff;
+		}
+		.list {
+			padding: 20px;
+			position: relative;
+		}
+		.space {
+			padding-left: 60px;
+			line-height: 22px;
+		}
+		.space img {
+			vertical-align: text-bottom;
+		}
+		.info {
+			font-size: 12px;
+			overflow: hidden;
+			color: #808080;
+		}
+		.from {
+			float: left;
+		}
+		.from a {
+			color: #9abbc8;
+		}
+		p {
+			margin: 6px 0;
+		}
+		.operate {
+			float: right;
+		}
+		.operate img {
+			vertical-align: text-bottom;
+			margin-right: 3px;
+		}
+		.test {
+			position: relative;
+			font-size: 18px; font-family: 'microsoft yahei';
+		}
+		.test p {
+		   width: 200px;
+		   margin-left: auto; margin-right: auto;
+		   padding: 5px;
+		   background-color: #f0f0f0;	
+		}
+		.test input {
+			width: 20px; height: 20px;
+			vertical-align: -4px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<svg xmlns="http://www.w3.org/2000/svg" width="920" height="360">
+			<path d="M45 80C45 280,45 320,165 300" stroke-width="1" stroke="#444" fill="none"></path>
+		</svg>
+		<div class="list">
+	    	<a href="#" id="avatar" class="avatar" style="float: left;"><img src="http://img.mukewang.com/54447ac70001f5cc00500050.jpg"></a>
+	        <div class="space">
+	            <a href="//weibo.com/mukewang" target="_blank" title="慕课网">慕课网</a>
+	            <img src="http://img.mukewang.com/54447b1a0001750000160013.png">
+	            <a href="http://huati.weibo.com/k/%E6%85%95%E8%AF%BE%E7%BD%91%E6%B4%BB%E5%8A%A8?from=501">#慕课网活动#</a>【全民晒课ing，火速赢取IT图书】无论你是慕课网的“资深粉丝”，还是刚加入的新同学，在慕课网活动帖：<a href="http://www.imooc.com/wenda/detail/30394">http://www.imooc.com/wenda/detail/30394</a> 写下你在慕课网所学习的任意一门课程，并附上课程的学习心得，就有机会赢得精品IT好书。<img src="http://img.mukewang.com/54447cc700010dbf00220022.gif">这事很急哒，仅有2天呦。在<a href="http://huati.weibo.com/k/%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82?from=501">#程序员节#</a>送给自己一份礼物吧！<img src="http://img.mukewang.com/54447af90001ab1c00010001.gif">
+	            <p><img src="http://img.mukewang.com/54447aea0001f43301200084.jpg"></p>
+	            <div class="info">    
+	               	<span class="from">
+	                	<a href="#">9月13日 10:27</a> 
+	                    <em>来自</em><a href="#">微博 weibo.com</a>                      
+	                </span>
+	                <span class="operate">
+	                	<a href="javascript:" title="赞"><img src="http://img.mukewang.com/54447c350001055b00120013.png">(4)</a><em>|</em>
+	                    <a href="javascript:">转发(5)</a><em>|</em>
+	                    <a href="javascript:">收藏</a><em>|</em>
+	                    <a href="javascript:">评论(2)</a>
+	                </span>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="test">
+	    	<p><input type="radio" name="layout" id="float" checked><label for="float">float: left;</label></p>
+	        <p><input type="radio" name="layout" id="absolute"><label for="absolute">position: absolute;</label></p>
+	    </div>
+	</div>
+	<script>
+		var eleAvatar = document.getElementById("avatar"),
+		    eleFloat = document.getElementById("float"),
+			eleAbsolute = document.getElementById("absolute");
+
+		// SVG路径以及相关动画
+		var elePath = document.querySelector("path"), timerPath = null;	
+		var funPathMove = function(end) {
+			clearTimeout(timerPath);
+			var d = elePath.getAttribute("d"), arrD = d.split(" ");
+			// 动画起始值
+			var start = arrD.slice(-1) * 1;
+			if (start == end) return;
+			// 速率
+			var rate = 5, current = start;
+			console.log(arrD);
+			var step = function() {
+				if (Math.abs(end - current) < 1) {
+					current = end;
+				} else {
+					current += (end - current) / 5;
+					timerPath = setTimeout(step, 30);
+				}
+				// 替换最后一个值
+				arrD.splice(-1, 1, current);
+				// 曲线走起
+				elePath.setAttribute("d", arrD.join(" "));
+			};
+			step();
+		};
+
+		if (eleAvatar && eleFloat && eleAbsolute) {
+			var attrFloat = eleAvatar.style.cssFloat != undefined? "cssFloat": "styleFloat";
+			eleFloat.onclick = function() {
+				eleAvatar.style.position = "";
+				eleAvatar.style[attrFloat] = "left";
+				elePath && funPathMove(300);
+			};
+			eleAbsolute.onclick = function() {
+				eleAvatar.style[attrFloat] = "";
+				eleAvatar.style.position = "absolute";
+				elePath && funPathMove(340);
+			};
+		}
+	</script>
+</body>
+</html>
+ -->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>下拉框定位二三事</title>
+<style>
+body { margin: 0; font: 14px/1.4 "Microsoft YaHei"; background-color: #EDEFF0; }
+.constr { width: 1200px; max-width: 80%; margin-left: auto; margin-right: auto; padding-bottom: 300px; overflow: hidden; }
+.course-sidebar { width: 262px; float: left; }
+.course-sidebar > div { border: 1px solid #e6e8e9; box-shadow: 0px 1px 2px #d5d7d8; background-color: #fff; }
+.course-sidebar-type { height: 380px; }
+.course-sidebar-search { margin-top: 20px; overflow: hidden; }
+.course-search-input { width: 200px; line-height: 18px; padding: 10px; margin: 0; border: 0 none; font-size: 12px; font-family: inherit; float: left; }
+.course-sidebar-search.focus { border-color: #2ea7e0; }
+.course-search-input:focus { outline: 0 none; }
+.course-search-input::-ms-clear { display: none; }
+.course-search-btn { width: 38px; height: 38px; float: right; background: url(http://img.mukewang.com/545305ba0001f3f600380076.png); text-indent: -9em; overflow: hidden; }
+.focus .course-search-btn { background-position: 0 -38px; }
+
+.course-sidebar-result { display: none; position: absolute; width: 260px; margin: 39px 0 0 -1px; padding-left: 0; list-style-type: none; border: 1px solid #e6e8e9; background-color: #fff; box-shadow: 0px 1px 2px #d5d7d8; font-size: 12px; }
+.course-sidebar-result > li { line-height: 30px; padding-left: 12px; }
+.course-sidebar-result > li:hover { background-color: #f9f9f9; }
+.course-sidebar-result a { display: block; color: #5e5e5e; text-decoration: none; }
+.course-sidebar-result a:hover { color: #000; }
+</style>
+</head>
+
+<body>
+<div class="constr">
+    <div class="course-sidebar">
+    	<div class="course-sidebar-type"></div>
+        <div class="course-sidebar-search">
+        	<ul id="result" class="course-sidebar-result">
+            	<li><a href="http://www.imooc.com/view/121">分享：CSS深入理解之float浮动</a></li>
+                <li><a href="http://www.imooc.com/view/118">案例：CSS圆角进化论</a></li>
+                <li><a href="http://www.imooc.com/view/93">案例：CSS Sprite雪碧图应用</a></li>
+                <li><a href="http://www.imooc.com/view/77">案例：CSS3 3D 特效</a></li>
+                <li><a href="http://www.imooc.com/view/57">案例：如何用CSS进行网页布局</a></li>
+            </ul>
+        	<input class="course-search-input" placeholder="课程搜索">
+            <a href="javascript:" class="course-search-btn">搜索</a>
+        </div>
+    </div>
+</div>
+<script>
+(function() {
+	var input = document.getElementsByTagName("input")[0],
+	    result = document.getElementById("result");
+		
+	if (input && result) {
+		input.onfocus = function() {
+			this.parentNode.className = "course-sidebar-search focus";
+			if (this.value != "") {
+				// show datalist
+				result.style.display = "block";
+			}
+		};
+		input.onblur = function() {
+			if (this.value == "") {
+				this.parentNode.className = "course-sidebar-search";
+			}
+			// hide datalist
+			result.style.display = "none";
+		};
+		
+		// IE7 that wrap a DIV for avoid bad effect from float
+		if (!document.querySelector) {
+			var div = document.createElement("div");
+			input.parentNode.insertBefore(div, input);
+			div.appendChild(result);
+		}
+		// events of datalist
+		if ("oninput" in input) {
+			input.addEventListener("input", function() {
+				if (this.value.trim() != "") {
+					result.style.display = "block";
+				} else {
+					result.style.display = "none";
+				}
+			});
+		} else {
+		    // IE6-IE8
+			input.onpropertychange = function(event) {
+				event = event || window.event;
+				if (event.propertyName == "value" && /focus/.test(this.parentNode.className)) {
+					if (this.value != "") {
+						result.style.display = "block";
+					} else {
+						result.style.display = "none";
+					}
+				}
+			}
+		}
+	}
+
+})();
+</script>
+</body>
+</html>

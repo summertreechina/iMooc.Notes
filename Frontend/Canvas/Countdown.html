@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>绚丽的倒计时效果</title>
+    <link href="../Lib/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Font-Awesome/css/font-awesome.min.css">
+    <link href="" rel="stylesheet">
+    <style>
+      .wrap { position: relative; }
+      .wrap .glyphicon-fullscreen { position: absolute;left:0;top:0; }
+      #Countdown:full-screen {  width: 100%;  }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <span class="glyphicon glyphicon-fullscreen" id="fs-btn" style="margin:20px;font-size: 20px;"></span>
+      <canvas id="Countdown" style="background-color: #fff">
+        您的浏览器尚不支持Canvas技术。
+      </canvas>    
+    </div>
+
+
+    <script src="../Lib/jquery-3.1.0.js"></script>
+    <script src="../Lib/jquery-migrate-3.0.0.js"></script>
+    <script src="../Lib/bootstrap.js"></script>
+    <script src="./JS/digit.js"></script>
+    <script src="./JS/Countdown.js"></script>
+    <script>
+    </script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>图片的预加载之顺序加载</title>
+    <link href="../Lib/bootstrap.css" rel="stylesheet">
+    <link href="" rel="stylesheet">
+    <style>
+      html, body {
+        font-size: 14px;
+        height: 100%;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      .box {
+        text-align: center;
+        box-shadow: .1em .1em .8em rgba(10, 142, 245, 0.25) inset;
+        padding: 2px;
+      }
+      .box img {
+        overflow: hidden;
+        /* margin-top: 1px; */
+      }
+      .btn {
+        display: inline-block;
+        line-height: 2em;
+        border: 0.2em solid #981313;
+        border-radius: 2em;
+        margin: 1em 3em;
+        padding: .6em 3em;
+      }
+      .btn:hover {
+        border: 0.2em solid rgba(10, 142, 245, 0.55);
+        color: #eee;
+        cursor: pointer;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <img src="https://photo.tuchong.com/427043/f/18514561.jpg" alt="" id="img"／>
+      <p>
+        <a href="javascript:;" class="btn" data-control="prev">上一页</a>
+        <a href="javascript:;" class="btn" data-control="next">下一页</a>
+      </p>
+    </div>
+
+
+    <script src="../Lib/jquery-3.1.0.js"></script>
+    <script src="../Lib/jquery-migrate-3.0.0.js"></script>
+    <script src="../Lib/bootstrap.js"></script>
+    <script src="./js/preload.js"></script>
+    <script>
+      $(function(){
+        let imgs = [
+          'https://photo.tuchong.com/271682/f/18768151.jpg'
+        ];
+        // for (let i = 1; i < 400; i++) {
+        //   let num = 18767000 + i;
+        //   imgs[i] = 'https://photo.tuchong.com/271682/f/'+ num +'.jpg'
+        // }
+        console.log(imgs);
+        let len = imgs.length;
+        let i = 0;
+        // 
+        function isLoad() {
+          let imgObj = new Image();
+          imgObj.src = imgs[i];
+          $(imgObj).on('load error', function(){
+            if (i<len) {
+              isLoad();
+            } else {
+              alert('OK');
+            }
+            i++;
+          });
+        }
+        isLoad();
+
+        // var isLoad = function() {
+        //   let imgObj = new Image();
+        //   imgObj.src = imgs[i];
+        //   $(imgObj).on('load error', function(){
+        //     // i++;
+        //     // console.log(i);
+        //   });
+
+        // }
+
+        // while (i<len) {
+        //   console.log(i)
+        //   isLoad();
+        //   i++;
+        // }
+
+
+
+
+      });
+        // 
+
+
+    </script>
+  </body>
+</html>

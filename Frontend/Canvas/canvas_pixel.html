@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Canvas Pixel像素级别的处理</title>
+    <link href="../Lib/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Font-Awesome/css/font-awesome.min.css">
+    <link href="" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <canvas id="raw-image" style="border:1px dashed #333; display: block; margin: 60px auto"></canvas>
+        </div>
+        <div class="col-md-6">
+          <canvas id="effect-image" style="border:1px dashed #333; display: block; margin: 60px auto"></canvas>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <canvas id="beautiful-canvas" style="border:0px dashed #333; display: block; margin: 60px auto"></canvas>
+        </div>
+      </dic>
+    
+      <div class="row">
+        <div class="col-md-12">
+          <canvas id="gradual-change" style="border:0px dashed #333; display: block; margin: 60px auto"></canvas>
+        </div>
+      </div>
+
+    </div>
+    
+    <script src="../Lib/jquery-3.1.0.js"></script>
+    <script src="../Lib/jquery-migrate-3.0.0.js"></script>
+    <script src="../Lib/bootstrap.js"></script>
+    <script src="./JS/canvas_pixel.js"></script>
+  </body>
+</html>

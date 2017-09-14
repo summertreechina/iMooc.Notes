@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>学习怎样封装一个JS类</title>
+    <link href="../Lib/bootstrap.css" rel="stylesheet">
+    <link href="./Carousel.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>你好，世界！</h1>
+    <div class="container-fluid">
+      <div class="JS_carousel Carousel" data-setting='{"width":1400, "height":400, "picWidth":600, "picHeight":400, "scale":0.9, "speed":600, "verticalAlign":"middle"}' >
+        <div class="poster-btn poster-btn-left"><span class="glyphicon glyphicon-chevron-left"></span></div>
+        <div class="poster-btn poster-btn-right"><span class="glyphicon glyphicon-chevron-right"></span></div>
+        <ul class="poster-list">
+          <li class="poster-item"><a href="#"><img src="./pic/1.jpg" alt=""></a></li>
+          <li class="poster-item"><a href="#"><img src="./pic/2.jpg" alt=""></a></li>
+          <li class="poster-item"><a href="#"><img src="./pic/3.jpg" alt=""></a></li>
+          <li class="poster-item"><a href="#"><img src="./pic/4.jpg" alt=""></a></li>
+          <li class="poster-item"><a href="#"><img src="./pic/5.jpg" alt=""></a></li>
+          <li class="poster-item"><a href="#"><img src="./pic/6.jpg" alt=""></a></li>
+          <li class="poster-item"><a href="#"><img src="./pic/7.jpg" alt=""></a></li>
+          <li class="poster-item"><a href="#"><img src="./pic/8.jpg" alt=""></a></li>
+          <li class="poster-item"><a href="#"><img src="./pic/6.jpg" alt=""></a></li>
+          <li class="poster-item"><a href="#"><img src="./pic/8.jpg" alt=""></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="../Lib/jquery-3.1.0.js"></script>
+    <script src="../Lib/jquery-migrate-3.0.0.js"></script>
+    <script src="../Lib/bootstrap.js"></script>
+    <script src="./Carousel.js"></script>
+    <script>
+      $(function(){
+        carousel.init($(".JS_carousel"));
+      });
+    </script>
+  </body>
+</html>

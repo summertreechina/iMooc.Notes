@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>float</title>
+	<style>
+		div {
+			border: 1px solid #523211;
+		}
+		/*img {
+			float: left;
+		}*/
+		.clearfix {
+			content: '';
+			display: table;
+			clear: both;
+		}
+		.clearfix:after {
+			content: '';
+			display: table;
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<h1>基础</h1>
+	<div class="clearfix">
+		<img src="./images/1.jpg" alt="">
+		<img src="./images/2.jpg" alt="">
+		<img src="./images/3.jpg" alt="">
+		<img src="./images/4.jpg" alt="">
+		<img src="./images/5.jpg" alt="">
+		<img src="./images/6.jpg" alt="">
+		<img src="./images/7.jpg" alt="">
+		<p>浮动的目的仅仅是为了实现文字环绕效果。</p>
+		<p>图片是inline-block元素。</p>
+		<h3>清除浮动带来的影响</h3>
+		<p>clearfix不应被滥用，只能用在饱含浮动子元素的父级元素上。</p>
+		<!-- <div class="clearfix"></div> -->
+	</div>
+
+
+	<!-- 浮动与两侧皆自适应的流体布局 -->
+	<style>
+		body { font-size: 14px; background-color: #DDF3F7; color: #333; }
+		a { color: #0082CB; text-decoration: none; }
+		p { margin: 0; } img { border: 0; }
+
+		.mib_body { width: 600px; margin-left: auto; margin-right: auto; }
+		.mib_x { margin-bottom: 10px; background-color: #fff; }
+		.mib_list { padding: 20px; }
+		.mib_resize { overflow: auto; resize: both; }
+		.mib_vip { display: inline-block; width: 11px; height: 10px; margin-left: 1px; background: url(data:image/gif;base64,R0lGODlhCwAKAJEDAPyZCveDBuJmBP///yH5BAEAAAMALAAAAAALAAoAAAIdhD1zopgTXgMpsBdylVCPK2UCKI0j95hoRa0NVwAAOw==); }
+
+		.mib_head_a { float: left; margin-right: 20px; }
+		/* 下面这个是固定布局写法 */
+		.mib_cell { display: table-cell; *display: inline-block; width: 2000px; *width: auto; }
+
+		.mib_sms { line-height: 22px; padding-bottom: 6px; font-size: 14px; }
+		.mib_select { width: 80px; padding: 5px; font-size: 100%; }
+	</style>
+	<h1>浮动与两侧皆自适应的流体布局</h1>
+	<div id="mibBody" class="mib_body">
+	    <div class="mib_x mib_resize">
+	        <div class="mib_list">
+	            <a href="http://t.sina.com.cn/xuruoxuan" class="mib_head_a">
+	                <img id="mibHeadImg" title="徐若瑄VIVIAN" src="http://img.mukewang.com/53e2e9470001dfd200500050.jpg">
+	            </a>
+	            <div class="mib_cell">
+	                <p class="mib_sms"><a title="徐若瑄VIVIAN" href="#">徐若瑄VIVIAN<i title="新浪认证" class="mib_vip"></i></a>：一個人的晚餐！茶泡飯！飯、飯、飯… 今日不減肥，先把病治好再說！ 我認真吃完這，燒就會退了吧？！ 開動啦~~~~~~~~~~~~~~~~~~</p>
+	                <div class="feed_img"><img src="http://img.mukewang.com/53e2e9b10001948000890120.jpg" height="120"></div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="mib_x">
+	        <div class="mib_list">
+	            <p class="mib_sms">
+	            	选择头像的宽度：<select id="minSelect" class="mib_select">
+	                	<option value="56px">56px</option>
+	                    <option value="70px">70px</option>
+	                    <option value="84px">84px</option>
+	                    <option value="100px">100px</option>
+	                </select>
+	            </p>
+	        </div>
+	    </div>
+	</div>
+	<script>
+		var ele_mibSelect = document.getElementById("minSelect"),
+			ele_mibHeadImg = document.getElementById("mibHeadImg");
+			
+		if (ele_mibSelect && ele_mibHeadImg) {
+			ele_mibSelect.onchange = function() {
+				ele_mibHeadImg.style.width = this.value;
+			};
+		}
+	</script>
+
+
+
+
+
+
+	<!-- 浮动于margin的重叠关系 -->
+	<h1>浮动于margin的重叠关系</h1>
+	<div style="background-color: #f5f5f5;">
+	    <img src="./images/2.jpg" style="float:left;">
+		<div style="clear:both; margin-bottom:100px;">clear:both;</div>
+	</div>
+	<div style="margin-top: 100px;">本文字离图片的距离是？</div>
+	<br><br><br><br>2.
+	<div style="background-color: #f5f5f5; overflow: hidden;">
+		<img src="./images/4.jpg" style="float:left; margin-bottom: 100px;">
+	</div>
+	<div style="margin-top: 100px;">本文字离图片的距离是？</div>
+
+	<!-- trigger简单实现 -->
+	<!-- "cssFloat" in trigger.style? -->
+	<button>按钮1</button>
+	<button>按钮2</button>
+	<button>按钮3</button>
+	<button>按钮4</button>
+	<p><input type="button" id="trigger" value="点击按钮浮动"></p>
+	<script>
+		var trigger = document.getElementById("trigger"),
+		    buttons = document.getElementsByTagName("button");
+
+		var length = buttons.length;
+
+		if (trigger && length > 0) {
+			trigger.onclick = function() {
+				for (var index = 0; index < length; index += 1) {
+					buttons[index].style["cssFloat" in trigger.style? "cssFloat": "styleFloat"] = "left";
+				}
+			};
+		}	
+	</script>
+
+
+</body>
+</html>
