@@ -31,7 +31,7 @@ function tMagnify_canvas() {
 	var image = new Image();
 	var imageW;
 	var imageH;
-	image.src = './IMG/1.jpg';
+	image.src = './images/1.jpg';
 
 	image.onload = function() {
 		// 
@@ -142,7 +142,7 @@ function watermark_canvas() {
 		bottomPic_canvas.height = 800;
 
 	var bottomPic = new Image();
-	bottomPic.src = './IMG/4.jpg';
+	bottomPic.src = './images/4.jpg';
 
 	bottomPic.onload = function() {
 		bottomPic_canvas.width = bottomPic.width/2;
@@ -160,7 +160,7 @@ function watermark_canvas() {
 		watermark_canvas.height = 400;
 
 	var watermarkPic = new Image();
-	watermarkPic.src = './IMG/5.jpg';
+	watermarkPic.src = './images/5.JPG';
 
 	watermarkPic.onload = function() {
 		watermark_canvas.width = watermarkPic.width/4;
@@ -184,12 +184,13 @@ function canvas_zoom_tool() {
 	var $slider = $('#scale-range');
 	// 创建一个图像实例
 	var image = new Image();
-	image.src = './IMG/1.jpg';
+	image.src = './images/1.jpg';
 
 	image.onload = function() {
 		// 设置画布的长宽
 		canvas.width = image.width/7;
 		canvas.height = image.height/7;
+		//
 
 		// 设置滑动杆的长度 
 		$slider.width(canvas.width*1.1);
@@ -290,7 +291,7 @@ function canvas_base_knowledge() {
 	var image   = new Image();
 
 	/*图像处理*/
-	image.src = './IMG/2.jpg';
+	image.src = './images/2.jpg';
 	image.onload = function() {
 
 		var imageWidth = image.width;

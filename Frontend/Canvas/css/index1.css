@@ -38,16 +38,19 @@ div {
 }
 #imgs-box a {
 	display: inline-block;
-	width: 18%;
+	// width: 18%;
 }
 #imgs-box a img {
 	width: 100%;
-	border: solid 1px #ddd;
+	border: solid 2px #ddd;
 	margin: 2px;
-	
+
 }
 
-
+canvas {
+	border: solid 2px #ddd;
+	overflow: hidden;
+}
 
 
 

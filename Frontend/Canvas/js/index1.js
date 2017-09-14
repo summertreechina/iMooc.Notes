@@ -38,39 +38,96 @@
 	]
 
 	let num = json.length
-	console.log(num)
+	// console.log(num)
 
 
 	let $imgs_box = $('#imgs-box')
 													// console.log($imgs_box[0].offsetWidth)
 													// console.log($imgs_box.innerWidth())
 	let tpl = ''
+	let i = 0
 	for (let el of json) {
 		// tpl += `<a href="${el.url}" target="_blank"><img src="${el.url}" alt="#"></a>`
-		tpl += `<a href="${el.url}" target="_blank"></a>`
+		tpl += `<a href="${el.url}" target="_blank"><canvas id="cvs_${i}"></canvas></a>`
+		canvas_draw_img(el.url, i)
+		i++
 	}
 	$imgs_box.append(tpl)
 
+	function canvas_draw_img(img_url, id) {
+		let img = new Image();
+		img.src = img_url
+		img.onload = function(e) {
+			this.scale = this.width / this.height
+			this.scale = xround(this.scale, 2)
+
+			if (this.scale < 0.8) {
+				this.width = 400
+				this.height = 600
+			} else if (this.scale > 1.2){
+				this.width = 600
+				this.height = 400
+			} else {
+				this.width = 500
+				this.height = 500
+			}
+			// console.log(this.width, this.height)
+			let canvas = document.getElementById(`cvs_${id}`)
+			let context = canvas.getContext('2d')
+
+			canvas.width = this.width
+			canvas.height = this.height
+
+			context.drawImage(this, 0, 0, this.width, this.height)
+		}
+	}
+
 
 	let img = new Image();
-	img.src = "http://img1qn.moko.cc/2017-09-12/123918a1-5722-4037-8f04-b4412932dcc6.jpg";
+	// img.src = "http://img1qn.moko.cc/2017-09-12/123918a1-5722-4037-8f04-b4412932dcc6.jpg"
+	// img.src = "http://img1qn.moko.cc/2017-09-06/f6f7a345-d6f8-4e75-8011-981c1a36404a.jpg"
+	img.src = "http://image17-c.poco.cn/mypoco/myphoto/20170831/17/17467238720170831170545043_640.jpg"
 	img.onload = function(e) {
+		this.raw_width = this.width
+		this.raw_height = this.height
+
 		this.scale = this.width / this.height
 		this.scale = xround(this.scale, 2)
 
 		if (this.scale < 0.8) {
 			this.width = 400
-			this.width = 600
+			this.height = 600
 		} else if (this.scale > 1.2){
 			this.width = 600
-			this.width = 400
+			this.height = 400
 		} else {
-			this.width = 500
-			this.width = 500
+			if (this.scale < 1) {
+				this.width = 500
+				this.height = this.height / (this.raw_width / 500)
+				this.sx = 0
+				this.sy = (this.width - this.height) / 2
+			} else if (this.scale > 1){
+				this.height = 500
+				this.width = this.width / (this.raw_height / 500)
+				this.sx = (this.width - this.height) / 2
+				this.sy = 0
+			} else {
+				this.width = 500
+				this.height = 500
+				this.sx = 0
+				this.sy = 0
+			}
 		}
+		console.log(this.width, this.height)
+		let canvas = document.getElementById('test')
+		let context = canvas.getContext('2d')
 
-		let canvas = document.getElementById('cvs_' + this.id);
-		let context = canvas.getContext('2d');
+		canvas.width = 500
+		canvas.height = 500
+
+		context.drawImage(this, this.sx, this.sy, this.width, this.height, 0, 0, this.raw_width, this.raw_height)
+
+		// context.drawImage(img, sx, sy, swidth, sheight, cx, cy, img_width, img_height);
 	}
 
 
