@@ -19,7 +19,6 @@ div:after {
 	clear: both;
 }
 div {
-	background-color: #bbb;
 	min-height: 200px;
 }
 
@@ -29,31 +28,38 @@ div {
 	}
 	#imgs-box {
 		width: 100%;
-		background-color: #fff;
 	}
 }
 
 #imgs-box {
+	width: 100%;
 	margin: 80px 0;
+	text-align: center;
+	// box-shadow: 2px 2px 5px #333333;
 }
+#imgs-box:after {
+	box-shadow: 2px 2px 5px #333333;
+	-webkit-box-shadow:2px 2px 5px #333333;
+}
+
 #imgs-box a {
 	display: inline-block;
-	// width: 18%;
+	margin: 30px 29px;
 }
 #imgs-box a img {
 	width: 100%;
-	border: solid 2px #ddd;
-	margin: 2px;
 
+}
+#vertical-img {
+	// background-color: #369;
 }
 
 canvas {
-	border: solid 2px #ddd;
-	overflow: hidden;
+	
 }
 
 
-
+// myGreatWall
 
 
 

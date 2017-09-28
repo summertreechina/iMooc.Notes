@@ -35,6 +35,11 @@
 		{"title":"新娘Brides 陈乔恩", "url":"http://img1qn.moko.cc/2017-09-12/33d22fb7-34e1-489c-93ba-ee94f97e120a.jpg"},
 		{"title":"新娘Brides 陈乔恩", "url":"http://img1qn.moko.cc/2017-09-12/5fa56e28-a449-4ef1-ae24-f9fedd25acb7.jpg"},
 		{"title":"新娘Brides 陈乔恩", "url":"http://img1qn.moko.cc/2017-09-12/7cd5ca6c-cec0-48b6-9251-b744bbd80f98.jpg"},
+		{"title":"本地照片", "url":"../images/1.jpg"},
+		{"title":"本地照片", "url":"../images/2.jpg"},
+		{"title":"本地照片", "url":"../images/4.jpg"},
+		{"title":"本地照片", "url":"../images/5.JPG"},
+		{"title":"本地照片", "url":"../images/e0f39278-f0f3-4e85-8eab-69ab725ac73d.jpg"},
 	]
 
 	let num = json.length
@@ -42,8 +47,7 @@
 
 
 	let $imgs_box = $('#imgs-box')
-													// console.log($imgs_box[0].offsetWidth)
-													// console.log($imgs_box.innerWidth())
+
 	let tpl = ''
 	let i = 0
 	for (let el of json) {
@@ -55,80 +59,142 @@
 	$imgs_box.append(tpl)
 
 	function canvas_draw_img(img_url, id) {
+		let base_width = $('#imgs-box').innerWidth() / 6
+
 		let img = new Image();
 		img.src = img_url
 		img.onload = function(e) {
-			this.scale = this.width / this.height
-			this.scale = xround(this.scale, 2)
+			this.raw_width = this.width
+			this.raw_height = this.height
 
-			if (this.scale < 0.8) {
-				this.width = 400
-				this.height = 600
-			} else if (this.scale > 1.2){
-				this.width = 600
-				this.height = 400
-			} else {
-				this.width = 500
-				this.height = 500
-			}
-			// console.log(this.width, this.height)
+			this.scale = xround(this.width / this.height, 2)
+
 			let canvas = document.getElementById(`cvs_${id}`)
 			let context = canvas.getContext('2d')
 
-			canvas.width = this.width
-			canvas.height = this.height
+			if (this.scale < 0.8) {
+				canvas.width = base_width
+				canvas.height = base_width*1.5
 
-			context.drawImage(this, 0, 0, this.width, this.height)
+				if (this.scale < 0.67) {
+					this.width = base_width
+					this.height = this.height / (this.raw_width / base_width)
+					this.sx = 0
+					this.sy = (base_width*1.5 - this.height) / 2
+				} else {
+					this.height = base_width*1.5
+					this.width = this.width / (this.raw_height / (base_width*1.5))
+					this.sx = (base_width - this.width) / 2
+					this.sy = 0
+				}
+			} else if (this.scale > 1.2){
+				canvas.width = base_width*1.5
+				canvas.height = base_width
+
+				if (this.scale <= 1.5) {
+					this.width = base_width*1.5
+					this.height = this.height / (this.raw_width / (base_width*1.5))
+					this.sx = 0
+					this.sy = (base_width - this.height) / 2
+				} else {
+					this.height = base_width
+					this.width = this.width / (this.raw_height / base_width)
+					this.sy = 0
+					this.sx = (base_width*1.5 - this.width) / 2
+				}
+
+			} else {
+				canvas.width = canvas.height = base_width
+
+				if (this.scale <= 1) {
+					this.width = base_width
+					this.height = this.height / (this.raw_width / base_width)
+					this.sx = 0
+					this.sy = (base_width - this.height) / 2
+				} else {
+					this.height = base_width
+					this.width = this.width / (this.raw_height / base_width)
+					this.sx = (base_width - this.width) / 2
+					this.sy = 0
+				}
+			}
+
+			context.drawImage(this, this.sx, this.sy, this.width, this.height)
 		}
 	}
 
 
-	let img = new Image();
+	// let img = new Image();
 	// img.src = "http://img1qn.moko.cc/2017-09-12/123918a1-5722-4037-8f04-b4412932dcc6.jpg"
 	// img.src = "http://img1qn.moko.cc/2017-09-06/f6f7a345-d6f8-4e75-8011-981c1a36404a.jpg"
-	img.src = "http://image17-c.poco.cn/mypoco/myphoto/20170831/17/17467238720170831170545043_640.jpg"
-	img.onload = function(e) {
-		this.raw_width = this.width
-		this.raw_height = this.height
+	// img.src = "http://image17-c.poco.cn/mypoco/myphoto/20170831/17/17467238720170831170545043_640.jpg"
+	// img.src = "http://img.mb.moko.cc/2017-08-31/fb53ba97-d0a6-44d8-9b60-974b7eacd566.jpg"
+	// img.src = "../images/2.jpg"
+	// img.src = "http://image17-c.poco.cn/mypoco/myphoto/20170831/17/17467238720170831170721021_640.jpg"
 
-		this.scale = this.width / this.height
-		this.scale = xround(this.scale, 2)
+	// img.onload = function(e) {
+	// 	this.raw_width = this.width
+	// 	this.raw_height = this.height
 
-		if (this.scale < 0.8) {
-			this.width = 400
-			this.height = 600
-		} else if (this.scale > 1.2){
-			this.width = 600
-			this.height = 400
-		} else {
-			if (this.scale < 1) {
-				this.width = 500
-				this.height = this.height / (this.raw_width / 500)
-				this.sx = 0
-				this.sy = (this.width - this.height) / 2
-			} else if (this.scale > 1){
-				this.height = 500
-				this.width = this.width / (this.raw_height / 500)
-				this.sx = (this.width - this.height) / 2
-				this.sy = 0
-			} else {
-				this.width = 500
-				this.height = 500
-				this.sx = 0
-				this.sy = 0
-			}
-		}
-		console.log(this.width, this.height)
-		let canvas = document.getElementById('test')
-		let context = canvas.getContext('2d')
+	// 	this.scale = this.width / this.height
+	// 	this.scale = xround(this.scale, 2)
 
-		canvas.width = 500
-		canvas.height = 500
+	// 	let canvas = document.getElementById('test')
+	// 	let context = canvas.getContext('2d')
+	// 	console.log(this.scale)
 
-		context.drawImage(this, this.sx, this.sy, this.width, this.height, 0, 0, this.raw_width, this.raw_height)
+	// 	if (this.scale < 0.8) {
+	// 		canvas.width = 400
+	// 		canvas.height = 600
 
-		// context.drawImage(img, sx, sy, swidth, sheight, cx, cy, img_width, img_height);
-	}
+	// 		if (this.scale < 0.67) {
+	// 			this.width = 400
+	// 			this.height = this.height / (this.raw_width / 400)
+	// 			this.sx = 0
+	// 			this.sy = (600 - this.height) / 2
+	// 		} else {
+	// 			this.height = 600
+	// 			this.width = this.width / (this.raw_height / 600)
+	// 			this.sx = (400 - this.width) / 2
+	// 			this.sy = 0
+	// 		}
+	// 	} else if (this.scale > 1.2){
+	// 		canvas.width = 600
+	// 		canvas.height = 400
+
+	// 		if (this.scale <= 1.5) {
+	// 			this.width = 600
+	// 			this.height = this.height / (this.raw_width / 600)
+	// 			this.sx = 0
+	// 			this.sy = (400 - this.height) / 2
+	// 		} else {
+	// 			this.height = 400
+	// 			this.width = this.width / (this.raw_height / 400)
+	// 			this.sy = 0
+	// 			this.sx = (600 - this.width) / 2
+	// 		}
+
+	// 	} else {
+	// 		canvas.width = canvas.height = 500
+
+	// 		if (this.scale <= 1) {
+	// 			this.width = 500
+	// 			this.height = this.height / (this.raw_width / 500)
+	// 			this.sx = 0
+	// 			this.sy = (500 - this.height) / 2
+	// 		} else {
+	// 			this.height = 500
+	// 			this.width = this.width / (this.raw_height / 500)
+	// 			this.sx = (500 - this.width) / 2
+	// 			this.sy = 0
+	// 		}
+	// 	}
+
+	// 	context.drawImage(this, this.sx, this.sy, this.width, this.height)
+
+	// 	// context.drawImage(img, sx, sy, swidth, sheight, cx, cy, img_width, img_height);
+	// 	// context.drawImage(image,sourceX,sourceY,sourceWidth,sourceHeight,destX,destY,destWidth, destHeight)
+	// }
 
 
 
@@ -146,7 +212,7 @@
 	let v_img = {}
 		v_img.width = $imgs_box.innerWidth() / 4
 		v_img.height = v_img.width * 3 / 2
-		console.log(v_img.width, v_img.height)
+		// console.log(v_img.width, v_img.height)
 		// 400 * 600
 
 	//  横幅照片模型
