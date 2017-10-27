@@ -25,6 +25,9 @@
 			本项目依赖React，我们要安装React，项目根目录终端执行 `npm install react --save`， 在当前目录生成node_modules目录及文件
 				--save 是指将依赖信息写入到 package.json 文件中
 				--`npm install -g webpack` 是全局安装。一般不这样，每个项目都可以使用最新版本的webpack。
+				"devDependencies" 配置文件自动填写 执行 `npm install react --save-dev`
+					'dependencies'与'devDependencies'的区别：devDependencies下列出的模块，是我们开发时用的依赖项，像一些进行单元测试之类的包，比如grunt-contrib-uglify，我们用它混淆js文件，它们不会被部署到生产环境。dependencies下的模块，则是我们生产环境中需要的依赖，即正常运行该包时所需要的依赖项。
 		3 通过 package.json 文件安装依赖文件？使用场景？
 			在 package.json 所在文件夹执行 `npm install` npm命令会直接在当前目录中找 package.json 文件并读取安装
-		
+		4 创建 webpack.config.js 默认的配置文件名
+		5 在入口文件中创建测试代码后，项目根目录中执行 `webpack` 进行打包
