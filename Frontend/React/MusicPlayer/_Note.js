@@ -6,7 +6,7 @@
 	4 实际开发中的一些最佳实践
 
 2-1 Webpack学习
-	`https://segmentfault.com/a/1190000006178770`, ``
+	`https://segmentfault.com/a/1190000006178770`,
 	Webpack
 		`什么是Webpack`
 			WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。
