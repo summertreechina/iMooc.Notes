@@ -7,6 +7,7 @@
 
 2-1 Webpack学习
 	`https://segmentfault.com/a/1190000006178770`,
+	`https://webpack.js.org/guides/installation/`,
 	Webpack
 		`什么是Webpack`
 			WebPack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript等），并将其转换和打包为合适的格式供浏览器使用。
@@ -16,7 +17,7 @@
 	常用插件
 
 	搭建开发环境步骤：
-		1 新建 package.json
+		1 新建 package.json 文件
 			在哪儿建？
 				在项目根目录
 			怎么建？
