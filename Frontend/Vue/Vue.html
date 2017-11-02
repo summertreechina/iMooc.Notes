@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Vue.js</title>
+</head>
+<body>
+	<div id="example">
+		<div id="app">
+		  {{ message }} <p> {{call}} </p>
+		</div>
+
+		<div id="app-2">
+		  <span v-bind:title="message">
+		    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+		  </span>
+		</div>
+
+		<div id="app-3">
+		  <p v-if="seen">现在你看到我了</p>
+		</div>
+
+		<div id="app-4">
+		  <ol>
+		    <li v-for="todo in todos">
+		      {{ todo.text }}
+		    </li>
+		  </ol>
+		</div>
+
+		<div id="app-5">
+		  <p>{{ message }}</p>
+		  <button v-on:click="reverseMessage">逆转消息</button>
+		</div>
+
+		<div id="app-6">
+		  <p>{{ message }}</p>
+		  <input v-model="message">
+		</div>
+
+	</div>
+
+	<!-- <script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script>
+	// 声明式渲染
+		// Vue.js 的核心是一个允许采用简洁的模板语法来声明式的将数据渲染进 DOM 的系统：
+		var app = new Vue({
+		  el: '#app',
+		  data: {
+		    message: 'Hello Vue!',
+		    call : '谁？'
+		  }
+		})
+		// 第二种绑定 DOM 元素属性方式
+			// v-bind 属性被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊属性。
+		var app2 = new Vue({
+		  el: '#app-2',
+		  data: {
+		    message: '页面加载于 ' + new Date().toLocaleString()
+		  }
+		})
+	// 条件与循环
+		// 控制切换一个元素的显示也相当简单
+		// 本例展示了Vue不仅可以绑定 DOM 文本到数据，也可以绑定 DOM 结构到数据
+		// Vue 也提供了一个强大的过渡效果系统，可以在 Vue 插入/更新/删除元素时自动应用过渡效果。
+		var app3 = new Vue({
+		  el: '#app-3',
+		  data: {
+		    seen: true
+		  }
+		})
+		// 在控制台里，输入 app4.todos.push({ text: '新项目' })，你会发现列表中添加了一个新项
+		var app4 = new Vue({
+		  el: '#app-4',
+		  data: {
+		    todos: [
+		      { text: '学习 JavaScript' },
+		      { text: '学习 Vue' },
+		      { text: '整个牛项目' }
+		    ]
+		  }
+		})
+	// 处理用户输入
+		// 用 v-on 指令绑定一个事件监听器，通过它调用我们 Vue 实例中定义的方法
+		var app5 = new Vue({
+		  el: '#app-5',
+		  data: {
+		    message: 'Hello Vue.js!'
+		  },
+		  methods: {
+		    reverseMessage: function () {
+		      this.message = this.message.split('').reverse().join('')
+		    }
+		  }
+		})
+		// v-model 指令，它能轻松实现表单输入和应用状态之间的双向绑定
+		var app6 = new Vue({
+		  el: '#app-6',
+		  data: {
+		    message: 'Hello Vue!'
+		  }
+		})
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
