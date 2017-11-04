@@ -8,8 +8,8 @@
 </head>
 <body>
 	<div id="example">
-		<div id="app">
-		  {{ message }} <p> {{call}} </p>
+		<div id="1app">
+		  {{ message }} <p> {{ call }} </p>
 		</div>
 
 		<div id="app-2">
@@ -39,6 +39,22 @@
 		  <p>{{ message }}</p>
 		  <input v-model="message">
 		</div>
+
+		<div id="app-7">
+		  <ol>
+		    <!--
+		      现在我们为每个 todo-item 提供 todo 对象
+		      todo 对象是变量，即其内容可以是动态的。
+		      我们也需要为每个组件提供一个“key”，晚些时候我们会做个解释。
+		    -->
+		    <todo-item
+		      v-for="item in groceryList"
+		      v-bind:todo="item"
+		      v-bind:key="item.id" >
+		    </todo-item>
+		  </ol>
+		</div>
+		<div id="demo">{{ fullName }}</div>
 
 	</div>
 
@@ -103,6 +119,65 @@
 		    message: 'Hello Vue!'
 		  }
 		})
+	// 组件化应用构建
+		// 组件系统是 Vue 的另一个重要概念
+		// 在 Vue 里，一个组件本质上是一个拥有预定义选项的一个 Vue 实例
+
+		// 定义名为 todo-item 的新组件
+		// Vue.component('todo-item', {
+		//   template: '<li>这是个待办项</li>'
+		// })
+
+		// Vue.component('todo-item', {
+		//   // todo-item 组件现在接受一个
+		//   // "prop"，类似于一个自定义属性
+		//   // 这个属性名为 todo。
+		//   props: ['todo'],
+		//   template: '<li>{{ todo.text }}</li>'
+		// })
+		
+		// 使用 v-bind 指令将 todo 传到每一个重复的组件中
+		Vue.component('todo-item', {
+		  props: ['todo'],
+		  template: '<li>{{ todo.text }}</li>'
+		})
+		var app7 = new Vue({
+		  el: '#app-7',
+		  data: {
+		    groceryList: [
+		      { id: 0, text: '蔬菜' },
+		      { id: 1, text: '奶酪' },
+		      { id: 2, text: '随便其他什么人吃的东西' }
+		    ]
+		  }
+		})
+
+
+		// 与自定义元素的关系
+
+		// 你可能已经注意到 Vue 组件非常类似于自定义元素——它是 Web 组件规范的一部分，这是因为 Vue 的组件语法部分参考了该规范。例如 Vue 组件实现了 Slot API 与 is 特性。但是，还是有几个关键差别：
+		// Web 组件规范仍然处于草案阶段，并且尚无浏览器原生实现。相比之下，Vue 组件不需要任何补丁，并且在所有支持的浏览器 (IE9 及更高版本) 之下表现一致。必要时，Vue 组件也可以包装于原生自定义元素之内。
+		// Vue 组件提供了纯自定义元素所不具备的一些重要功能，最突出的是跨组件数据流，自定义事件通信以及构建工具集成。
+
+
+
+
+		var vm = new Vue({
+		  el: '#demo',
+		  data: {
+		    firstName: 'Foo',
+		    lastName: 'Bar'
+		  },
+		  computed: {
+		    fullName : function () {
+		      return this.firstName + ' ' + this.lastName
+		    }
+		  }
+		})
+
+
+
+
 	</script>
 </body>
 </html>
