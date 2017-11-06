@@ -1,14 +1,28 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <h1>{{ ask }}</h1>
+    <!-- 双花括号语法是一种间简写，完整语法如下： -->
+    <h2 v-text="ans"></h2>
+    <h2 v-html="ans"></h2>
+    <!-- v-text 和 v-html 的区别 -->
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  // name: 'app',
+  data: function() {
+    return {
+      ask : '你在哪里？',
+      ans : '我在这里。<hr>马上回来！',
+    }
+  }
 }
+// 上面 相当于  
+// new Vue({
+//   data : data
+// });
+
 </script>
 
 <style>

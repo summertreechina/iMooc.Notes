@@ -25,9 +25,15 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App11111'
     }
   }
+  // ES6 语法 (上面)
+  // data : function() {
+  //   return {
+  //     title : 'Welcome to Your Vue.js App'
+  //   }
+  // }
 }
 </script>
 
