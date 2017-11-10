@@ -118,14 +118,14 @@
               <div class="cart-foot-l">
                 <div class="item-all-check">
                   <a href="javascript:void 0">
-                    <span class="item-check-btn" v-bind:class="{'check' : checkedAll}" v-on:click="checkAll()">
+                    <span class="item-check-btn" v-bind:class="{'check' : checkedAll}" v-on:click="checkAll(true)">
                       <svg class="icon icon-ok"><use xlink:href="#icon-ok"></use></svg>
                     </span>
                     <span>全选</span>
                   </a>
                 </div>
                 <div class="item-all-del">
-                  <a href="javascript:void 0" class="item-del-btn">
+                  <a href="javascript:void 0" class="item-del-btn" @click="checkAll(false)">
                     <span>取消全选</span>
                   </a>
                 </div>

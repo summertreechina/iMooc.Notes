@@ -39,8 +39,24 @@ var vm = new Vue({
 				product.checked = !product.checked;
 			}
 		},
-		checkAll () {
-			this.checkedAll = !this.checkedAll;
+		checkAll (flag) {
+			this.checkedAll = flag;
+			this.productList.forEach((v, i)=>{
+				if (typeof v.checked === 'undefined') {
+					this.$set(v, 'checked', this.checkedAll);
+				} else {
+					v.checked = this.checkedAll;
+				}
+			});
+		},
+		calcTotalPrice : function() {
+			this.productList.forEach((v, i)=>{
+				if (v.checked) {
+					this.$set(v, 'checked', this.checkedAll);
+				} else {
+					v.checked = this.checkedAll;
+				}
+			});
 		}
 	}
 
