@@ -18,7 +18,7 @@ window.onload = function() {
 			// this.setAttribute("class", "play");
 			this.style.animationPlayState = "running";
 		} else {
-			audio.pause();			
+			audio.pause();
 			// this.setAttribute("class", "");
 			this.style.animationPlayState = "paused";
 		}

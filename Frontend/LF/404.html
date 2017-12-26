@@ -8,7 +8,70 @@
 	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
 	<link href="http://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
 	<link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="404.css" rel="stylesheet">
+	<style>
+		.app {
+			height: 100%;
+			overflow: hidden;
+			font-weight: 200;
+		}
+		.bg-light {
+			background-color: #e0eaec;
+			background-color: #49595d;
+			color: #788188;
+		}
+		.h {
+		  font-size: 170px;
+		  text-shadow: 0 1px 0 #d9d9d9, 0 2px 0 #d0d0d0, 0 5px 10px rgba(0,0,0,0.125), 0 10px 20px rgba(0,0,0,0.2);
+		}
+		.text-white {
+		  color: #fff;
+		}
+		.text-lt {
+		  color: #c8d2d9 !important;
+		}
+		.icon-muted {
+			color: #ccc;
+		}
+
+		.list-group a {
+			color: #666;
+		}
+		.list-group a i:nth-child(1) {
+			margin-right: 8px;
+		}
+		.list-group a i:last-of-type {
+			float: right;
+			margin-right: -5px;
+			margin-top: 4px;
+		}
+
+		// 对bootstrap原有样式的拓展修正
+		.list-group {
+			border-radius: 2px;
+		}
+		.list-group-item {
+			border-color: #eaeef1;
+			padding-right: 15px;
+		}
+		.m-b-lg {
+		  margin-bottom: 30px;
+		}
+
+		.list-group .mobile {
+			display: none;
+			min-width: 10px;
+			padding: 3px 7px;
+			font-size: 12px;
+			line-height: 1;
+			color: #eaf6f9;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: baseline;
+			background-color: #2a7792;
+			border-radius: 10px;
+		}
+
+	</style>
 </head>
 <body  id="page-404" class="bg-light">
 	<section id="content">
@@ -51,9 +114,5 @@
 			</p>
 		</div>
 	</footer>
-
-	<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-	<script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script src="404.js"></script>
 </body>
 </html>
