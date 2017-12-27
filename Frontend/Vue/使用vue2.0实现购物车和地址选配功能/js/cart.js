@@ -1,12 +1,11 @@
 Vue.config.productionTip = false;
 	// 是否允许 vue-devtools 检查代码。开发版本默认为 true，生产版本默认为 false。
 Vue.config.devtools = true;
-	// ViewModel 
-	// 
 	// 注册一个全局过滤 formatPrice
 Vue.filter('formatPrice', function(value, type='元') {
 	return `¥ ${value.toFixed(2)} ${type}`;
 })
+	// ViewModel 
 var ShoppingCartVM = new Vue({
 	el : '#app',
 	data : {
@@ -66,26 +65,26 @@ var ShoppingCartVM = new Vue({
 				}
 			});
 		},
-		del : function() {
+		del : function(product) {
 			swal({ 
-			  title: "确定删除吗？", 
-			  text: "你将无法恢复该虚拟文件！", 
+			  title: "确定删除该商品订单吗？", 
+			  text: "删除之后将永远无法恢复该订单！", 
 			  type: "warning",
 			  showCancelButton: true, 
 			  confirmButtonColor: "#DD6B55",
 			  confirmButtonText: "确定删除！", 
-			  cancelButtonText: "取消删除！",
-			  closeOnConfirm: false, 
-			  closeOnCancel: false	
+			  cancelButtonText: "我再想想~", 
+			  closeOnConfirm: false
 			},
-			function(isConfirm){ 
-			  if (isConfirm) { 
-			    swal("删除！", "你的虚拟文件已经被删除。",
-			"success"); 
-			  } else { 
-			    swal("取消！", "你的虚拟文件是安全的:)",
-			"error"); 
-			  } 
+			(isConfirm) => {
+				if (isConfirm) { 
+					let index = this.productList.indexOf(product);
+					this.productList.splice(index, 1);
+					swal("干得漂亮！", "订单信息已被删除！","success");
+				} else {
+					// 为什么 no isConfirm 时，走不到这里？后面再解决吧
+					swal("干得漂亮！", "订单信息未被删除！","success");
+				}
 			});
 		}
 	}
