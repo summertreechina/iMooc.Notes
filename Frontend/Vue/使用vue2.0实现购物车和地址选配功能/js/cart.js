@@ -40,7 +40,7 @@ var ShoppingCartVM = new Vue({
 		},
 		selectProduct : function(product) {
 			if (typeof product.checked == 'undefined') {
-				this.$set(product, 'checked', true);
+				this.$set(product, 'checked', false);
 			} else {
 				product.checked = !product.checked;
 			}

@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'ToDo';
+const STORAGE_KEY = 'ask-tr';
 export default {
 	fetch () {
 		return JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]');

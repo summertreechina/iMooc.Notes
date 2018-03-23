@@ -1,0 +1,18 @@
+[v-cloak] {
+	display: none !important;
+}
+
+.ask-wrap {
+}
+.ask-wrap .w-e-toolbar, 
+.ask-wrap .w-e-text-container,
+.ans-wrap {
+	width: 700px;
+}
+
+.submit-ans {
+	display: flex;
+}
+.submit-ans .btn {
+	
+}
