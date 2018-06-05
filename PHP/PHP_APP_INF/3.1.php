@@ -13,8 +13,7 @@
 // is_null($var)
 // @ 符号
 // 老师的逻辑很混乱，有些功能要重写
-class FileCache
-{
+class FileCache {
 	private $_dir;
 
 	const EXT = '.md';

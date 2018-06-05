@@ -13,7 +13,7 @@ foreach (xrange(1, 9, 2) as $number) {
 }
 
 2. finally关键字
-这个和java中的finally一样，经典的try ... catch ... finally 三段式异常处理。
+这个和java中的finally一样，经典的 try ... catch ... finally 三段式异常处理。
 
 3. foreach 支持list()
 $array = [
